@@ -183,7 +183,7 @@ public class Slice169 : MonoBehaviour
                 startPos = mousePos;
 
 
-                startPoint.position = new Vector3(startPos.x, startPos.y, 0);
+                startPoint.position = new Vector3(startPos.x, startPos.y, -0.1f);
 
                 //lineSlicer.position = new Vector3(startPos.x, startPos.y, 0);
 

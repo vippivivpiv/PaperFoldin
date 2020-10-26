@@ -112,15 +112,21 @@ public class WinCheckOneAnswer : MonoBehaviour
         {
             first = true;
             answer.spriteDisplay.SetActive(true);
+
+            Vector2 P1P2 = answer.point2 - answer.point1;
+
+
             if (answer.DisP1toLine <= answer.DisP2toLine)
             {
                 Debug.Log(2);
                 answer.spriteDisplay.transform.localPosition = answer.spritePoint2.transform.localPosition;
+                //answer.spriteDisplay.transform.localPosition = new Vector3(answer.spritePoint2.transform.localPosition.x - P1P2.x/2, answer.spritePoint2.transform.localPosition.y - P1P2.y/4, 0);
             }
             else if (answer.DisP1toLine > answer.DisP2toLine)
             {
                 Debug.Log(1);
-                answer.spriteDisplay.transform.localPosition = answer.spritePoint1.transform.localPosition;
+                 answer.spriteDisplay.transform.localPosition = answer.spritePoint1.transform.localPosition;
+                //answer.spriteDisplay.transform.localPosition = new Vector3(answer.spritePoint1.transform.localPosition.x + P1P2.x/2, answer.spritePoint1.transform.localPosition.y + P1P2.y/4, 0);
             }
 
             
@@ -129,7 +135,7 @@ public class WinCheckOneAnswer : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        Game.instance.LevelCompleted();
+         if (Game.instance != null)  Game.instance.LevelCompleted();
 
         //if (!second)
         //{
