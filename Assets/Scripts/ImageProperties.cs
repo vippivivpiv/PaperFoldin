@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ImageProperties : MonoBehaviour
 {
+    public string KeyWord;
+    public Sprite Image;
+    public Material AnswerMaterial, OriginalMaterial;
+    
     [Header("Answer")]
     public Vector2 point1;
     public Vector2 point2;
@@ -44,28 +48,6 @@ public class ImageProperties : MonoBehaviour
     public Vector3 DisplayImagePos { get => displayImagePos; set => displayImagePos = value; }
     public bool IsFinded { get => isFinded; set => isFinded = value; }
 
-    public ImageProperties(string name, Vector2 p1, Vector2 p2, float angle, Vector3 point1ImagePos, Vector3 point2ImagePos)
-    {
-        this.name = name;
-        point1 = p1;
-        point2 = p2;
-        this.angle = angle;
-        this.point1ImagePos = point1ImagePos;
-        this.point2ImagePos = point2ImagePos;
-    }
-
-    public ImageProperties()
-    {
-
-    }
-
-    public ImageProperties(string name, Vector2 p1, Vector2 p2, float angle)
-    {
-        this.name = name;
-        point1 = p1;
-        point2 = p2;
-        this.angle = angle;
-    }
 
     public ImageProperties(string name, Vector2 p1, Vector2 p2)
     {

@@ -34,7 +34,7 @@ public class SettingUI : GameUI
         if (DataPlayer.Sound) thanhTruotSound.localPosition = new Vector3(42, 0, 0);
         else thanhTruotSound.localPosition = new Vector3(-42, 0, 0);
 
-        Game.instance.OnSoundChange();
+        if (Game.instance != null) Game.instance.OnSoundChange();
     }
 
     private void CheckFx()

@@ -178,6 +178,7 @@ public class Slice169 : MonoBehaviour
             {
                 if (Mathf.Abs(mousePos.x) > widthRatio || Mathf.Abs(mousePos.y) > heightRatio) return;
 
+                startPoint.gameObject.SetActive(true);
                 isClick = true;
 
                 startPos = mousePos;
@@ -275,6 +276,7 @@ public class Slice169 : MonoBehaviour
                             isClick = true;
                             isCalculatorDiff = true;
                             lineSlicer.gameObject.SetActive(false);
+                            startPoint.gameObject.SetActive(false);
 
                             startPos = mousePos;
 
@@ -472,6 +474,7 @@ public class Slice169 : MonoBehaviour
                             isClick = true;
                             isCalculatorDiff = true;
                             lineSlicer.gameObject.SetActive(false);
+                            startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
                             if (!isChoosePart)
@@ -677,6 +680,7 @@ public class Slice169 : MonoBehaviour
                             isClick = true;
                             isCalculatorDiff = true;
                             lineSlicer.gameObject.SetActive(false);
+                            startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
                             if (!isChoosePart)
@@ -879,6 +883,7 @@ public class Slice169 : MonoBehaviour
                             isClick = true;
                             isCalculatorDiff = true;
                             lineSlicer.gameObject.SetActive(false);
+                            startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
                             if (!isChoosePart)
@@ -1076,6 +1081,7 @@ public class Slice169 : MonoBehaviour
                             isClick = true;
                             isCalculatorDiff = true;
                             lineSlicer.gameObject.SetActive(false);
+                            startPoint.gameObject.SetActive(false);
 
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
@@ -1321,7 +1327,7 @@ public class Slice169 : MonoBehaviour
                             isMoving = true;
                             isClick = true;
                             lineSlicer.gameObject.SetActive(false);
-
+                            startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
                             if (!isChoosePart)
@@ -1562,6 +1568,7 @@ public class Slice169 : MonoBehaviour
                             isClick = true;
                             isCalculatorDiff = true;
                             lineSlicer.gameObject.SetActive(false);
+                            startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
                             if (!isChoosePart)
@@ -1804,7 +1811,7 @@ public class Slice169 : MonoBehaviour
                             isClick = true;
                             isCalculatorDiff = true;
                             lineSlicer.gameObject.SetActive(false);
-
+                            startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
                             if (!isChoosePart)

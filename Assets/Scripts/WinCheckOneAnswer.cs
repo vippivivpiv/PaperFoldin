@@ -21,11 +21,7 @@ public class WinCheckOneAnswer : MonoBehaviour
     private Vector3 p2MatchedOfPoint1Ans0;
     private Vector3 p1MatchedOfPoint2Ans0;
     private Vector3 p2MatchedOfPoint2Ans0;
-    [Header("Win conditions")]
-    public float distanceSlice;
-    public float angleMatch;
-    public float distanceWin;
-    public float holdTime;
+
     [Header("")]
     public Vector3 point1ImagePos;
     public Vector3 point2ImagePos;
@@ -34,6 +30,7 @@ public class WinCheckOneAnswer : MonoBehaviour
     private float timerCount;
 
     public GameObject answerDisplay;
+    public ImageProperties answerPrefab;
     public ImageProperties answer;
 
     //public static ImageProperties[] answer;
@@ -44,7 +41,9 @@ public class WinCheckOneAnswer : MonoBehaviour
 
     private void Start()
     {
-        answer = GetComponent<ImageProperties>();
+        //answer = GetComponent<ImageProperties>();
+
+       // answer=Instantiate(answerPrefab, gameObject.transform);
 
         timerCount = 0;
 
@@ -166,9 +165,9 @@ public class WinCheckOneAnswer : MonoBehaviour
 
     private void CheckAnswers()
     {
-        if (answer.DisP1toLine <= distanceSlice || answer.DisP2toLine <= distanceSlice)
+        if (answer.DisP1toLine <= answer.distanceSlice || answer.DisP2toLine <= answer.distanceSlice)
         {
-            if (Vector2.Distance(answer.Point1, answer.Point2) <= distanceWin)
+            if (Vector2.Distance(answer.Point1, answer.Point2) <= answer.distanceWin)
             {
                 timerCount += Time.deltaTime;
              //   Debug.Log(timerCount);

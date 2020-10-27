@@ -6,6 +6,8 @@ public class Game : MonoBehaviour
 {
     public InGameUI InGameUI;
     public static Game instance;
+    public ImageProperties[] images;
+    public Slice169 mapPrefab;
     public Slice169[] maps;
     public Slice169 playingMap;
 
@@ -36,7 +38,9 @@ public class Game : MonoBehaviour
     public void LoadMap(bool LoadFromMainmenu)
     {
         if (LoadFromMainmenu) currentMap = currentMap = DataPlayer.CurrentPlayingMap;
-        playingMap = Instantiate(maps[currentMap-1], transform);
+        playingMap = Instantiate(mapPrefab, transform);
+        playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
+        playingMap.meshRenderer.material = playingMap.winCheck.answer.OriginalMaterial;
     }
 
     public void LevelCompleted()
