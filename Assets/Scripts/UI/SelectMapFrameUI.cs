@@ -6,6 +6,7 @@ public class SelectMapFrameUI : MonoBehaviour
 {
     public SelectMapUI SelectMapUI;
     public UISprite mapImage;
+    public SpriteRenderer mapImage_SpriteRenderer;
     public UILabel index;
     public UISprite isCom;
 
@@ -18,7 +19,7 @@ public class SelectMapFrameUI : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateStateOfMap();
+        //UpdateStateOfMap();
     }
 
     public void UpdateStateOfMap()
@@ -37,14 +38,18 @@ public class SelectMapFrameUI : MonoBehaviour
         }
         isCompleted = DataPlayer.IsCompletedMap(indexOfMap);
 
-        mapImage.spriteName = spriteName;
+        //mapImage.spriteName = spriteName + "_1";
+
+        Debug.Log(Game.instance.images.Length);
+
+        mapImage_SpriteRenderer.sprite = Game.instance.images[indexOfMap - 1].Image;
         index.text = indexOfMap.ToString();
         isCom.enabled = isCompleted ? true : false;
     }
 
     public void OnSelectThis()
     {
-        if (!isUnlock) return;
+      //  if (!isUnlock) return;
         Game.instance.currentMap = indexOfMap;
         SelectMapUI.LoadMap();
     }

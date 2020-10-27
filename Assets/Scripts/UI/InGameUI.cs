@@ -13,9 +13,9 @@ public class InGameUI : GameUI
     public new void Show(bool LoadFromMainmenu)
     {
         base.Show();
-        BackgroundImageUI.Show();
         LoadMap(LoadFromMainmenu);
         currentLevel.text = "Level " + Game.instance.currentMap.ToString();
+        BackgroundImageUI.Show();
     }
     public new void Hide()
     {

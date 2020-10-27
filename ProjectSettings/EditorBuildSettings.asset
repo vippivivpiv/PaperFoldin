@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestQinoto.unity
     guid: b3d9ecf94870fc442a5d6ade3d936b31
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestNewImage.unity
     guid: f1f17c8fa74deca43adf136c9c296a83
   m_configObjects: {}

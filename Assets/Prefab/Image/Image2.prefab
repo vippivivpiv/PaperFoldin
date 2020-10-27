@@ -556,6 +556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyWord: Pegasus
+  Image: {fileID: 21300000, guid: b30d133423b26ef4380ce236d604d30c, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 91e2787b7636e5044847b4cd65fdb760, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: b25f956acd55e4b4ba445285de0095be, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 553370cd56284d846b7696a31352897b, type: 2}
   point1: {x: 4.9583, y: -7.4479}

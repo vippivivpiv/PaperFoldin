@@ -556,6 +556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyWord: Buffalo Skull
+  Image: {fileID: 21300000, guid: 6e856817577bdfe4f80d58f61e6bbd7d, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 64886eff4ed71844a94b9faac7c5cce8, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 19fc6161ca6021648bff64b8ed56f2cd, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: d4b5e8d3fce4f594e809d0e8625df099, type: 2}
   point1: {x: -4.0855, y: 5.1354}

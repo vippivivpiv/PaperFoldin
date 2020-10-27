@@ -6,8 +6,11 @@ public class ImageProperties : MonoBehaviour
 {
     public string KeyWord;
     public Sprite Image;
+    public Sprite BackAnswer;
     public Material AnswerMaterial, OriginalMaterial;
-    
+
+    private Slice169 slice169;
+
     [Header("Answer")]
     public Vector2 point1;
     public Vector2 point2;
@@ -20,6 +23,26 @@ public class ImageProperties : MonoBehaviour
     public GameObject spritePoint1;
     public GameObject spritePoint2;
     public GameObject spriteDisplay;
+
+
+
+
+    private void Start()
+    {
+        slice169 = GetComponentInParent<Slice169>();
+        ShowOrHideAnswer();
+
+        spriteDisplay.GetComponent<SpriteRenderer>().sprite = BackAnswer;
+    }
+
+    public void ShowOrHideAnswer()
+    {
+        if (!DataPlayer.ShowAnswer) slice169.meshRenderer.material = OriginalMaterial;
+        else slice169.meshRenderer.material = AnswerMaterial;
+    }
+
+
+
 
 
 

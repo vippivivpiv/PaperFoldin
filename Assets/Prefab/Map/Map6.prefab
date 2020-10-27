@@ -729,6 +729,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyWord: 
+  Image: {fileID: 0}
+  BackAnswer: {fileID: 0}
+  AnswerMaterial: {fileID: 0}
+  OriginalMaterial: {fileID: 0}
   point1: {x: -2.875, y: 0.3705}
   point2: {x: 6.9375, y: 0.3705}
   angle: 90
@@ -793,13 +798,10 @@ MonoBehaviour:
   point2OfAns0: {x: 3.6534, y: -0.096}
   angleOfAns0: 0
   isNeedAutoMatch0: 0
-  distanceSlice: 0.5
-  angleMatch: 0
-  distanceWin: 0.5
-  holdTime: 1
   point1ImagePos: {x: 0, y: 0, z: 0}
   point2ImagePos: {x: 0, y: 0, z: 0}
   answerDisplay: {fileID: 0}
+  answerPrefab: {fileID: 0}
   answer: {fileID: 0}
 --- !u!1 &5379423861368206241
 GameObject:

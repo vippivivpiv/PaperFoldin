@@ -80,7 +80,18 @@ public class DataPlayer : MonoBehaviour
 
     }
 
+    public static bool ShowAnswer
+    {
+        set
+        {
+            PlayerPrefs.SetInt("ShowAnswer", value ? 1 : 0);
+        }
+        get
+        {
+            return PlayerPrefs.GetInt("ShowAnswer", 0) == 1;
+        }
 
+    }
 
 
 }

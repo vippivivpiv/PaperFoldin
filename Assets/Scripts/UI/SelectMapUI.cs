@@ -18,17 +18,20 @@ public class SelectMapUI : GameUI
 
     private void Start()
     {
-        InstantiateSelectMap();
+
+        
+
     }
     public void InstantiateSelectMap()
     {
         numberOfMap = DataPlayer.NumberOfMap;
         currentPlayingMap = DataPlayer.CurrentPlayingMap;
-        for (int i = 1; i < 9; i++)
+        for (int i = 1; i <= 30; i++)
         {
             SelectMapFrameUI s = Instantiate(SelectMapFrameUIPrefab, grid.transform);
             s.gameObject.name = "Map" + (i).ToString();
             s.indexOfMap = i;
+
             s.SelectMapUI = this;
             s.UpdateStateOfMap();
         }
@@ -36,10 +39,18 @@ public class SelectMapUI : GameUI
         grid.enabled = false;
         grid.enabled = true;
     }
-
+    public void DeleteSelectMap()
+    {
+        foreach (Transform child in grid.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
     public new void Show()
     {
         base.Show();
+        DeleteSelectMap();
+        InstantiateSelectMap();
         CompletedMapCount.text = DataPlayer.GetTextOfCompletedMapCount();
     }
 

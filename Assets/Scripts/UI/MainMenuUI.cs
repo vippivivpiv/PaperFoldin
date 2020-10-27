@@ -35,4 +35,16 @@ public class MainMenuUI : GameUI
         PlayerPrefs.DeleteAll();
     }
 
+    public void ClickShowAnswer()
+    {
+        DataPlayer.ShowAnswer = true;
+        if (Game.instance != null) Game.instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
+    }
+
+    public void ClickHideAnswer()
+    {
+        DataPlayer.ShowAnswer = false;
+        if (Game.instance != null) Game.instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
+    }
+
 }

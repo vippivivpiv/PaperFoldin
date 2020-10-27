@@ -1,4 +1,4 @@
-﻿using AppStoreModel;
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -128,7 +128,9 @@ public class WinCheckOneAnswer : MonoBehaviour
                 //answer.spriteDisplay.transform.localPosition = new Vector3(answer.spritePoint1.transform.localPosition.x + P1P2.x/2, answer.spritePoint1.transform.localPosition.y + P1P2.y/4, 0);
             }
 
-            
+
+            answer.spriteDisplay.GetComponent<TweenAlpha>().from = 0f;
+            answer.spriteDisplay.GetComponent<TweenAlpha>().to = 0.5f;
             answer.spriteDisplay.GetComponent<TweenAlpha>().PlayForward();
         }
 

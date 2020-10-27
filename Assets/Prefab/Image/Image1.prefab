@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702118718941651921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.317, y: -4.144, z: -1.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2156402920982298716}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0c57bb6d47a0e85428c5fa1b16ac9c6a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702118718941651921}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
   m_Name: 
@@ -864,10 +864,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyWord: Umbrella
+  Image: {fileID: 21300000, guid: 2813fc667aad02d44ad578a2b90af815, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 0c57bb6d47a0e85428c5fa1b16ac9c6a, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 6104954274d7af84d832e84ddb21eaa1, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: b1c4bc429dd95a74d80ec9364a9ace10, type: 2}
   point1: {x: 0.4792, y: -8.0729}
-  point2: {x: 0.4792, y: 2.55219}
+  point2: {x: 0.5168767, y: 2.5521}
   angle: 90
   distanceSlice: 1
   distanceWin: 1

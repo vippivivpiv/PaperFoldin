@@ -14,7 +14,7 @@ public class Game : MonoBehaviour
     public AudioSource AudioSource;
 
 
-    public int currentMap;
+    public int currentMap = 1;
 
 
 
@@ -39,8 +39,8 @@ public class Game : MonoBehaviour
     {
         if (LoadFromMainmenu) currentMap = currentMap = DataPlayer.CurrentPlayingMap;
         playingMap = Instantiate(mapPrefab, transform);
+        
         playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
-        playingMap.meshRenderer.material = playingMap.winCheck.answer.OriginalMaterial;
     }
 
     public void LevelCompleted()

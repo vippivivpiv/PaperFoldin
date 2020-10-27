@@ -925,6 +925,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KeyWord: 
+  Image: {fileID: 0}
+  BackAnswer: {fileID: 0}
+  AnswerMaterial: {fileID: 0}
+  OriginalMaterial: {fileID: 0}
   point1: {x: -3.2022, y: 3.3865}
   point2: {x: 3.7917, y: 3.3865}
   angle: 90
@@ -934,6 +939,7 @@ MonoBehaviour:
   spritePoint1: {fileID: 1900319448}
   spritePoint2: {fileID: 1527523084}
   spriteDisplay: {fileID: 1844725478}
+  sprite: {fileID: 0}
 --- !u!114 &4098811501436304453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,13 +995,10 @@ MonoBehaviour:
   point2OfAns0: {x: -4.8039, y: -7.4805}
   angleOfAns0: 90
   isNeedAutoMatch0: 0
-  distanceSlice: 0.5
-  angleMatch: 0
-  distanceWin: 0.5
-  holdTime: 1
   point1ImagePos: {x: 0, y: 0, z: 0}
   point2ImagePos: {x: 0, y: 0, z: 0}
   answerDisplay: {fileID: 0}
+  answerPrefab: {fileID: 0}
   answer: {fileID: 0}
 --- !u!1 &9124067399587638023
 GameObject:
