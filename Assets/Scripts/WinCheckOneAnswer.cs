@@ -9,6 +9,9 @@ using UnityEngine;
 public class WinCheckOneAnswer : MonoBehaviour
 {
     public Slice169 slice169;
+    public LineRenderer hintP1;
+    public LineRenderer hintP2;
+
     public bool isWin = false;
     [Header("Answer0")]
     public string nameOfAns0;
@@ -48,6 +51,18 @@ public class WinCheckOneAnswer : MonoBehaviour
         timerCount = 0;
 
         CalculatePointAutoMatch();
+        answer.p1MatchedOfPoint1.z = -1;
+        answer.p2MatchedOfPoint1.z = -1;
+        answer.p1MatchedOfPoint2.z = -1;
+        answer.p2MatchedOfPoint2.z = -1;
+
+        hintP1.positionCount = 2;
+        hintP1.SetPosition(0, answer.p1MatchedOfPoint1);
+        hintP1.SetPosition(1, answer.p2MatchedOfPoint1);
+
+        hintP2.positionCount = 2;
+        hintP2.SetPosition(0, answer.p1MatchedOfPoint2);
+        hintP2.SetPosition(1, answer.p2MatchedOfPoint2);
     }
 
 
@@ -66,20 +81,20 @@ public class WinCheckOneAnswer : MonoBehaviour
             }
             UpdatePointPos();
             if ( !slice169.isMoving) CheckAnswers();
-
         }
-
     }
+
+
 
     private void CalculatePointAutoMatch()
     {
-        Vector2[] testMatch = GetComponent<Slice169>().GetLineIntersection(point1OfAns0, angleOfAns0, slice169.peak3, slice169.peak2, slice169.peak0, slice169.peak1, GetComponent<Slice169>().widthRatio, GetComponent<Slice169>().heightRatio);
-        p1MatchedOfPoint1Ans0 = new Vector3(testMatch[0].x, testMatch[0].y, 0);
-        p2MatchedOfPoint1Ans0 = new Vector3(testMatch[1].x, testMatch[1].y, 0);
+        Vector2[] testMatch = slice169.GetLineIntersection(answer.point1, answer.angle, slice169.peak3, slice169.peak2, slice169.peak0, slice169.peak1, GetComponent<Slice169>().widthRatio, GetComponent<Slice169>().heightRatio);
+        answer.p1MatchedOfPoint1 = new Vector3(testMatch[0].x, testMatch[0].y, 0);
+        answer.p2MatchedOfPoint1 = new Vector3(testMatch[1].x, testMatch[1].y, 0);
 
-        testMatch = GetComponent<Slice169>().GetLineIntersection(point2OfAns0, angleOfAns0, slice169.peak3, slice169.peak2, slice169.peak0, slice169.peak1, GetComponent<Slice169>().widthRatio, GetComponent<Slice169>().heightRatio);
-        p1MatchedOfPoint2Ans0 = new Vector3(testMatch[0].x, testMatch[0].y, 0);
-        p2MatchedOfPoint2Ans0 = new Vector3(testMatch[1].x, testMatch[1].y, 0);
+        testMatch = GetComponent<Slice169>().GetLineIntersection(answer.point2, answer.angle, slice169.peak3, slice169.peak2, slice169.peak0, slice169.peak1, GetComponent<Slice169>().widthRatio, GetComponent<Slice169>().heightRatio);
+        answer.p1MatchedOfPoint2 = new Vector3(testMatch[0].x, testMatch[0].y, 0);
+        answer.p2MatchedOfPoint2 = new Vector3(testMatch[1].x, testMatch[1].y, 0);
 
     }
     public void SelectPointMoveAndDisplayImage()
@@ -99,11 +114,12 @@ public class WinCheckOneAnswer : MonoBehaviour
     }
     private void Win()
     {
+        Debug.Log(1);
         isWin = true;
-        StartCoroutine(PlayWinEffect());
+        StartCoroutine(PlayWinEffect2());
 
     }
-
+    
 
     IEnumerator PlayWinEffect()
     {
@@ -155,6 +171,76 @@ public class WinCheckOneAnswer : MonoBehaviour
 
 
     }
+    
+
+    IEnumerator PlayWinEffect2()
+    {
+        if (!first)
+        {
+            first = true;
+
+            Vector2 P1P2 = answer.point2 - answer.point1;
+            answer.spriteHalfPoint2.gameObject.SetActive(true);
+            answer.spriteHalfPoint2.GetComponent<TweenAlpha>().duration =2f;
+            answer.spriteHalfPoint2.GetComponent<TweenAlpha>().from = 0f;
+            answer.spriteHalfPoint2.GetComponent<TweenAlpha>().to = 1f;
+            answer.spriteHalfPoint2.GetComponent<TweenAlpha>().PlayForward();
+
+            answer.spriteHalfPoint1.gameObject.SetActive(true);
+            answer.spriteHalfPoint1.GetComponent<TweenAlpha>().duration = 2f;
+            answer.spriteHalfPoint1.GetComponent<TweenAlpha>().from = 0f;
+            answer.spriteHalfPoint1.GetComponent<TweenAlpha>().to = 1f;
+            answer.spriteHalfPoint1.GetComponent<TweenAlpha>().PlayForward();
+
+            if (answer.DisP1toLine <= answer.DisP2toLine)
+            {
+                Debug.Log(2);
+                answer.spriteHalfPoint1.transform.position += new Vector3( slice169.VectorMove.x,slice169.VectorMove.y,0);
+
+                yield return new WaitForSeconds(2f);
+
+                answer.spriteHalfPoint1.GetComponent<TweenPosition>().from = answer.spriteHalfPoint1.transform.localPosition;
+                answer.spriteHalfPoint1.GetComponent<TweenPosition>().to = answer.spriteHalfPoint2.transform.localPosition;
+                answer.spriteHalfPoint1.GetComponent<TweenPosition>().PlayForward();
+
+
+            }
+            else if (answer.DisP1toLine > answer.DisP2toLine)
+            {
+                Debug.Log(1);
+                answer.spriteHalfPoint2.transform.position += new Vector3(slice169.VectorMove.x, slice169.VectorMove.y, 0);
+
+                yield return new WaitForSeconds(2f);
+
+                answer.spriteHalfPoint2.GetComponent<TweenPosition>().from = answer.spriteHalfPoint2.transform.localPosition;
+                answer.spriteHalfPoint2.GetComponent<TweenPosition>().to = answer.spriteHalfPoint1.transform.localPosition;
+                answer.spriteHalfPoint2.GetComponent<TweenPosition>().PlayForward();
+            }
+
+           
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        if (Game.instance != null) Game.instance.LevelCompleted();
+
+        //if (!second)
+        //{
+        //    second = true;
+        //   // answer.spriteDisplay.GetComponent<TweenPosition>().ResetToBeginning();
+        //    Debug.Log(answer.spriteDisplay.transform.position);
+        //    answer.spriteDisplay.GetComponent<TweenPosition>().from = answer.spriteDisplay.transform.localPosition;
+        //    answer.spriteDisplay.GetComponent<TweenPosition>().to = Vector3.zero;
+        //    answer.spriteDisplay.GetComponent<TweenPosition>().PlayForward();
+
+        //    answer.spriteDisplay.GetComponent<TweenScale>().ResetToBeginning();
+        //    answer.spriteDisplay.GetComponent<TweenScale>().PlayForward();
+        //}
+
+        //yield return new WaitForSeconds(2f);
+
+
+    }
 
     public void CalculateDistanceFromPointToLine()
     {
@@ -167,9 +253,9 @@ public class WinCheckOneAnswer : MonoBehaviour
 
     private void CheckAnswers()
     {
-        if (answer.DisP1toLine <= answer.distanceSlice || answer.DisP2toLine <= answer.distanceSlice)
+        if (answer.DisP1toLine <= 0.5f || answer.DisP2toLine <= 0.5f)
         {
-            if (Vector2.Distance(answer.Point1, answer.Point2) <= answer.distanceWin)
+            if (Vector2.Distance(answer.Point1, answer.Point2) <= 0.5f)
             {
                 timerCount += Time.deltaTime;
              //   Debug.Log(timerCount);
@@ -191,7 +277,7 @@ public class WinCheckOneAnswer : MonoBehaviour
     private void UpdatePointPos()
     {
 
-        if (answer.DisP1toLine < answer.DisP2toLine)
+        if (answer.DisP1toLine <= answer.DisP2toLine)
         {
             answer.Point1 = answer.OldPosPointMove + slice169.VectorMove;
         }
@@ -211,5 +297,25 @@ public class WinCheckOneAnswer : MonoBehaviour
         float y21 = point2.y - point1.y;
         distance = Mathf.Abs(y21 * point.x - x21 * point.y - point1.x * y21 + point1.y * x21) / Mathf.Sqrt(y21 * y21 + x21 * x21);
         return distance;
+    }
+
+
+    
+    public void ShowHint()
+    {
+        hintP1.enabled = true;
+        hintP2.enabled = true;
+    }
+
+
+
+    private void OnDrawGizmos()
+    {
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawSphere(answer.p1MatchedOfPoint1, 0.5f);
+        //Gizmos.DrawSphere(answer.p2MatchedOfPoint1, 0.5f);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawSphere(answer.p1MatchedOfPoint2, 0.5f);
+        //Gizmos.DrawSphere(answer.p2MatchedOfPoint2, 0.5f);
     }
 }

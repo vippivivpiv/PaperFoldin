@@ -16,9 +16,22 @@ public class Game : MonoBehaviour
 
     public int currentMap = 1;
 
+    public float sinceLoadGame;
+    private bool first;
 
-
-
+    private void Update()
+    {
+        sinceLoadGame += Time.deltaTime;
+        if (sinceLoadGame > 5f)
+        {
+            if ( !first)
+            {
+                first = true;
+                InGameUI.DisplayWatchAds();
+            }
+            
+        }
+    }
     private void Start()
     {
         if (instance != null)
@@ -33,7 +46,7 @@ public class Game : MonoBehaviour
 
     public void OnSoundChange()
     {
-        AudioSource.mute = !DataPlayer.Sound;
+       // AudioSource.mute = !DataPlayer.Sound;
     }
     public void LoadMap(bool LoadFromMainmenu)
     {
@@ -41,6 +54,8 @@ public class Game : MonoBehaviour
         playingMap = Instantiate(mapPrefab, transform);
         
         playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
+        sinceLoadGame = 0f;
+        first = false;
     }
 
     public void LevelCompleted()
@@ -54,7 +69,10 @@ public class Game : MonoBehaviour
         InGameUI.LevelCompleted();
         DestroyMap();
     }
-
+    public void ShowHint()
+    {
+        playingMap.winCheck.ShowHint();
+    }
     public void DestroyMap()
     {
         Destroy(playingMap.gameObject);

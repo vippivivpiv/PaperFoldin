@@ -211,7 +211,7 @@ public class Slice169 : MonoBehaviour
 
 
                 lineSlicer.GetChild(0).localScale = new Vector3(dist, 0.1f, 0.1f);
-                lineSlicer.GetChild(0).transform.position = new Vector3(lineSlicer.GetChild(0).transform.position.x, lineSlicer.GetChild(0).transform.position.y, -0.1f);
+                lineSlicer.GetChild(0).transform.position = new Vector3(lineSlicer.GetChild(0).transform.position.x, lineSlicer.GetChild(0).transform.position.y, -1.1f);
                 lineSlicer.gameObject.SetActive(true);
 
 
@@ -253,7 +253,7 @@ public class Slice169 : MonoBehaviour
 
 
         lineSlicer.GetChild(0).localScale = new Vector3(dist, 0.1f, dist);
-        lineSlicer.GetChild(0).transform.position = new Vector3(lineSlicer.GetChild(0).transform.position.x, lineSlicer.GetChild(0).transform.position.y, -0.1f);
+        lineSlicer.GetChild(0).transform.position = new Vector3(lineSlicer.GetChild(0).transform.position.x, lineSlicer.GetChild(0).transform.position.y, -1.1f);
         lineSlicer.gameObject.SetActive(true);
     }
     private void Move()
@@ -1860,7 +1860,7 @@ public class Slice169 : MonoBehaviour
                                 Moved3 = MovedDiffP3 / (2 * Mathf.Cos(angleA * Mathf.PI / 180)); // x
 
                                 MovedDiffP4 = 2 * (disp1) * Mathf.Sin(-angleA * Mathf.PI / 180);
-                                Moved4 = MovedDiffP4 / (2 * Mathf.Cos(angleA * Mathf.PI / 180)); // x
+                                Moved4 = MovedDiffP4 / (2 * Mathf.Cos(angleA * Mathf.PI / 180)); // 
 
 
                             }

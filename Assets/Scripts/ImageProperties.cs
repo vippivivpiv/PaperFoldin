@@ -8,6 +8,12 @@ public class ImageProperties : MonoBehaviour
     public Sprite Image;
     public Sprite BackAnswer;
     public Material AnswerMaterial, OriginalMaterial;
+    public Transform imagePoint1, imagePoint2;
+
+    public Vector3 p1MatchedOfPoint1;
+    public Vector3 p2MatchedOfPoint1;
+    public Vector3 p1MatchedOfPoint2;
+    public Vector3 p2MatchedOfPoint2;
 
     private Slice169 slice169;
 
@@ -21,8 +27,11 @@ public class ImageProperties : MonoBehaviour
     public float holdTime;
     [Header("AnswerDisplay")]
     public GameObject spritePoint1;
-    public GameObject spritePoint2;
+    public GameObject spritePoint2; 
+    public GameObject spriteHalfPoint1;
+    public GameObject spriteHalfPoint2;
     public GameObject spriteDisplay;
+
 
 
 
@@ -34,6 +43,7 @@ public class ImageProperties : MonoBehaviour
 
         spriteDisplay.GetComponent<SpriteRenderer>().sprite = BackAnswer;
     }
+
 
     public void ShowOrHideAnswer()
     {

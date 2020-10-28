@@ -9,6 +9,8 @@ public class InGameUI : GameUI
     public LevelComplete LevelComplete;
     public UILabel currentLevel;
 
+    public GameObject Btn_WatchAds;
+
     
     public new void Show(bool LoadFromMainmenu)
     {
@@ -16,6 +18,10 @@ public class InGameUI : GameUI
         LoadMap(LoadFromMainmenu);
         currentLevel.text = "Level " + Game.instance.currentMap.ToString();
         BackgroundImageUI.Show();
+        // Btn_WatchAds.SetActive(false);
+
+        Btn_WatchAds.GetComponent<UISprite>().color = Color.white;
+        Btn_WatchAds.GetComponent<TweenColor>().enabled = false;
     }
     public new void Hide()
     {
@@ -55,8 +61,17 @@ public class InGameUI : GameUI
         Game.instance.LoadMap(false);
     }
 
+
+    public void DisplayWatchAds()
+    {
+        // Btn_WatchAds.SetActive(true);
+        Btn_WatchAds.GetComponent<TweenColor>().enabled = true;
+
+    }
     public void WatchAds()
     {
+        Game.instance.ShowHint();
+
         Debug.Log("WatchAds");
     }
 
