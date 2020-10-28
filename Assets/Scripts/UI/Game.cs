@@ -66,7 +66,9 @@ public class Game : MonoBehaviour
             DataPlayer.CurrentPlayingMap += 1;
         }
         DataPlayer.CompletedMap(currentMap);
+
         InGameUI.LevelCompleted();
+
         DestroyMap();
     }
     public void ShowHint()

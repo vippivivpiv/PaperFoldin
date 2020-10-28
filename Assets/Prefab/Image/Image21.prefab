@@ -262,7 +262,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5440843478653519657
@@ -655,6 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 21
   KeyWord: Turtle
   Image: {fileID: 21300000, guid: 6ae4f7f84347dfd4e9747eac9c0ef2e3, type: 3}
   BackAnswer: {fileID: 21300000, guid: 0da6e875c0e274740819863b4d683a29, type: 3}
@@ -662,6 +663,10 @@ MonoBehaviour:
   OriginalMaterial: {fileID: 2100000, guid: 01210809451c374409b0fb46c49f1c1a, type: 2}
   imagePoint1: {fileID: 0}
   imagePoint2: {fileID: 0}
+  p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
   point1: {x: -1.1979, y: -4.1979}
   point2: {x: 5.3229, y: -0.0729}
   angle: 122

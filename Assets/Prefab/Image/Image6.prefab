@@ -75,7 +75,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 12}
+  m_Size: {x: 3.13, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -424,7 +424,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 12}
+  m_Size: {x: 3.13, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -625,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 6
   KeyWord: Moon
   Image: {fileID: 21300000, guid: 440a49fd8bffdcf46b7852ac03a78f1a, type: 3}
   BackAnswer: {fileID: 21300000, guid: 98ef81550181cb94590d32f985ba330e, type: 3}
@@ -632,6 +633,10 @@ MonoBehaviour:
   OriginalMaterial: {fileID: 2100000, guid: e56b0ca2101d46a4e825abcadd629a59, type: 2}
   imagePoint1: {fileID: 0}
   imagePoint2: {fileID: 0}
+  p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
   point1: {x: -2.875, y: 0.3705}
   point2: {x: 6.9375, y: 0.3705}
   angle: 90
@@ -718,7 +723,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 12}
+  m_Size: {x: 3.13, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 16
   KeyWord: Knife
   Image: {fileID: 21300000, guid: 3eff35bd93f42c049b9eb20719b63880, type: 3}
   BackAnswer: {fileID: 21300000, guid: 43c441de215df5740982fbc965491464, type: 3}

@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 26
   KeyWord: Aircraft
   Image: {fileID: 21300000, guid: 9798662293f176c44a05203475a7ce0a, type: 3}
   BackAnswer: {fileID: 21300000, guid: 151196b1e609e5d409b48a97e0985294, type: 3}
@@ -617,6 +618,10 @@ MonoBehaviour:
   OriginalMaterial: {fileID: 2100000, guid: 3dc7c87910ac9ba458771f6ab8349431, type: 2}
   imagePoint1: {fileID: 0}
   imagePoint2: {fileID: 0}
+  p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
   point1: {x: -6.4277, y: -6.4388}
   point2: {x: 5.6298, y: 8.6109}
   angle: 142

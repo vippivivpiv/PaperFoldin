@@ -926,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 15
   KeyWord: Squirrel
   Image: {fileID: 21300000, guid: b84e1f0a74a680b4887f2b92020970ea, type: 3}
   BackAnswer: {fileID: 21300000, guid: 8f3ca068f86a7934b8685a467d8005cb, type: 3}

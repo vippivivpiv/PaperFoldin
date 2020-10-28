@@ -809,6 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 13
   KeyWord: Witch
   Image: {fileID: 21300000, guid: 48904389aa6228f4cb2add7d7e0130d7, type: 3}
   BackAnswer: {fileID: 21300000, guid: 2751b13ba8acf7046a884927cb4aee0a, type: 3}

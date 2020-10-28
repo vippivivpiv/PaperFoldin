@@ -661,6 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 7
   KeyWord: Hourglass
   Image: {fileID: 21300000, guid: 3ee87f8a096790f4f961df15a9d2d835, type: 3}
   BackAnswer: {fileID: 21300000, guid: 0fd7d02ba3f64be4f89cee0cb197c87d, type: 3}
@@ -668,6 +669,10 @@ MonoBehaviour:
   OriginalMaterial: {fileID: 2100000, guid: 1bf697d8ec3b3ce4b8119522a85a453c, type: 2}
   imagePoint1: {fileID: 0}
   imagePoint2: {fileID: 0}
+  p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
   point1: {x: 0.5, y: -7.3646}
   point2: {x: 0.5, y: 6.8021}
   angle: 0

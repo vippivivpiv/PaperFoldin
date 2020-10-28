@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ImageProperties : MonoBehaviour
 {
+    public string stt;
     public string KeyWord;
     public Sprite Image;
     public Sprite BackAnswer;

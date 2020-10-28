@@ -926,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 2
   KeyWord: Pegasus
   Image: {fileID: 21300000, guid: b30d133423b26ef4380ce236d604d30c, type: 3}
   BackAnswer: {fileID: 21300000, guid: 91e2787b7636e5044847b4cd65fdb760, type: 3}

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SelectMapFrameUI : MonoBehaviour
 {
-    public SelectMapUI SelectMapUI;
-    public UISprite mapImage;
+    internal SelectMapUI SelectMapUI;
+
     public SpriteRenderer mapImage_SpriteRenderer;
+    public SpriteRenderer lockedMap_SpriteRenderer;
     public UILabel index;
     public UISprite isCom;
 

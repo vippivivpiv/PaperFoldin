@@ -845,6 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 9
   KeyWord: Deer
   Image: {fileID: 21300000, guid: f1a5acb5a979ca148a800f0502dc5af5, type: 3}
   BackAnswer: {fileID: 21300000, guid: 6ff1075c4a9c4974fb8e7814cd7a78d4, type: 3}

@@ -845,6 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 22
   KeyWord: Teddy Bear
   Image: {fileID: 21300000, guid: 94cde9fa5d165844d9c37fd71ce47bf0, type: 3}
   BackAnswer: {fileID: 21300000, guid: bacf90a08a550f44498e65389b49dfa4, type: 3}
@@ -852,6 +853,10 @@ MonoBehaviour:
   OriginalMaterial: {fileID: 2100000, guid: 2be66bfdefd353e4aa18a613158af1e5, type: 2}
   imagePoint1: {fileID: 0}
   imagePoint2: {fileID: 0}
+  p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
   point1: {x: -7.7006, y: -5.3476}
   point2: {x: 2.4332, y: -5.3476}
   angle: 90
@@ -941,6 +946,6 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

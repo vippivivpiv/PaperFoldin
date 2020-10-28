@@ -845,6 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 12
   KeyWord: Head
   Image: {fileID: 21300000, guid: 100b2de38b340f34d83f9c3baa9b4f52, type: 3}
   BackAnswer: {fileID: 21300000, guid: 74811ef16931b014b8f7a66d2d9f5552, type: 3}

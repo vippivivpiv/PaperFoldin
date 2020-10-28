@@ -926,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 3
   KeyWord: Buffalo Skull
   Image: {fileID: 21300000, guid: 6e856817577bdfe4f80d58f61e6bbd7d, type: 3}
   BackAnswer: {fileID: 21300000, guid: 64886eff4ed71844a94b9faac7c5cce8, type: 3}
@@ -933,6 +934,10 @@ MonoBehaviour:
   OriginalMaterial: {fileID: 2100000, guid: d4b5e8d3fce4f594e809d0e8625df099, type: 2}
   imagePoint1: {fileID: 0}
   imagePoint2: {fileID: 0}
+  p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
   point1: {x: -4.0855, y: 5.1354}
   point2: {x: 3.9383, y: -4.4063}
   angle: 40

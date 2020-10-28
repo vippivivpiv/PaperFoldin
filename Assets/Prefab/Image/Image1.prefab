@@ -1183,6 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 1
   KeyWord: Umbrella
   Image: {fileID: 21300000, guid: 2813fc667aad02d44ad578a2b90af815, type: 3}
   BackAnswer: {fileID: 21300000, guid: 0c57bb6d47a0e85428c5fa1b16ac9c6a, type: 3}

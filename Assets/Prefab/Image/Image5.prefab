@@ -507,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 5
   KeyWord: Eagle
   Image: {fileID: 21300000, guid: 65fc335f1c80ff648a56bcf6f0479759, type: 3}
   BackAnswer: {fileID: 21300000, guid: 27642944f658d2142b037b0b4dee271f, type: 3}
@@ -514,6 +515,10 @@ MonoBehaviour:
   OriginalMaterial: {fileID: 2100000, guid: d01dfa0a817bf294cb3789697e607c1c, type: 2}
   imagePoint1: {fileID: 0}
   imagePoint2: {fileID: 0}
+  p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
   point1: {x: -3.3125, y: -7.5521}
   point2: {x: 5.7292, y: -0.0521}
   angle: 130

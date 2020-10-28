@@ -691,6 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 19
   KeyWord: Pigeon
   Image: {fileID: 21300000, guid: ece00cb552eb6514ca501e092c2f4fb6, type: 3}
   BackAnswer: {fileID: 21300000, guid: 554bea33afa084f4a89e8d26577297d7, type: 3}

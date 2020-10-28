@@ -926,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 17
   KeyWord: Anvil
   Image: {fileID: 21300000, guid: e87c6d9807a4cbb458242a70a77f92d4, type: 3}
   BackAnswer: {fileID: 21300000, guid: e1fb083e70ef48348a67ef4726ee78d3, type: 3}

@@ -614,7 +614,7 @@ SpriteRenderer:
   m_Size: {x: 2.82, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7100092501848179619
@@ -845,6 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf2ac410a5c0cc4b9b09a300fb50e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stt: 29
   KeyWord: Djin
   Image: {fileID: 21300000, guid: 4017fc18720d7d042a85e15fa7123b95, type: 3}
   BackAnswer: {fileID: 21300000, guid: f5e2fb05d5e55aa4ea526179a4a2072d, type: 3}
@@ -852,6 +853,10 @@ MonoBehaviour:
   OriginalMaterial: {fileID: 2100000, guid: e02b9f51961e84f42b703a7c9a1c23a7, type: 2}
   imagePoint1: {fileID: 0}
   imagePoint2: {fileID: 0}
+  p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
+  p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
+  p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
   point1: {x: 4.5722, y: 2.6738}
   point2: {x: 7.0856, y: 2.6738}
   angle: 90
