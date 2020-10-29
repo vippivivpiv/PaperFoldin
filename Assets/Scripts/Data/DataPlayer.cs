@@ -50,7 +50,7 @@ public class DataPlayer : MonoBehaviour
     {
         get
         {
-            return PlayerPrefs.GetInt("NumberOfMap", 120);
+            return PlayerPrefs.GetInt("NumberOfMap", 30);
         }
     }
 
@@ -94,4 +94,40 @@ public class DataPlayer : MonoBehaviour
     }
 
 
+    public static int Get10to9(int input)
+    {
+        if ( input %10 !=0)
+        {
+            return 9 * (input / 10) + input % 10;
+        }
+        else
+        {
+            return input / 10;
+        }
+
+    }
+
+
+
+    public static bool ShowedSpecialLevel(int level)
+    {
+        PlayerPrefs.SetInt("ShowedLevel" + Get10to9(level), 1);
+
+        return false;
+    }
+
+    public static bool IsShowedSpecialLevel(int level)
+    {
+
+
+        return PlayerPrefs.GetInt("ShowedLevel" + Get10to9(level), 0) == 1;
+    }
+
+
+    public static bool IsWatchAdsSpecialLevel(int level)
+    {
+
+
+        return false;
+    }
 }

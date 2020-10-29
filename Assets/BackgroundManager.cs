@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BackgroundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static BackgroundManager instance;
+    public GameObject mainmenu;
+    public GameObject selectMap;
+    public GameObject Ingame;
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if ( instance != null)
+        {
+            Destroy(instance);
+        }
+        instance = this;
     }
 }

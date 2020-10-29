@@ -253,9 +253,9 @@ public class WinCheckOneAnswer : MonoBehaviour
 
     private void CheckAnswers()
     {
-        if (answer.DisP1toLine <= 0.5f || answer.DisP2toLine <= 0.5f)
+        if (answer.DisP1toLine <= 1f || answer.DisP2toLine <= 1f)
         {
-            if (Vector2.Distance(answer.Point1, answer.Point2) <= 0.5f)
+            if (Vector2.Distance(answer.Point1, answer.Point2) <= 1f)
             {
                 timerCount += Time.deltaTime;
              //   Debug.Log(timerCount);

@@ -31,16 +31,16 @@ public class SettingUI : GameUI
 
     private void CheckSound()
     {
-        if (DataPlayer.Sound) thanhTruotSound.localPosition = new Vector3(42, 0, 0);
-        else thanhTruotSound.localPosition = new Vector3(-42, 0, 0);
+        if (DataPlayer.Sound) thanhTruotSound.localPosition = new Vector3(90, 0, 0);
+        else thanhTruotSound.localPosition = new Vector3(-90, 0, 0);
 
         if (Game.instance != null) Game.instance.OnSoundChange();
     }
 
     private void CheckFx()
     {
-        if (DataPlayer.Fx) thanhTruotFx.localPosition = new Vector3(42, 0, 0);
-        else thanhTruotFx.localPosition = new Vector3(-42, 0, 0);
+        if (DataPlayer.Fx) thanhTruotFx.localPosition = new Vector3(90, 0, 0);
+        else thanhTruotFx.localPosition = new Vector3(-90, 0, 0);
     }
     public void ClickRestorePurchase()
     {

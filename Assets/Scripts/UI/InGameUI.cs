@@ -15,8 +15,17 @@ public class InGameUI : GameUI
     public new void Show(bool LoadFromMainmenu)
     {
         base.Show();
+        BackgroundManager.instance.Ingame.SetActive(true);
         LoadMap(LoadFromMainmenu);
-        currentLevel.text = "Level " + Game.instance.currentMap.ToString();
+        if (Game.instance.currentMap %10 !=0)
+        {
+            currentLevel.text = "Level " + DataPlayer.Get10to9(Game.instance.currentMap).ToString() ;
+        }
+        else
+        {
+            currentLevel.text = "Special Level " + DataPlayer.Get10to9(Game.instance.currentMap).ToString();
+        }
+        
         BackgroundImageUI.Show();
         // Btn_WatchAds.SetActive(false);
 
@@ -26,6 +35,7 @@ public class InGameUI : GameUI
     public new void Hide()
     {
         base.Hide();
+        BackgroundManager.instance.Ingame.SetActive(false);
         BackgroundImageUI.Hide();
     }
     private void Update()

@@ -34,6 +34,7 @@ public class Game : MonoBehaviour
     }
     private void Start()
     {
+        Debug.Log(DataPlayer.IsShowedSpecialLevel(9));
         if (instance != null)
         {
             Destroy(instance);
@@ -50,7 +51,8 @@ public class Game : MonoBehaviour
     }
     public void LoadMap(bool LoadFromMainmenu)
     {
-        if (LoadFromMainmenu) currentMap = currentMap = DataPlayer.CurrentPlayingMap;
+        if (LoadFromMainmenu) currentMap = DataPlayer.CurrentPlayingMap;
+
         playingMap = Instantiate(mapPrefab, transform);
         
         playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
@@ -77,6 +79,6 @@ public class Game : MonoBehaviour
     }
     public void DestroyMap()
     {
-        Destroy(playingMap.gameObject);
+        if (playingMap!= null) Destroy(playingMap.gameObject);
     }
 }
