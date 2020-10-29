@@ -28,7 +28,7 @@ public class Exhibit : MonoBehaviour
             sss.indexOfMap = (sttExh - 1) * 10 + i;
            // sss.nameOfMap = ( (sttExh - 1) *9 + i).ToString();
             sss.nameOfMap = DataPlayer.Get10to9(sss.indexOfMap).ToString();
-            Debug.Log(this.SelectMapUI);
+     
             sss.SelectMapUI = this.SelectMapUI;
 
             sss.UpdateStateOfMap();

@@ -612,7 +612,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: b5a84fa750b396b458e709a13cadfbff, type: 2}
-  mSpriteName: khung_level
+  mSpriteName: khung_level_selectmap
   mFixedAspect: 0
   mFillCenter: 1
 --- !u!1 &8069233102931275319
