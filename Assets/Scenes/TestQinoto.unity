@@ -2113,7 +2113,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: b5a84fa750b396b458e709a13cadfbff, type: 2}
-  mSpriteName: khung_remove_ads
+  mSpriteName: khung_level
   mFixedAspect: 0
   mFillCenter: 1
 --- !u!1 &484005568
@@ -8520,7 +8520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2066049370
 Transform:
   m_ObjectHideFlags: 0
