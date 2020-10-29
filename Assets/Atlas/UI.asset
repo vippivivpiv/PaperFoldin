@@ -15,7 +15,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: b3f6da285ebbb824bb756127785c39d4, type: 2}
   mSprites:
   - name: ads
-    x: 2812
+    x: 2682
     y: 3410
     width: 682
     height: 686
@@ -28,8 +28,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ADS
-    x: 2803
-    y: 2963
+    x: 3973
+    y: 3478
     width: 104
     height: 105
     borderLeft: 0
@@ -41,8 +41,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: block
-    x: 2032
-    y: 3030
+    x: 3687
+    y: 3270
     width: 285
     height: 342
     borderLeft: 0
@@ -54,8 +54,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bt_back
-    x: 2409
-    y: 2741
+    x: 3958
+    y: 3696
     width: 137
     height: 139
     borderLeft: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bt_buy
-    x: 2812
+    x: 2682
     y: 3182
     width: 527
     height: 227
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BT_on_off
-    x: 2032
-    y: 2818
+    x: 3820
+    y: 3982
     width: 211
     height: 114
     borderLeft: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Bt_play
-    x: 2318
+    x: 1902
     y: 3197
     width: 402
     height: 175
@@ -105,22 +105,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: demo
-    x: 0
-    y: 2176
-    width: 1080
-    height: 1920
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: exit
-    x: 2685
-    y: 2909
+    x: 3973
+    y: 3584
     width: 117
     height: 111
     borderLeft: 0
@@ -132,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Front1
-    x: 2547
-    y: 2752
+    x: 3210
+    y: 3141
     width: 128
     height: 128
     borderLeft: 0
@@ -145,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Front2
-    x: 2676
-    y: 2752
+    x: 3339
+    y: 3014
     width: 127
     height: 128
     borderLeft: 0
@@ -158,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_back
-    x: 2409
-    y: 2881
+    x: 3210
+    y: 3270
     width: 137
     height: 139
     borderLeft: 0
@@ -171,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_hint
-    x: 2244
-    y: 2787
+    x: 3820
+    y: 3836
     width: 164
     height: 145
     borderLeft: 0
@@ -184,8 +171,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_pegasus
-    x: 2318
-    y: 3021
+    x: 3687
+    y: 3094
     width: 402
     height: 175
     borderLeft: 0
@@ -197,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_reset
-    x: 2547
-    y: 2881
+    x: 3820
+    y: 3696
     width: 137
     height: 139
     borderLeft: 0
@@ -210,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: khung_level
-    x: 1536
-    y: 2263
+    x: 3365
+    y: 3143
     width: 321
     height: 469
     borderLeft: 0
@@ -223,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: khung_level_complete
-    x: 1081
-    y: 2733
+    x: 0
+    y: 5
     width: 950
     height: 1363
     borderLeft: 0
@@ -237,7 +224,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: khung_level1
     x: 0
-    y: 812
+    y: 1369
     width: 950
     height: 1363
     borderLeft: 0
@@ -249,8 +236,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: khung_option
-    x: 1902
-    y: 1640
+    x: 951
+    y: 3004
     width: 950
     height: 1092
     borderLeft: 0
@@ -262,8 +249,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: khung_remove_ads
-    x: 951
-    y: 812
+    x: 0
+    y: 2733
     width: 950
     height: 1363
     borderLeft: 0
@@ -275,8 +262,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Layer 16 copy 2
-    x: 2032
-    y: 2933
+    x: 2305
+    y: 3285
     width: 367
     height: 87
     borderLeft: 0
@@ -288,7 +275,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: logo
-    x: 2032
+    x: 1902
     y: 3373
     width: 779
     height: 723
@@ -301,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: no_thank
-    x: 2032
-    y: 2735
+    x: 2305
+    y: 3233
     width: 301
     height: 51
     borderLeft: 0
@@ -314,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: play
-    x: 1081
-    y: 2249
+    x: 3365
+    y: 3613
     width: 454
     height: 483
     borderLeft: 0
@@ -327,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: setting
-    x: 2721
-    y: 3069
+    x: 3985
+    y: 3869
     width: 108
     height: 112
     borderLeft: 0
@@ -340,8 +327,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: vuong_mien
-    x: 1536
-    y: 2195
+    x: 3820
+    y: 3628
     width: 99
     height: 67
     borderLeft: 0
@@ -353,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: vuong_mien_be
-    x: 2721
-    y: 3312
+    x: 3973
+    y: 3417
     width: 76
     height: 60
     borderLeft: 0
