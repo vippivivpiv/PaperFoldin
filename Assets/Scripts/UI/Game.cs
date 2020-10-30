@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public Camera mainCam;
     public InGameUI InGameUI;
     public static Game instance;
     public ImageProperties[] images;
@@ -34,7 +35,10 @@ public class Game : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log(DataPlayer.IsShowedSpecialLevel(9));
+
+        mainCam.orthographicSize = 19.224f * (((float)Screen.height/(float)Screen.width) / (16f/9f));
+
+
         if (instance != null)
         {
             Destroy(instance);

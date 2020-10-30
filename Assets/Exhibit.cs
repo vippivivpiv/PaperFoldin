@@ -11,11 +11,6 @@ public class Exhibit : MonoBehaviour
     public SelectMapUI SelectMapUI;
 
     public SelectMapFrameUI SelectMapFrameUIprefab;
-    private void OnEnable()
-    {
-
-
-    }
 
 
     public void InstantiateExh()
@@ -40,6 +35,7 @@ public class Exhibit : MonoBehaviour
         SelectMapFrameUI s = Instantiate(SelectMapFrameUIprefab, grid.transform);
         s.gameObject.name = "Map" + ((sttExh - 1) * 10 + 10).ToString();
         s.indexOfMap = (sttExh - 1) * 10 + 10;
+
        // s.nameOfMap = "Special" + sttExh.ToString();
         s.nameOfMap = "Special" + DataPlayer.Get10to9(s.indexOfMap).ToString();
         s.SelectMapUI = this.SelectMapUI;

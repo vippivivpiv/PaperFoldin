@@ -37,6 +37,7 @@ public class MainMenuUI : GameUI
 
     public void ClickPlay()
     {
+
         Hide();
         InGameUI.Show(true);
     }

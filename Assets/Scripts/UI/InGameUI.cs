@@ -58,11 +58,15 @@ public class InGameUI : GameUI
        
     }
 
-    public void BackToMainMenu()
+    public void BackToSelectMap()
     {
+
         Hide();
+
         SelectStageUI.Show();
+
         Game.instance.DestroyMap();
+ 
     }
 
     public void Replay()

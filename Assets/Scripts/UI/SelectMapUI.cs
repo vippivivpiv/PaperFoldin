@@ -24,13 +24,16 @@ public class SelectMapUI : GameUI
         
 
     }
+    public new void Show()
+    {
 
+        base.Show();
+        BackgroundManager.instance.selectMap.SetActive(true);
 
-    //public new void Show()
-    //{
-    //    base.Show();
-        
-    //}
+        InstantiateSelectMap();
+        CompletedMapCount.text = "Level: " + DataPlayer.GetTextOfCompletedMapCount();
+    }
+
 
     public new void Hide()
     {
@@ -41,36 +44,18 @@ public class SelectMapUI : GameUI
     {
         for (int i = 1; i < 4; i++)
         {
+            
             Exhibit e = Instantiate(ExhibitPrefab, UIScrollView.transform);
+            
             e.gameObject.name = "Ex" + i.ToString();
                e.transform.localPosition = new Vector3(0, 2150 - 2150*i, 0);
             e.numberOfExh.text = "Exhibit No" + i.ToString();
             e.sttExh = i;
             e.SelectMapUI = this;
+            
             e.InstantiateExh();
         }
 
-        
-        //UIScrollView.transform.position = new Vector3(0, -477, 0);
-
-
-       // e.transform.localPosition = new Vector3(0, 450, 0);
-
-
-        //numberOfMap = DataPlayer.NumberOfMap;
-        //currentPlayingMap = DataPlayer.CurrentPlayingMap;
-        //for (int i = 1; i <= 30; i++)
-        //{
-        //    SelectMapFrameUI s = Instantiate(SelectMapFrameUIPrefab, grid.transform);
-        //    s.gameObject.name = "Map" + (i).ToString();
-        //    s.indexOfMap = i;
-
-        //    s.SelectMapUI = this;
-        //    s.UpdateStateOfMap();
-        //}
-
-        //grid.enabled = false;
-        //grid.enabled = true;
     }
     public void DeleteSelectMap()
     {
@@ -78,14 +63,6 @@ public class SelectMapUI : GameUI
         {
            if (child!= null) Destroy(child.gameObject);
         }
-    }
-    public new void Show()
-    {
-        base.Show();
-        BackgroundManager.instance.selectMap.SetActive(true);
-        DeleteSelectMap();
-        InstantiateSelectMap();
-        CompletedMapCount.text ="Level: " + DataPlayer.GetTextOfCompletedMapCount();
     }
 
     public void BackToMainMenu()
