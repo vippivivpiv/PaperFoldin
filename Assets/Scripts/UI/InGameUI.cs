@@ -15,20 +15,20 @@ public class InGameUI : GameUI
     public new void Show(bool LoadFromMainmenu)
     {
         base.Show();
+        BackgroundImageUI.Show();
         BackgroundManager.instance.Ingame.SetActive(true);
+
         LoadMap(LoadFromMainmenu);
-        if (Game.instance.currentMap %10 !=0)
+
+        if (Game.Instance.currentMap %10 !=0)
         {
-            currentLevel.text = "Level " + DataPlayer.Get10to9(Game.instance.currentMap).ToString() ;
+            currentLevel.text = "Level " + DataPlayer.Get10to9(Game.Instance.currentMap).ToString() ;
         }
         else
         {
-            currentLevel.text = "Special Level " + DataPlayer.Get10to9(Game.instance.currentMap).ToString();
+            currentLevel.text = "Special Level " + DataPlayer.Get10to9(Game.Instance.currentMap).ToString();
         }
         
-        BackgroundImageUI.Show();
-        // Btn_WatchAds.SetActive(false);
-
         Btn_WatchAds.GetComponent<UISprite>().color = Color.white;
         Btn_WatchAds.GetComponent<TweenColor>().enabled = false;
     }
@@ -48,7 +48,7 @@ public class InGameUI : GameUI
     }
     public void LoadMap(bool LoadFromMainmenu)
     {
-        Game.instance.LoadMap(LoadFromMainmenu);
+        Game.Instance.LoadMap(LoadFromMainmenu);
     }
 
     public void LevelCompleted()
@@ -65,14 +65,14 @@ public class InGameUI : GameUI
 
         SelectStageUI.Show();
 
-        Game.instance.DestroyMap();
+        Game.Instance.DestroyMap();
  
     }
 
     public void Replay()
     {
-        Destroy(Game.instance.playingMap.gameObject);
-        Game.instance.LoadMap(false);
+        Destroy(Game.Instance.playingMap.gameObject);
+        Game.Instance.LoadMap(false);
     }
 
 
@@ -84,7 +84,7 @@ public class InGameUI : GameUI
     }
     public void WatchAds()
     {
-        Game.instance.ShowHint();
+        Game.Instance.ShowHint();
 
         Debug.Log("WatchAds");
     }

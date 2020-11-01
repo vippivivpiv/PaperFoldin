@@ -152,7 +152,7 @@ public class WinCheckOneAnswer : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-         if (Game.instance != null)  Game.instance.LevelCompleted();
+         if (Game.Instance != null)  Game.Instance.LevelCompleted();
 
         //if (!second)
         //{
@@ -222,7 +222,7 @@ public class WinCheckOneAnswer : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        if (Game.instance != null) Game.instance.LevelCompleted();
+        if (Game.Instance != null) Game.Instance.LevelCompleted();
 
         //if (!second)
         //{

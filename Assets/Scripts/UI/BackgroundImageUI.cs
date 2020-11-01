@@ -10,7 +10,7 @@ public class BackgroundImageUI : GameUI
     {
         base.Show();
 
-        Hint.text = Game.instance.images[Game.instance.currentMap - 1].KeyWord;
+        Hint.text = Game.Instance.images[Game.Instance.currentMap - 1].KeyWord;
     }
 
 }

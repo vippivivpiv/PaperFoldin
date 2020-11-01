@@ -15,14 +15,14 @@ public class LevelComplete : GameUI
     {
         base.Show();
         BackgroundManager.instance.selectMap.SetActive(true);
-        blackImage.spriteName = "Map" + Game.instance.playingMap.GetComponentInChildren<ImageProperties>().stt + "_3";
+        blackImage.spriteName = "Map" + Game.Instance.playingMap.GetComponentInChildren<ImageProperties>().stt + "_3";
         CompletedMapCount.text = DataPlayer.GetTextOfCompletedMapCount();
-        Debug.Log(Game.instance.currentMap);
+        Debug.Log(Game.Instance.currentMap);
 
-        if (DataPlayer.Get10to9(Game.instance.currentMap) % 9 == 0)
+        if (DataPlayer.Get10to9(Game.Instance.currentMap) % 9 == 0)
         {
             
-            if (! DataPlayer.IsShowedSpecialLevel(Game.instance.currentMap))
+            if (! DataPlayer.IsShowedSpecialLevel(Game.Instance.currentMap))
             {
                 SpecialLevelUI.Show();
             }
@@ -51,19 +51,19 @@ public class LevelComplete : GameUI
     public void ClickNext()
     {
         Hide();
-        if (Game.instance.currentMap == 30)
+        if (Game.Instance.currentMap == 30)
         {
             ClickClose();
             return;
         }
-        if (DataPlayer.Get10to9(Game.instance.currentMap) % 9 != 0)
+        if (DataPlayer.Get10to9(Game.Instance.currentMap) % 9 != 0)
         {
-            Game.instance.currentMap += 1;
+            Game.Instance.currentMap += 1;
             InGameUI.Show(false);
         }
         else
         {
-            Game.instance.currentMap += 2;
+            Game.Instance.currentMap += 2;
             InGameUI.Show(false);
         }
 

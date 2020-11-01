@@ -14,22 +14,22 @@ public class SpecialLevelUI : GameUI
     {
         base.Show();
 
-        specialImageMap.sprite2D = Game.instance.images[Game.instance.currentMap].Image;
+        specialImageMap.sprite2D = Game.Instance.images[Game.Instance.currentMap].Image;
 
     }
     
 
     public void ClickPlay()
     {
-        Debug.Log(Game.instance.currentMap);
-        DataPlayer.ShowedSpecialLevel(DataPlayer.Get10to9(Game.instance.currentMap));
+        Debug.Log(Game.Instance.currentMap);
+        DataPlayer.ShowedSpecialLevel(DataPlayer.Get10to9(Game.Instance.currentMap));
 
-        Debug.Log(DataPlayer.IsShowedSpecialLevel(Game.instance.currentMap));
+        Debug.Log(DataPlayer.IsShowedSpecialLevel(Game.Instance.currentMap));
         Hide();
         LevelComplete.Hide();
 
-        Game.instance.currentMap += 1;
-        DataPlayer.CurrentPlayingMap = Game.instance.currentMap;
+        Game.Instance.currentMap += 1;
+        DataPlayer.CurrentPlayingMap = Game.Instance.currentMap;
 
         InGameUI.Show(false);
 
@@ -40,10 +40,10 @@ public class SpecialLevelUI : GameUI
 
     public void ClickNoThanks()
     {
-        DataPlayer.ShowedSpecialLevel(DataPlayer.Get10to9(Game.instance.currentMap));
+        DataPlayer.ShowedSpecialLevel(DataPlayer.Get10to9(Game.Instance.currentMap));
         LevelComplete.Hide();
         Hide();
-        Game.instance.currentMap += 2;
+        Game.Instance.currentMap += 2;
         DataPlayer.CurrentPlayingMap += 1;
         InGameUI.Show(false);
 

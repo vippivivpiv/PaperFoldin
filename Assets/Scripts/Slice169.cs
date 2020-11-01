@@ -83,6 +83,8 @@ public class Slice169 : MonoBehaviour
     private eCasePos casePos;
     private bool isYOver3;
     private bool isYOver4;
+
+    private List<Vector3> smallPartVertices, bigPartVerteces;
     #endregion
     private void Start()
     {
@@ -133,14 +135,9 @@ public class Slice169 : MonoBehaviour
 
     private void Update()
     {
-        //    Debug.Log(mainCamera.ScreenToWorldPoint(Input.mousePosition));
 
-
-        //   Debug.Log(meshRenderer.sortingLayerName);
-        //   Debug.Log(meshRenderer.sortingOrder);
         if (winCheck.isWin) return;
-        TimerCount += Time.deltaTime;
-        // if (TimerCount > DelayTime)
+
         {
             if (!isSliced)
             {
@@ -148,7 +145,6 @@ public class Slice169 : MonoBehaviour
             }
             else
             {
-                //mesh.Clear();
 
                 Move();
 
@@ -229,6 +225,7 @@ public class Slice169 : MonoBehaviour
             ClassSlicePosition();
             SortP1P2Position();
             UpdateMeshDataAfterSlice();
+            UpdatePositionMoveVertercies();
 
 
             verticesOld = new Vector3[vertices.Length];
@@ -237,6 +234,96 @@ public class Slice169 : MonoBehaviour
                 verticesOld[i] = vertices[i];
             }
         }
+    }
+
+    private void UpdatePositionMoveVertercies()
+    {
+        smallPartVertices = new List<Vector3>();
+        smallPartVertices.Add(vertices[4]);
+        smallPartVertices.Add(vertices[5]);
+        bigPartVerteces = new List<Vector3>();
+        bigPartVerteces.Add(vertices[6]);
+        bigPartVerteces.Add(vertices[7]);
+       switch ( casePos)
+        {
+            case eCasePos.TH1:
+                smallPartVertices.Add(vertices[0]);
+                bigPartVerteces.Add(vertices[1]);
+                bigPartVerteces.Add(vertices[3]);
+                bigPartVerteces.Add(vertices[2]);
+                break;
+            case eCasePos.TH2:
+                smallPartVertices.Add(vertices[1]);
+                bigPartVerteces.Add(vertices[3]);
+                bigPartVerteces.Add(vertices[2]);
+                bigPartVerteces.Add(vertices[0]);
+                break;
+            case eCasePos.TH3:
+                smallPartVertices.Add(vertices[3]);
+                bigPartVerteces.Add(vertices[2]);
+                bigPartVerteces.Add(vertices[0]);
+                bigPartVerteces.Add(vertices[1]);
+                break;
+            case eCasePos.TH4:
+                smallPartVertices.Add(vertices[2]);
+                bigPartVerteces.Add(vertices[0]);
+                bigPartVerteces.Add(vertices[1]);
+                bigPartVerteces.Add(vertices[3]);
+                break;
+            case eCasePos.TH5:
+                smallPartVertices.Add(vertices[1]);
+                smallPartVertices.Add(vertices[0]);
+                bigPartVerteces.Add(vertices[3]);
+                bigPartVerteces.Add(vertices[2]);
+                break;
+            case eCasePos.TH6:
+                smallPartVertices.Add(vertices[3]);
+                smallPartVertices.Add(vertices[1]);
+                bigPartVerteces.Add(vertices[2]);
+                bigPartVerteces.Add(vertices[0]);
+                break;
+            case eCasePos.TH7:
+                smallPartVertices.Add(vertices[2]);
+                smallPartVertices.Add(vertices[3]);
+                bigPartVerteces.Add(vertices[0]);
+                bigPartVerteces.Add(vertices[1]);
+                break;
+            case eCasePos.TH8:
+                smallPartVertices.Add(vertices[0]);
+                smallPartVertices.Add(vertices[2]);
+                bigPartVerteces.Add(vertices[1]);
+                bigPartVerteces.Add(vertices[3]);
+                break;
+        }
+    }
+    bool CheckTotalAngleOfPointAndSmallPolygons()
+    {
+        UpdatePositionMoveVertercies();
+        float angle = 0;
+        mousePos.z = 0;
+        for (int i = 0; i < smallPartVertices.Count-1; i++)
+        {
+            
+            angle += Vector3.Angle(smallPartVertices[i + 1] - mousePos, smallPartVertices[i] - mousePos);
+
+        }
+        angle += Vector3.Angle(smallPartVertices[0] - mousePos, smallPartVertices[smallPartVertices.Count - 1] - mousePos);
+        Debug.Log(angle);
+        return (angle>359 && angle< 361) ? true : false;
+    }
+
+    bool CheckTotalAngleOfPointAndBIgPolygons()
+    {
+        UpdatePositionMoveVertercies();
+        float angle = 0;
+        mousePos.z = 0;
+        for (int i = 0; i < bigPartVerteces.Count - 1; i++)
+        {
+            angle += Vector3.Angle(bigPartVerteces[i + 1] - mousePos, bigPartVerteces[i] - mousePos);
+        }
+        angle += Vector3.Angle(bigPartVerteces[0] - mousePos, bigPartVerteces[bigPartVerteces.Count - 1] - mousePos);
+        Debug.Log(angle);
+        return (angle > 359 && angle < 361) ? true : false;
     }
 
     private void DisplayLineSlicer(float angle)
@@ -260,9 +347,32 @@ public class Slice169 : MonoBehaviour
     {
         moveDirection = new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0);
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        
-        //if (Mathf.Abs(mousePos.x) > widthRatio || Mathf.Abs(mousePos.y) > heightRatio) return;
 
+        //if (Mathf.Abs(mousePos.x) > widthRatio || Mathf.Abs(mousePos.y) > heightRatio) return;
+        Debug.Log(isChoosePart);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!isChoosePart)
+            {
+
+                isChoosePart = true;
+                if (CheckTotalAngleOfPointAndSmallPolygons()) isChooseSmallPart = true;
+                else if (CheckTotalAngleOfPointAndBIgPolygons()) isChooseSmallPart = false;
+                else
+                {
+                    isChoosePart = false;
+                }
+
+
+            }
+        }
+            
+        if (!isChoosePart) return;
+
+        //if (isChooseSmallPart && !CheckTotalAngleOfPointAndSmallPolygons()) return;
+        //if (!isChooseSmallPart && !CheckTotalAngleOfPointAndBIgPolygons()) return;
+
+        Debug.Log("choose");
         switch (casePos)
         {
             //--------------------------------------------------------TH1------------------------------------------------------------------------------------
@@ -279,25 +389,14 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
 
                             startPos = mousePos;
+                            Debug.Log(startPos);
 
-                            // kiểm tra xem click phần bé hay to
-                            if (!isChoosePart)
-                            {
-                                isChoosePart = true;
-                                if (RelationPointAndLine(vertices[0], point1, point2) * RelationPointAndLine(startPos, point1, point2) < 0)
-                                {
-                                    isChooseSmallPart = false;
-
-                                }
-                                else
-                                {
-                                    isChooseSmallPart = true;
-                                }
-                            }
                         }
                         else
                         {
                             currentPos = mousePos;
+                            currentPos.z = 0;
+                            Debug.Log(currentPos);
 
                             if (!isCalculatorDiff)
                             {
@@ -308,7 +407,7 @@ public class Slice169 : MonoBehaviour
 
                             diff = currentPos - startPos;
 
-
+                            Debug.Log(diff);
 
                             magDiffP = diff.magnitude * Mathf.Cos((Mathf.PI / 180) * (Vector2.SignedAngle(lineSlicer.GetChild(0).transform.up, diff)));
                             diffP = magDiffP * moveDirection;
@@ -477,19 +576,6 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-                            if (!isChoosePart)
-                            {
-
-                                isChoosePart = true;
-                                if (RelationPointAndLine(vertices[1], point1, point2) * RelationPointAndLine(startPos, point1, point2) < 0)
-                                {
-                                    isChooseSmallPart = false;
-                                }
-                                else
-                                {
-                                    isChooseSmallPart = true;
-                                }
-                            }
                         }
                         else
                         {
@@ -683,19 +769,6 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-                            if (!isChoosePart)
-                            {
-
-                                isChoosePart = true;
-                                if (RelationPointAndLine(vertices[3], point1, point2) * RelationPointAndLine(startPos, point1, point2) < 0)
-                                {
-                                    isChooseSmallPart = false;
-                                }
-                                else
-                                {
-                                    isChooseSmallPart = true;
-                                }
-                            }
                         }
                         else
                         {
@@ -886,19 +959,6 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-                            if (!isChoosePart)
-                            {
-
-                                isChoosePart = true;
-                                if (RelationPointAndLine(vertices[2], point1, point2) * RelationPointAndLine(startPos, point1, point2) < 0)
-                                {
-                                    isChooseSmallPart = false;
-                                }
-                                else
-                                {
-                                    isChooseSmallPart = true;
-                                }
-                            }
                         }
                         else
                         {
@@ -1085,29 +1145,18 @@ public class Slice169 : MonoBehaviour
 
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-                            if (!isChoosePart)
-                            {
-
-                                isChoosePart = true;
-                                if (RelationPointAndLine(vertices[0], point1, point2) * RelationPointAndLine(startPos, point1, point2) < 0)   // change
-                                {
-                                    isChooseSmallPart = false;
-                                }
-                                else
-                                {
-                                    isChooseSmallPart = true;
-                                }
-                            }
                         }
                         else
                         {
                             currentPos = mousePos;
-
+                            Debug.Log(startPos);
+                            Debug.Log(currentPos);
 
                             if (!isCalculatorDiff)
                             {
                                 isCalculatorDiff = true;
                                 diffBetweenCurandOldPos = currentPos - oldPos;
+                                Debug.Log(diffBetweenCurandOldPos);
                             }
                             currentPos -= diffBetweenCurandOldPos;
 
@@ -1326,38 +1375,32 @@ public class Slice169 : MonoBehaviour
                         {
                             isMoving = true;
                             isClick = true;
+                            isCalculatorDiff = true;
                             lineSlicer.gameObject.SetActive(false);
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-                            if (!isChoosePart)
-                            {
-
-                                isChoosePart = true;
-                                isCalculatorDiff = true;
-                                if (RelationPointAndLine(vertices[1], point1, point2) * RelationPointAndLine(startPos, point1, point2) < 0)   // change
-                                {
-                                    isChooseSmallPart = false;
-                                }
-                                else
-                                {
-                                    isChooseSmallPart = true;
-                                }
-                            }
+                         //   startPos = mousePos;
+                            Debug.Log(startPos);
+                   
                         }
                         else
                         {
                             currentPos = mousePos;
 
+                            Debug.Log(startPos);
+                            Debug.Log(currentPos);
 
                             if (!isCalculatorDiff)
                             {
                                 isCalculatorDiff = true;
                                 diffBetweenCurandOldPos = currentPos - oldPos;
+                                Debug.Log(diffBetweenCurandOldPos);
                             }
                             currentPos -= diffBetweenCurandOldPos;
-
+                            Debug.Log(currentPos);
                             diff = currentPos - startPos;
+
+                            Debug.Log(diff);
 
                             magDiffP = diff.magnitude * Mathf.Cos((Mathf.PI / 180) * (Vector2.SignedAngle(lineSlicer.GetChild(0).transform.up, diff)));
                             diffP = magDiffP * moveDirection;
@@ -1571,19 +1614,6 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-                            if (!isChoosePart)
-                            {
-
-                                isChoosePart = true;
-                                if (RelationPointAndLine(vertices[2], point1, point2) * RelationPointAndLine(startPos, point1, point2) < 0)   // change
-                                {
-                                    isChooseSmallPart = false;
-                                }
-                                else
-                                {
-                                    isChooseSmallPart = true;
-                                }
-                            }
                         }
                         else
                         {
@@ -1814,19 +1844,6 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-                            if (!isChoosePart)
-                            {
-
-                                isChoosePart = true;
-                                if (RelationPointAndLine(vertices[2], point1, point2) * RelationPointAndLine(startPos, point1, point2) < 0)   // change
-                                {
-                                    isChooseSmallPart = false;
-                                }
-                                else
-                                {
-                                    isChooseSmallPart = true;
-                                }
-                            }
                         }
                         else
                         {
@@ -3618,26 +3635,57 @@ public class Slice169 : MonoBehaviour
         {
             if (insteadEdge0 * insteadCentre < 0 && insteadEdge3 * insteadCentre > 0)
             {
-                if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0) { Debug.Log("TH5"); casePos = eCasePos.TH5; }
-                else if (insteadEdge2 * insteadCentre < 0 && insteadEdge1 * insteadCentre > 0) { Debug.Log("TH8"); casePos = eCasePos.TH8; }
-                else if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre > 0) { Debug.Log("TH1"); casePos = eCasePos.TH1; }
-                else if (insteadEdge0 * insteadEdge1 > 0 ) { Debug.Log("TH5"); casePos = eCasePos.TH5; }
-                else if (insteadEdge0 * insteadEdge1 < 0 ) { Debug.Log("TH6"); casePos = eCasePos.TH6; }
+                if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0)
+                { 
+                    Debug.Log("TH5"); casePos = eCasePos.TH5; 
+                }
+                else if (insteadEdge2 * insteadCentre < 0 && insteadEdge1 * insteadCentre > 0)
+                { 
+                    Debug.Log("TH8"); casePos = eCasePos.TH8;
+                }
+                else if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre > 0)
+                { 
+                    Debug.Log("TH1"); casePos = eCasePos.TH1; 
+                }
+                else if (insteadEdge0 * insteadEdge1 > 0 )
+                {
+                    Debug.Log("TH5"); casePos = eCasePos.TH5;
+                }
+                else if (insteadEdge0 * insteadEdge1 < 0 ) 
+                {
+                    Debug.Log("TH6"); casePos = eCasePos.TH6;
+                }
                 else Debug.Log(" Deo hieu kieu gi");
             }
+
             else if (insteadEdge0 * insteadCentre > 0 && insteadEdge3 * insteadCentre < 0)
             {
-                if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0) { Debug.Log("TH6"); casePos = eCasePos.TH6; }
-                else if (insteadEdge2 * insteadCentre < 0 && insteadEdge1 * insteadCentre > 0) { Debug.Log("TH7"); casePos = eCasePos.TH7; }
-                else if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre > 0) { Debug.Log("TH3"); casePos = eCasePos.TH3; }
+                if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0) 
+                {
+                    Debug.Log("TH6"); casePos = eCasePos.TH6;
+                }
+                else if (insteadEdge2 * insteadCentre < 0 && insteadEdge1 * insteadCentre > 0)
+                {
+                    Debug.Log("TH7"); casePos = eCasePos.TH7;
+                }
+                else if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre > 0)
+                { 
+                    Debug.Log("TH3"); casePos = eCasePos.TH3; 
+                }
                 else Debug.Log(" Deo hieu kieu gi");
             }
             else Debug.Log(" Deo hieu kieu gi");
         }
         else if (insteadEdge0 * insteadEdge3 > 0)
         {
-            if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre < 0) { Debug.Log("TH4"); casePos = eCasePos.TH4; }
-            else if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0) { Debug.Log("TH2"); casePos = eCasePos.TH2; }
+            if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre < 0) 
+            {
+                Debug.Log("TH4"); casePos = eCasePos.TH4; 
+            }
+            else if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0)
+            { 
+                Debug.Log("TH2"); casePos = eCasePos.TH2; 
+            }
             else Debug.Log(" Deo hieu kieu gi");
         }
         else Debug.Log(" Deo hieu kieu gi");

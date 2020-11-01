@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SelectMapUI : GameUI
 {
+
+    public static List<SelectMapFrameUI> selectMapFrameUIs;
     public MainMenuUI MainMenuUI;
     public InGameUI InGameUI;
 
@@ -21,7 +23,8 @@ public class SelectMapUI : GameUI
     private void Start()
     {
 
-        
+        selectMapFrameUIs = new List<SelectMapFrameUI>();
+        Invoke("InstantiateSelectMap", 0.5f);
 
     }
     public new void Show()
@@ -29,8 +32,8 @@ public class SelectMapUI : GameUI
 
         base.Show();
         BackgroundManager.instance.selectMap.SetActive(true);
-
-        InstantiateSelectMap();
+        // InstantiateSelectMap();
+        UpdateStateOfSelectMap();
         CompletedMapCount.text = "Level: " + DataPlayer.GetTextOfCompletedMapCount();
     }
 
@@ -56,6 +59,15 @@ public class SelectMapUI : GameUI
             e.InstantiateExh();
         }
 
+    }
+
+
+    public void UpdateStateOfSelectMap()
+    {
+        foreach ( SelectMapFrameUI s in selectMapFrameUIs)
+        {
+            s.UpdateStateOfMap();
+        }    
     }
     public void DeleteSelectMap()
     {

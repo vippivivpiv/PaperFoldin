@@ -55,13 +55,13 @@ public class MainMenuUI : GameUI
     public void ClickShowAnswer()
     {
         DataPlayer.ShowAnswer = true;
-        if (Game.instance != null) Game.instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
+        if (Game.Instance != null) Game.Instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
     }
 
     public void ClickHideAnswer()
     {
         DataPlayer.ShowAnswer = false;
-        if (Game.instance != null) Game.instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
+        if (Game.Instance != null) Game.Instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
     }
 
 }

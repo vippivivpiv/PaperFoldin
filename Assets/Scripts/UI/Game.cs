@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    private static Game instance;
+
+    public static Game Instance
+    {
+        get
+        {
+            if (instance == null) instance = new Game();
+            return instance;
+        }
+    }
     public Camera mainCam;
     public InGameUI InGameUI;
-    public static Game instance;
+
     public ImageProperties[] images;
     public Slice169 mapPrefab;
     public Slice169[] maps;

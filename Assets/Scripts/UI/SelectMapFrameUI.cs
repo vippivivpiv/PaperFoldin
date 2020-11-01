@@ -63,10 +63,12 @@ public class SelectMapFrameUI : MonoBehaviour
         }
         isCompleted = DataPlayer.IsCompletedMap(indexOfMap);
 
-        UI2DSprite_MapImage.sprite2D = Game.instance.images[indexOfMap - 1].Image;
+        Debug.Log(indexOfMap);
+        Debug.Log(Game.Instance.images.Length);
+        UI2DSprite_MapImage.sprite2D = Game.Instance.images[indexOfMap - 1].Image;
 
         //  mapImage_SpriteRenderer.sprite = Game.instance.images[indexOfMap - 1].Image;
-      //  nameOfMap = DataPlayer.Get10to9(indexOfMap).ToString();
+        //  nameOfMap = DataPlayer.Get10to9(indexOfMap).ToString();
         index.text = nameOfMap;
 
         isCom.enabled = isCompleted ? true : false;
@@ -74,10 +76,9 @@ public class SelectMapFrameUI : MonoBehaviour
 
     public void OnSelectThis()
     {
-          if (!isUnlock) return;
-        Debug.Log(1);
+        if (!isUnlock) return;
 
-        Game.instance.currentMap = indexOfMap;
+        Game.Instance.currentMap = indexOfMap;
 
         SelectMapUI.LoadMap();
     }
