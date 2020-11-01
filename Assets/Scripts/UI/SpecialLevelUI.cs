@@ -31,7 +31,8 @@ public class SpecialLevelUI : GameUI
         Game.Instance.currentMap += 1;
         DataPlayer.CurrentPlayingMap = Game.Instance.currentMap;
 
-        InGameUI.Show(false);
+        InGameUI.Show();
+        Game.Instance.LoadMap();
 
         
 
@@ -40,12 +41,15 @@ public class SpecialLevelUI : GameUI
 
     public void ClickNoThanks()
     {
-        DataPlayer.ShowedSpecialLevel(DataPlayer.Get10to9(Game.Instance.currentMap));
-        LevelComplete.Hide();
         Hide();
+        LevelComplete.Hide();
+
+        DataPlayer.ShowedSpecialLevel(DataPlayer.Get10to9(Game.Instance.currentMap));
         Game.Instance.currentMap += 2;
         DataPlayer.CurrentPlayingMap += 1;
-        InGameUI.Show(false);
+
+        InGameUI.Show();
+        Game.Instance.LoadMap();
 
 
         

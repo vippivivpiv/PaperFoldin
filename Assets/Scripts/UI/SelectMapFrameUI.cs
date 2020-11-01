@@ -22,17 +22,13 @@ public class SelectMapFrameUI : MonoBehaviour
 
 
     public int indexOfMap;
+    public string nameOfMap;
     public string spriteName;
 
-    public string nameOfMap;
+    public bool isSpecialLevel;
 
     public bool isCompleted;
     public bool isUnlock;
-
-    private void OnEnable()
-    {
-        //UpdateStateOfMap();
-    }
 
     public void UpdateStateOfMap()
     {
@@ -41,10 +37,9 @@ public class SelectMapFrameUI : MonoBehaviour
         if (indexOfMap <= DataPlayer.CurrentPlayingMap)
         {
             isUnlock = true;
+
             spriteName = "Map" + (indexOfMap).ToString();
 
-            //  mapImage_SpriteRenderer.gameObject.SetActive(true);
-            // lockedMap_SpriteRenderer.gameObject.SetActive(false);
             UI2DSprite_MapImage.gameObject.SetActive(true);
             UI2DSprite_LockedImage.gameObject.SetActive(false);
 
@@ -55,20 +50,14 @@ public class SelectMapFrameUI : MonoBehaviour
             isUnlock = false;
             spriteName = "Locked";
 
-            //  mapImage_SpriteRenderer.gameObject.SetActive(false);
-            // lockedMap_SpriteRenderer.gameObject.SetActive(true);
-
             UI2DSprite_MapImage.gameObject.SetActive(false);
             UI2DSprite_LockedImage.gameObject.SetActive(true);
         }
         isCompleted = DataPlayer.IsCompletedMap(indexOfMap);
 
-        Debug.Log(indexOfMap);
-        Debug.Log(Game.Instance.images.Length);
+
         UI2DSprite_MapImage.sprite2D = Game.Instance.images[indexOfMap - 1].Image;
 
-        //  mapImage_SpriteRenderer.sprite = Game.instance.images[indexOfMap - 1].Image;
-        //  nameOfMap = DataPlayer.Get10to9(indexOfMap).ToString();
         index.text = nameOfMap;
 
         isCom.enabled = isCompleted ? true : false;

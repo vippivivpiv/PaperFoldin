@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,13 +13,11 @@ public class InGameUI : GameUI
     public GameObject Btn_WatchAds;
 
     
-    public new void Show(bool LoadFromMainmenu)
+    public new void Show()
     {
         base.Show();
         BackgroundImageUI.Show();
         BackgroundManager.instance.Ingame.SetActive(true);
-
-        LoadMap(LoadFromMainmenu);
 
         if (Game.Instance.currentMap %10 !=0)
         {
@@ -46,9 +45,9 @@ public class InGameUI : GameUI
         //Debug.Log(Panel.GetComponent<UIPanel>().sortingOrder);
         //Panel.GetComponent<UIPanel>().sortingOrder = 1;
     }
-    public void LoadMap(bool LoadFromMainmenu)
+    public void LoadMap()
     {
-        Game.Instance.LoadMap(LoadFromMainmenu);
+        Game.Instance.LoadMap();
     }
 
     public void LevelCompleted()
@@ -71,8 +70,7 @@ public class InGameUI : GameUI
 
     public void Replay()
     {
-        Destroy(Game.Instance.playingMap.gameObject);
-        Game.Instance.LoadMap(false);
+        Game.Instance.Replay();
     }
 
 

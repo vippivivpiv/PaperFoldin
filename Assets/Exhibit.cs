@@ -20,10 +20,10 @@ public class Exhibit : MonoBehaviour
         {
             SelectMapFrameUI sss = Instantiate(SelectMapFrameUIprefab, grid.transform);
             sss.gameObject.name = "Map" + ((sttExh - 1) * 10 + i).ToString();
-            sss.indexOfMap = (sttExh - 1) * 10 + i;
 
+            sss.indexOfMap = (sttExh - 1) * 10 + i;
             sss.nameOfMap = DataPlayer.Get10to9(sss.indexOfMap).ToString();
-     
+            sss.isSpecialLevel = false;
             sss.SelectMapUI = this.SelectMapUI;
 
             sss.UpdateStateOfMap();
@@ -39,6 +39,7 @@ public class Exhibit : MonoBehaviour
         s.indexOfMap = (sttExh - 1) * 10 + 10;
 
         s.nameOfMap = "Special" + DataPlayer.Get10to9(s.indexOfMap).ToString();
+        s.isSpecialLevel = true;
         s.SelectMapUI = this.SelectMapUI;
 
         s.UpdateStateOfMap();

@@ -24,7 +24,7 @@ public class SelectMapUI : GameUI
     {
 
         selectMapFrameUIs = new List<SelectMapFrameUI>();
-        Invoke("InstantiateSelectMap", 0.5f);
+        Invoke("InstantiateSelectMap", 1f);
 
     }
     public new void Show()
@@ -86,6 +86,7 @@ public class SelectMapUI : GameUI
     public void LoadMap()
     {
         Hide();
-        InGameUI.Show(false);
+        InGameUI.Show();
+        Game.Instance.LoadMap();
     }
 }

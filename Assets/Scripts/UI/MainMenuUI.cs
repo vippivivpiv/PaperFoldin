@@ -39,14 +39,16 @@ public class MainMenuUI : GameUI
     {
 
         Hide();
-        InGameUI.Show(true);
+        Game.Instance.currentMap = DataPlayer.CurrentPlayingMap;
+        InGameUI.Show();
+        Game.Instance.LoadMap();
     }
 
     public void ResetData()
     {
         PlayerPrefs.DeleteAll();
 
-      //  DataPlayer.CurrentPlayingMap = 19;
+        DataPlayer.CurrentPlayingMap = 9;
     }
     public void UnlockAllMap()
     {

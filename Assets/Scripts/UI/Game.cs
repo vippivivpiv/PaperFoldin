@@ -6,14 +6,8 @@ public class Game : MonoBehaviour
 {
     private static Game instance;
 
-    public static Game Instance
-    {
-        get
-        {
-            if (instance == null) instance = new Game();
-            return instance;
-        }
-    }
+    public static Game Instance;
+
     public Camera mainCam;
     public InGameUI InGameUI;
 
@@ -29,9 +23,14 @@ public class Game : MonoBehaviour
 
     public float sinceLoadGame;
     private bool first;
-
+    private void Awake()
+    {
+        if (Instance != null) return;
+        Instance = this;
+    }
     private void Update()
     {
+        Debug.Log(Instance);
         sinceLoadGame += Time.deltaTime;
         if (sinceLoadGame > 5f)
         {
@@ -48,32 +47,31 @@ public class Game : MonoBehaviour
 
         mainCam.orthographicSize = 19.224f * (((float)Screen.height/(float)Screen.width) / (16f/9f));
 
-
-        if (instance != null)
+        for (int i = 1; i <= images.Length; i++)
         {
-            Destroy(instance);
-            instance = this;
+            if (i % 10 == 0) images[i - 1].isSpecialLevel = true;
         }
-        else instance = this;
-
-        OnSoundChange();
     }
 
     public void OnSoundChange()
     {
        // AudioSource.mute = !DataPlayer.Sound;
     }
-    public void LoadMap(bool LoadFromMainmenu)
+    public void LoadMap()
     {
-        if (LoadFromMainmenu) currentMap = DataPlayer.CurrentPlayingMap;
-
+        // if (LoadFromMainmenu) currentMap = DataPlayer.CurrentPlayingMap;
+        
         playingMap = Instantiate(mapPrefab, transform);
         
         playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
         sinceLoadGame = 0f;
         first = false;
     }
-
+    public void Replay()
+    {
+        Destroy(playingMap.gameObject);
+        LoadMap();
+    }
     public void LevelCompleted()
     {
         if (DataPlayer.CurrentPlayingMap == currentMap)

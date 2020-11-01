@@ -1149,14 +1149,12 @@ public class Slice169 : MonoBehaviour
                         else
                         {
                             currentPos = mousePos;
-                            Debug.Log(startPos);
-                            Debug.Log(currentPos);
 
                             if (!isCalculatorDiff)
                             {
                                 isCalculatorDiff = true;
                                 diffBetweenCurandOldPos = currentPos - oldPos;
-                                Debug.Log(diffBetweenCurandOldPos);
+   
                             }
                             currentPos -= diffBetweenCurandOldPos;
 

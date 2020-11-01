@@ -6,6 +6,7 @@ public class ImageProperties : MonoBehaviour
 {
     public string stt;
     public string KeyWord;
+    public bool isSpecialLevel;
     public Sprite Image;
     public Sprite BackAnswer;
     public Material AnswerMaterial, OriginalMaterial;
@@ -17,6 +18,7 @@ public class ImageProperties : MonoBehaviour
     public Vector3 p2MatchedOfPoint2;
 
     private Slice169 slice169;
+
 
     [Header("Answer")]
     public Vector2 point1;
