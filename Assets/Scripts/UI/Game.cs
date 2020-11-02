@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
 
     public static Game Instance;
 
+
     public Camera mainCam;
     public InGameUI InGameUI;
 
@@ -30,7 +31,7 @@ public class Game : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(Instance);
+
         sinceLoadGame += Time.deltaTime;
         if (sinceLoadGame > 5f)
         {

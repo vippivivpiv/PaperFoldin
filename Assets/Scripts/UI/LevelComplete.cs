@@ -21,12 +21,12 @@ public class LevelComplete : GameUI
 
         if (DataPlayer.Get10to9(Game.Instance.currentMap) % 9 == 0)
         {
-            
-            if (! DataPlayer.IsShowedSpecialLevel(Game.Instance.currentMap))
+
+            if (!DataPlayer.IsShowedSpecialLevel(Game.Instance.currentMap))
             {
                 SpecialLevelUI.Show();
             }
-          
+
         }
         //else
         //{
@@ -56,25 +56,13 @@ public class LevelComplete : GameUI
             ClickClose();
             return;
         }
-        //if (DataPlayer.Get10to9(Game.Instance.currentMap) % 9 != 0)
-        //{
-            Game.Instance.currentMap += 1;
 
-            InGameUI.Show();
+        Game.Instance.currentMap += 1;
 
-            
-            Game.Instance.LoadMap();
-        //}
-        //else
-        //{
-        //    Game.Instance.currentMap += 2;
+        InGameUI.Show();
 
-        //    InGameUI.Show();
 
-            
-        //    Game.Instance.LoadMap();
-        //}
-
+        Game.Instance.LoadMap();
 
 
     }

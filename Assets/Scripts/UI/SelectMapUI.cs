@@ -24,7 +24,7 @@ public class SelectMapUI : GameUI
     {
 
         selectMapFrameUIs = new List<SelectMapFrameUI>();
-        Invoke("InstantiateSelectMap", 1f);
+        Invoke("InstantiateSelectMap", 0.1f);
 
     }
     public new void Show()

@@ -37,14 +37,7 @@ public class InGameUI : GameUI
         BackgroundManager.instance.Ingame.SetActive(false);
         BackgroundImageUI.Hide();
     }
-    private void Update()
-    {
-          
-        //Debug.Log(Panel.GetComponent<UIPanel>().sortingLayerName);
-        //Panel.GetComponent<UIPanel>().sortingLayerName = "1";
-        //Debug.Log(Panel.GetComponent<UIPanel>().sortingOrder);
-        //Panel.GetComponent<UIPanel>().sortingOrder = 1;
-    }
+
     public void LoadMap()
     {
         Game.Instance.LoadMap();

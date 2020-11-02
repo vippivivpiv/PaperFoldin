@@ -10,10 +10,9 @@ public class BackgroundManager : MonoBehaviour
     public GameObject Ingame;
     private void Start()
     {
-        if ( instance != null)
-        {
-            Destroy(instance);
-        }
+        float scale = ((float)Screen.height / (float)Screen.width) / (16f / 9f);
+        mainmenu.transform.localScale = new Vector3(mainmenu.transform.localScale.x/scale, mainmenu.transform.localScale.y, 0);
+        if (instance != null) return;
         instance = this;
     }
 }

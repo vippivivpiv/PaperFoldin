@@ -47,6 +47,7 @@ public class Slice169 : MonoBehaviour
     private Vector3 diffBetweenCurandOldPos;
     private Vector3 moveDirection;
     private Vector3 mousePos;
+    private Vector3 compensatorVector;
     private Vector3 point1Matched;
     private Vector3 point2Matched;
 
@@ -85,6 +86,10 @@ public class Slice169 : MonoBehaviour
     private bool isYOver4;
 
     private List<Vector3> smallPartVertices, bigPartVerteces;
+    private Vector3 deltaDiffP;
+    private Vector3 oldDiffP;
+    private Vector3 oldStartPos;
+    private bool first;
     #endregion
     private void Start()
     {
@@ -308,7 +313,7 @@ public class Slice169 : MonoBehaviour
 
         }
         angle += Vector3.Angle(smallPartVertices[0] - mousePos, smallPartVertices[smallPartVertices.Count - 1] - mousePos);
-        Debug.Log(angle);
+
         return (angle>359 && angle< 361) ? true : false;
     }
 
@@ -322,7 +327,7 @@ public class Slice169 : MonoBehaviour
             angle += Vector3.Angle(bigPartVerteces[i + 1] - mousePos, bigPartVerteces[i] - mousePos);
         }
         angle += Vector3.Angle(bigPartVerteces[0] - mousePos, bigPartVerteces[bigPartVerteces.Count - 1] - mousePos);
-        Debug.Log(angle);
+  
         return (angle > 359 && angle < 361) ? true : false;
     }
 
@@ -349,7 +354,7 @@ public class Slice169 : MonoBehaviour
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         //if (Mathf.Abs(mousePos.x) > widthRatio || Mathf.Abs(mousePos.y) > heightRatio) return;
-        Debug.Log(isChoosePart);
+
         if (Input.GetMouseButtonDown(0))
         {
             if (!isChoosePart)
@@ -372,7 +377,7 @@ public class Slice169 : MonoBehaviour
         //if (isChooseSmallPart && !CheckTotalAngleOfPointAndSmallPolygons()) return;
         //if (!isChooseSmallPart && !CheckTotalAngleOfPointAndBIgPolygons()) return;
 
-        Debug.Log("choose");
+
         switch (casePos)
         {
             //--------------------------------------------------------TH1------------------------------------------------------------------------------------
@@ -389,14 +394,16 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
 
                             startPos = mousePos;
-                            Debug.Log(startPos);
+                            oldStartPos = startPos;
+                            startPos.z = 0;
 
                         }
                         else
                         {
+
                             currentPos = mousePos;
                             currentPos.z = 0;
-                            Debug.Log(currentPos);
+
 
                             if (!isCalculatorDiff)
                             {
@@ -407,8 +414,7 @@ public class Slice169 : MonoBehaviour
 
                             diff = currentPos - startPos;
 
-                            Debug.Log(diff);
-
+     
                             magDiffP = diff.magnitude * Mathf.Cos((Mathf.PI / 180) * (Vector2.SignedAngle(lineSlicer.GetChild(0).transform.up, diff)));
                             diffP = magDiffP * moveDirection;
                             float angleA = -Vector2.SignedAngle(lineSlicer.GetChild(0).transform.up, Vector2.right);
@@ -427,9 +433,57 @@ public class Slice169 : MonoBehaviour
                             }
                             isUpdateOldDiff = true;
 
+             
+
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
-                                if (IsPeakOver(verticesOld[0], magDiffP)) return;
+                                if (diffP.x < 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }    
+
+
+                                if (IsPeakOver1(verticesOld[0]))
+                                {
+
+
+
+                                    //if ( !first)
+                                    //{
+                                    //    first = true;
+                                    //    oldDiffP = diffP;
+
+                                    //}
+
+                                    //deltaDiffP = oldDiffP - diffP;
+
+                                    //compensatorVector = oldDiffP + deltaDiffP;
+
+                                  //  startPos = currentPos;
+                                  //  return;
+                                }
+            
+
+                                //if (first)
+                                //{
+                                    
+                                   
+                                //}
+                                //startPos = oldStartPos - compensatorVector;
+                                //else
+                                //{
+                                //    if (first)
+                                //    {
+                                //        first = false;
+                                //        compensatorVector = diffP - oldDiffP;
+
+                                //        Debug.Log(2);
+                                //    }
+                                //}
+
+                                //    diffP += compensatorVector;
 
                                 vertices[0] = verticesOld[0] + diffP;
                                 vertices[4] = verticesOld[4] + diffP;
@@ -479,7 +533,7 @@ public class Slice169 : MonoBehaviour
                                         vertices[1] = peak1;
                                         isYOver2 = true;
 
-                                    }
+                                    } 
                                     vertices[7] = peak1 + (magDiffP - MovedDiffP2) * moveDirection;
                                     vertices[1] = verticesOld[1] + new Vector3(moveX - Moved2, 0, 0);
 
@@ -508,6 +562,9 @@ public class Slice169 : MonoBehaviour
                                     if (vertices[7].y > heightRatio) vertices[7].y = heightRatio + 0.1f;
                                 }
 
+
+
+
                                 UpdateVerticesBackSide();
 
                                 // Update Mesh
@@ -529,7 +586,7 @@ public class Slice169 : MonoBehaviour
                             else // Phần Cắt To
                             {
                                 // Test xem có kéo ngược hướng không
-                                if (IsPeakOver(verticesOld[3], magDiffP)) return;
+                                if (IsPeakOver1(verticesOld[3])) return;
 
                                 UpdateMeshDataWhenChooseBiggerPart();
 
@@ -613,7 +670,7 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
                                 // kiểm tra điều kiện các góc ko cho kéo ngược hướng
-                                if (IsPeakOver(verticesOld[1], magDiffP)) return;
+                                if (IsPeakOver1(verticesOld[1])) return;
 
                                 vertices[1] = verticesOld[1] + diffP; // change
                                 vertices[4] = verticesOld[4] + diffP;
@@ -722,7 +779,7 @@ public class Slice169 : MonoBehaviour
                             else // Phần Cắt To
                             {
                                 // Test xem có kéo ngược hướng không
-                                if (IsPeakOver(verticesOld[2], magDiffP)) return;
+                                if (IsPeakOver1(verticesOld[2])) return;
 
                                 UpdateMeshDataWhenChooseBiggerPart();
 
@@ -807,7 +864,7 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
                                 // kiểm tra điều kiện các góc ko cho kéo ngược hướng
-                                if (IsPeakOver(verticesOld[3], magDiffP)) return;
+                                if (IsPeakOver1(verticesOld[3])) return;
 
                                 vertices[3] = verticesOld[3] + diffP; // change
                                 vertices[4] = verticesOld[4] + diffP;
@@ -912,7 +969,7 @@ public class Slice169 : MonoBehaviour
                             else // Phần Cắt To
                             {
                                 // Test xem có kéo ngược hướng không
-                                if (IsPeakOver(verticesOld[0], magDiffP)) return;
+                                if (IsPeakOver1(verticesOld[0])) return;
 
                                 UpdateMeshDataWhenChooseBiggerPart();
 
@@ -996,7 +1053,7 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
                                 // kiểm tra điều kiện các góc ko cho kéo ngược hướng
-                                if (IsPeakOver(verticesOld[2], magDiffP)) return;
+                                if (IsPeakOver1(verticesOld[2])) return;
 
                                 vertices[2] = verticesOld[2] + diffP; // change
                                 vertices[4] = verticesOld[4] + diffP;
@@ -1097,7 +1154,7 @@ public class Slice169 : MonoBehaviour
                             else // Phần Cắt To
                             {
                                 // Test xem có kéo ngược hướng không
-                                if (IsPeakOver(verticesOld[1], magDiffP)) return;
+                                if (IsPeakOver1(verticesOld[1])) return;
 
                                 UpdateMeshDataWhenChooseBiggerPart();
 
@@ -1190,8 +1247,8 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart)
                             {
                                 UpdateMeshDataWhenClickSmallerPart();
-                                if (IsPeakOver(verticesOld[1], magDiffP)) return; // change
-                                if (IsPeakOver(verticesOld[0], magDiffP)) return; // change
+                                if (IsPeakOver1(verticesOld[1], true,false)) return; // change
+                                if (IsPeakOver1(verticesOld[0], true, false)) return; // change
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(moveX, 0, 0);
                                 // if (newPos6.x > widthRatio || newPos7.x > widthRatio) return;
@@ -1270,8 +1327,8 @@ public class Slice169 : MonoBehaviour
                             else
                             {
                                 UpdateMeshDataWhenChooseBiggerPart();
-                                if (IsPeakOver(verticesOld[3], magDiffP)) return; // change
-                                if (IsPeakOver(verticesOld[2], magDiffP)) return; // change
+                                if (IsPeakOver1(verticesOld[3], true, false)) return; // change
+                                if (IsPeakOver1(verticesOld[2], true, false)) return; // change
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(moveX, 0, 0);
                                 //if (newPos4.x < -widthRatio || newPos5.x < -widthRatio) return;
@@ -1378,27 +1435,24 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                          //   startPos = mousePos;
-                            Debug.Log(startPos);
+  
                    
                         }
                         else
                         {
                             currentPos = mousePos;
 
-                            Debug.Log(startPos);
-                            Debug.Log(currentPos);
-
                             if (!isCalculatorDiff)
                             {
                                 isCalculatorDiff = true;
                                 diffBetweenCurandOldPos = currentPos - oldPos;
-                                Debug.Log(diffBetweenCurandOldPos);
+
                             }
                             currentPos -= diffBetweenCurandOldPos;
-                            Debug.Log(currentPos);
+
                             diff = currentPos - startPos;
 
-                            Debug.Log(diff);
+
 
                             magDiffP = diff.magnitude * Mathf.Cos((Mathf.PI / 180) * (Vector2.SignedAngle(lineSlicer.GetChild(0).transform.up, diff)));
                             diffP = magDiffP * moveDirection;
@@ -1427,8 +1481,8 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart)
                             {
                                 UpdateMeshDataWhenClickSmallerPart();
-                                if (IsPeakOver(verticesOld[1], magDiffP)) break; // change
-                                if (IsPeakOver(verticesOld[3], magDiffP)) break; // change
+                                if (IsPeakOver1(verticesOld[1], false,true)) break; // change
+                                if (IsPeakOver1(verticesOld[3], false, true)) break; // change
 
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(0, moveY, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(0, moveY, 0);
@@ -1506,8 +1560,8 @@ public class Slice169 : MonoBehaviour
                             else
                             {
                                 UpdateMeshDataWhenChooseBiggerPart();
-                                if (IsPeakOver(verticesOld[0], magDiffP)) break; // change
-                                if (IsPeakOver(verticesOld[2], magDiffP)) break; // change
+                                if (IsPeakOver1(verticesOld[0], false, true)) break; // change
+                                if (IsPeakOver1(verticesOld[2], false, true)) break; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(0, moveY, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(0, moveY, 0);
@@ -1654,8 +1708,8 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart)
                             {
                                 UpdateMeshDataWhenClickSmallerPart();
-                                if (IsPeakOver(verticesOld[2], magDiffP)) return; // change
-                                if (IsPeakOver(verticesOld[3], magDiffP)) return; // change
+                                if (IsPeakOver1(verticesOld[2], true,false)) return; // change
+                                if (IsPeakOver1(verticesOld[3], true, false)) return; // change
 
                                 vertices[2] = verticesOld[2] + diffP; // change
                                 vertices[3] = verticesOld[3] + diffP; // change
@@ -1736,8 +1790,8 @@ public class Slice169 : MonoBehaviour
                             else
                             {
                                 UpdateMeshDataWhenChooseBiggerPart();
-                                if (IsPeakOver(verticesOld[0], magDiffP)) break; // change
-                                if (IsPeakOver(verticesOld[1], magDiffP)) break; // change
+                                if (IsPeakOver1(verticesOld[0], true, false)) break; // change
+                                if (IsPeakOver1(verticesOld[1], true, false)) break; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(moveX, 0, 0);
@@ -1883,8 +1937,8 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart)
                             {
                                 UpdateMeshDataWhenClickSmallerPart();
-                                if (IsPeakOver(verticesOld[0], magDiffP)) return; // change
-                                if (IsPeakOver(verticesOld[2], magDiffP)) return; // change
+                                if (IsPeakOver1(verticesOld[0], false,true)) return; // change
+                                if (IsPeakOver1(verticesOld[2], false, true)) return; // change
 
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(0, moveY, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(0, moveY, 0);
@@ -1963,8 +2017,8 @@ public class Slice169 : MonoBehaviour
                             else
                             {
                                 UpdateMeshDataWhenChooseBiggerPart();
-                                if (IsPeakOver(verticesOld[1], magDiffP)) return; // change
-                                if (IsPeakOver(verticesOld[3], magDiffP)) return; // change
+                                if (IsPeakOver1(verticesOld[1], false, true)) return; // change
+                                if (IsPeakOver1(verticesOld[3], false, true)) return; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(0, moveY, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(0, moveY, 0);
@@ -2235,7 +2289,6 @@ public class Slice169 : MonoBehaviour
                         7,3,6,
                         7,1,3,
 
-
                         10,11,9,
                         10,9,8,
 
@@ -2390,14 +2443,58 @@ public class Slice169 : MonoBehaviour
             default: break;
         }
     }
-    private bool IsPeakOver(Vector3 peak, float diffu)
+    private bool IsPeakOver(Vector3 peak, int n)
     {
-        Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
+        switch ( n)
+        {
+            case 1:
+                if (peak.y < -heightRatio) return true;
+                break;
+            case 2:
+                if (peak.x < -widthRatio) return true;
+                break;
+            case 3:
+                if (peak.x > widthRatio) return true;
+                break;
+            case 4:
+                if (peak.y > heightRatio) return true;
+                break;
 
+        }
+        if ((peak.x <= -widthRatio && peak.y <= -heightRatio) || (peak.x <= -widthRatio && peak.y >= heightRatio) || (peak.x >= widthRatio && peak.y <= -heightRatio) || (peak.x >= widthRatio && peak.y >= heightRatio))
+        // if ( ( x && ( test.x < -widthRatio || (test.x > widthRatio))) || ( y &&( (test.y < -heightRatio)  || ( test.y > heightRatio))))
+        {
 
+            return true;
+        }
+        else return false;
+    }
+
+    private bool IsPeakOver1(Vector3 peak, bool x=true, bool y=true)
+    {
+
+       // Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
+        Vector3 test = peak + diffP; // change
 
 
         if ((test.x <= -widthRatio && test.y <= -heightRatio) || (test.x <= -widthRatio && test.y >= heightRatio) || (test.x >= widthRatio && test.y <= -heightRatio) || (test.x >= widthRatio && test.y >= heightRatio))
+       // if ( ( x && ( test.x < -widthRatio || (test.x > widthRatio))) || ( y &&( (test.y < -heightRatio)  || ( test.y > heightRatio))))
+        {
+
+            return true;
+        }
+        else return false;
+    }
+
+    private bool IsPeakOver2(Vector3 peak, bool x=true, bool y=true)
+    {
+
+       // Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
+        Vector3 test = peak + diffP; // change
+
+
+       // if ((test.x <= -widthRatio && test.y <= -heightRatio) || (test.x <= -widthRatio && test.y >= heightRatio) || (test.x >= widthRatio && test.y <= -heightRatio) || (test.x >= widthRatio && test.y >= heightRatio))
+        if ( ( x && ( test.x < -widthRatio || (test.x > widthRatio))) || ( y &&( (test.y < -heightRatio)  || ( test.y > heightRatio))))
         {
 
             return true;
@@ -3275,12 +3372,14 @@ public class Slice169 : MonoBehaviour
             uvs[i] = VerToUv(vertices[i]);
         }
 
-        float x = UnityEngine.Random.Range(0, 1000f);
-        float y = UnityEngine.Random.Range(0, 1000f);
+        //float x = UnityEngine.Random.Range(0, 1000f);
+        //float y = UnityEngine.Random.Range(0, 1000f);
 
         for (int i = 8; i < vertices.Length; i++)
         {
-            uvs[i] = new Vector2(x, y);
+            //float x = UnityEngine.Random.Range(0, 1000f);
+            //float y = UnityEngine.Random.Range(0, 1000f);
+            uvs[i] = new Vector2(0, 0);
         }
     }
     private Vector2 VerToUv(Vector3 vector3)
