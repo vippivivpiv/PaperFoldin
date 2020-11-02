@@ -462,7 +462,7 @@ public class Slice169 : MonoBehaviour
                                     //compensatorVector = oldDiffP + deltaDiffP;
 
                                   //  startPos = currentPos;
-                                  //  return;
+                                    return;
                                 }
             
 
@@ -585,6 +585,12 @@ public class Slice169 : MonoBehaviour
 
                             else // Phần Cắt To
                             {
+                                if (diffP.x > 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 // Test xem có kéo ngược hướng không
                                 if (IsPeakOver1(verticesOld[3])) return;
 
@@ -670,6 +676,12 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
                                 // kiểm tra điều kiện các góc ko cho kéo ngược hướng
+                                if (diffP.x < 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[1])) return;
 
                                 vertices[1] = verticesOld[1] + diffP; // change
@@ -779,6 +791,12 @@ public class Slice169 : MonoBehaviour
                             else // Phần Cắt To
                             {
                                 // Test xem có kéo ngược hướng không
+                                if (diffP.x > 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[2])) return;
 
                                 UpdateMeshDataWhenChooseBiggerPart();
@@ -864,6 +882,12 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
                                 // kiểm tra điều kiện các góc ko cho kéo ngược hướng
+                                if (diffP.x > 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[3])) return;
 
                                 vertices[3] = verticesOld[3] + diffP; // change
@@ -969,6 +993,12 @@ public class Slice169 : MonoBehaviour
                             else // Phần Cắt To
                             {
                                 // Test xem có kéo ngược hướng không
+                                if (diffP.x < 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[0])) return;
 
                                 UpdateMeshDataWhenChooseBiggerPart();
@@ -1053,6 +1083,12 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
                                 // kiểm tra điều kiện các góc ko cho kéo ngược hướng
+                                if (diffP.x < 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[2])) return;
 
                                 vertices[2] = verticesOld[2] + diffP; // change
@@ -1154,6 +1190,12 @@ public class Slice169 : MonoBehaviour
                             else // Phần Cắt To
                             {
                                 // Test xem có kéo ngược hướng không
+                                if (diffP.x > 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[1])) return;
 
                                 UpdateMeshDataWhenChooseBiggerPart();
@@ -1247,6 +1289,12 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart)
                             {
                                 UpdateMeshDataWhenClickSmallerPart();
+                                if (diffP.x < 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[1], true,false)) return; // change
                                 if (IsPeakOver1(verticesOld[0], true, false)) return; // change
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(moveX, 0, 0);
@@ -1327,6 +1375,12 @@ public class Slice169 : MonoBehaviour
                             else
                             {
                                 UpdateMeshDataWhenChooseBiggerPart();
+                                if (diffP.x > 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[3], true, false)) return; // change
                                 if (IsPeakOver1(verticesOld[2], true, false)) return; // change
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(moveX, 0, 0);
@@ -1480,6 +1534,12 @@ public class Slice169 : MonoBehaviour
 
                             if (isChooseSmallPart)
                             {
+                                if (diffP.y > 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 UpdateMeshDataWhenClickSmallerPart();
                                 if (IsPeakOver1(verticesOld[1], false,true)) break; // change
                                 if (IsPeakOver1(verticesOld[3], false, true)) break; // change
@@ -1560,6 +1620,12 @@ public class Slice169 : MonoBehaviour
                             else
                             {
                                 UpdateMeshDataWhenChooseBiggerPart();
+                                if (diffP.y < 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[0], false, true)) break; // change
                                 if (IsPeakOver1(verticesOld[2], false, true)) break; // change
 
@@ -1708,6 +1774,12 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart)
                             {
                                 UpdateMeshDataWhenClickSmallerPart();
+                                if (diffP.x > 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[2], true,false)) return; // change
                                 if (IsPeakOver1(verticesOld[3], true, false)) return; // change
 
@@ -1790,6 +1862,12 @@ public class Slice169 : MonoBehaviour
                             else
                             {
                                 UpdateMeshDataWhenChooseBiggerPart();
+                                if (diffP.x < 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[0], true, false)) break; // change
                                 if (IsPeakOver1(verticesOld[1], true, false)) break; // change
 
@@ -1937,6 +2015,12 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart)
                             {
                                 UpdateMeshDataWhenClickSmallerPart();
+                                if (diffP.y < 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[0], false,true)) return; // change
                                 if (IsPeakOver1(verticesOld[2], false, true)) return; // change
 
@@ -2017,6 +2101,12 @@ public class Slice169 : MonoBehaviour
                             else
                             {
                                 UpdateMeshDataWhenChooseBiggerPart();
+                                if (diffP.y > 0)
+                                {
+                                    startPos = currentPos;
+                                    return;
+
+                                }
                                 if (IsPeakOver1(verticesOld[1], false, true)) return; // change
                                 if (IsPeakOver1(verticesOld[3], false, true)) return; // change
 
@@ -2470,7 +2560,7 @@ public class Slice169 : MonoBehaviour
         else return false;
     }
 
-    private bool IsPeakOver1(Vector3 peak, bool x=true, bool y=true)
+    private bool IsPeakOver2(Vector3 peak, bool x=true, bool y=true)
     {
 
        // Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
@@ -2486,7 +2576,7 @@ public class Slice169 : MonoBehaviour
         else return false;
     }
 
-    private bool IsPeakOver2(Vector3 peak, bool x=true, bool y=true)
+    private bool IsPeakOver1(Vector3 peak, bool x=true, bool y=true)
     {
 
        // Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
