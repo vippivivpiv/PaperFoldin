@@ -8,7 +8,7 @@ public class MainMenuUI : GameUI
     public RemoveAdsUI RemoveAdsUI;
     public SelectMapUI SelectStageUI;
     public InGameUI InGameUI;
-
+    public TweenScale btnSetting, btnRemoveAds, btnPlay;
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
@@ -66,4 +66,46 @@ public class MainMenuUI : GameUI
         if (Game.Instance != null) Game.Instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
     }
 
+
+
+
+
+    public void  OnPressBtnSetting()
+    {
+        
+        btnSetting.PlayForward();
+    }
+
+    public void OnReleaseBtnSetting()
+    {
+
+        btnSetting.PlayReverse();
+       // OpenSetting();
+    }
+
+    public void OnPressBtnAds()
+    {
+
+        btnRemoveAds.PlayForward();
+    }
+
+    public void OnReleaseBtnAds()
+    {
+
+        btnRemoveAds.PlayReverse();
+       // OpenRemoveAds();
+    }
+
+    public void OnPressBtnPlay()
+    {
+
+        btnPlay.PlayForward();
+    }
+
+    public void OnReleaseBtnPlay()
+    {
+
+        btnPlay.PlayReverse();
+        // OpenSetting();
+    }
 }

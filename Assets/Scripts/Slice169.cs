@@ -37,7 +37,7 @@ public class Slice169 : MonoBehaviour
     public Vector3[] edgeSliced;
 
     private Vector3 startPos;
-
+    
     public  Vector2 VectorMove;
     public  Vector3 peak0, peak1, peak2, peak3;
     private Vector3 currentPos;
@@ -90,6 +90,8 @@ public class Slice169 : MonoBehaviour
     private Vector3 oldDiffP;
     private Vector3 oldStartPos;
     private bool first;
+    private bool isCheckPart;
+    private bool canMove;
     #endregion
     private void Start()
     {
@@ -370,11 +372,39 @@ public class Slice169 : MonoBehaviour
 
 
             }
+
+
         }
             
         if (!isChoosePart) return;
 
-        //if (isChooseSmallPart && !CheckTotalAngleOfPointAndSmallPolygons()) return;
+        if (!isCheckPart && Input.GetMouseButtonDown(0))
+        {
+            isCheckPart = true;
+            if (isChooseSmallPart && !CheckTotalAngleOfPointAndSmallPolygons())
+            {
+                canMove = false;
+            }
+            else if (isChooseSmallPart && CheckTotalAngleOfPointAndSmallPolygons())
+            {
+                canMove = true;
+            }
+
+            if (!isChooseSmallPart && !CheckTotalAngleOfPointAndBIgPolygons())
+            {
+                canMove = false;
+            }
+            else if (!isChooseSmallPart && CheckTotalAngleOfPointAndBIgPolygons())
+            {
+                canMove = true;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0)) isCheckPart = false;
+
+
+        if (!canMove) return;
+
         //if (!isChooseSmallPart && !CheckTotalAngleOfPointAndBIgPolygons()) return;
 
 
@@ -387,6 +417,7 @@ public class Slice169 : MonoBehaviour
                     {
                         if (!isClick)
                         {
+
                             isMoving = true;
                             isClick = true;
                             isCalculatorDiff = true;
@@ -439,51 +470,28 @@ public class Slice169 : MonoBehaviour
                             {
                                 if (diffP.x < 0)
                                 {
+
                                     startPos = currentPos;
                                     return;
 
-                                }    
+                                }
 
+                                if (diff.magnitude < 0.5f && Input.GetMouseButtonUp(0))
+                                {
+                                    Debug.Log(1);
+                                    startPos = currentPos;
+                                    isChoosePart = false;
+                                }
 
                                 if (IsPeakOver1(verticesOld[0]))
                                 {
 
 
 
-                                    //if ( !first)
-                                    //{
-                                    //    first = true;
-                                    //    oldDiffP = diffP;
-
-                                    //}
-
-                                    //deltaDiffP = oldDiffP - diffP;
-
-                                    //compensatorVector = oldDiffP + deltaDiffP;
-
-                                  //  startPos = currentPos;
                                     return;
                                 }
             
 
-                                //if (first)
-                                //{
-                                    
-                                   
-                                //}
-                                //startPos = oldStartPos - compensatorVector;
-                                //else
-                                //{
-                                //    if (first)
-                                //    {
-                                //        first = false;
-                                //        compensatorVector = diffP - oldDiffP;
-
-                                //        Debug.Log(2);
-                                //    }
-                                //}
-
-                                //    diffP += compensatorVector;
 
                                 vertices[0] = verticesOld[0] + diffP;
                                 vertices[4] = verticesOld[4] + diffP;
@@ -587,6 +595,8 @@ public class Slice169 : MonoBehaviour
                             {
                                 if (diffP.x > 0)
                                 {
+                                    if (Input.GetMouseButtonUp(0)) isChoosePart = false;
+                          
                                     startPos = currentPos;
                                     return;
 
@@ -619,6 +629,7 @@ public class Slice169 : MonoBehaviour
                     // Nhả chuột
                     if (Input.GetMouseButtonUp(0))
                     {
+                        
                         oldPos = currentPos;
                         isCalculatorDiff = false;
                         isMoving = false;
@@ -638,11 +649,13 @@ public class Slice169 : MonoBehaviour
                             lineSlicer.gameObject.SetActive(false);
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                            startPos.z = 0;
 
                         }
                         else
                         {
                             currentPos = mousePos;
+                            currentPos.z = 0;
 
                             if (!isCalculatorDiff)
                             {
@@ -843,12 +856,12 @@ public class Slice169 : MonoBehaviour
                             lineSlicer.gameObject.SetActive(false);
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
+                            startPos.z = 0;
                         }
                         else
                         {
                             currentPos = mousePos;
-
+                            currentPos.z = 0;
                             if (!isCalculatorDiff)
                             {
                                 isCalculatorDiff = true;
@@ -1045,12 +1058,12 @@ public class Slice169 : MonoBehaviour
                             lineSlicer.gameObject.SetActive(false);
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
+                            startPos.z = 0;
                         }
                         else
                         {
                             currentPos = mousePos;
-
+                            currentPos.z = 0;
                             if (!isCalculatorDiff)
                             {
                                 isCalculatorDiff = true;
@@ -1083,7 +1096,7 @@ public class Slice169 : MonoBehaviour
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
                                 // kiểm tra điều kiện các góc ko cho kéo ngược hướng
-                                if (diffP.x < 0)
+                                if (diffP.x > 0)
                                 {
                                     startPos = currentPos;
                                     return;
@@ -1190,7 +1203,7 @@ public class Slice169 : MonoBehaviour
                             else // Phần Cắt To
                             {
                                 // Test xem có kéo ngược hướng không
-                                if (diffP.x > 0)
+                                if (diffP.x < 0)
                                 {
                                     startPos = currentPos;
                                     return;
@@ -1243,12 +1256,12 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
 
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
+                            startPos.z = 0;
                         }
                         else
                         {
                             currentPos = mousePos;
-
+                            currentPos.z = 0;
                             if (!isCalculatorDiff)
                             {
                                 isCalculatorDiff = true;
@@ -1295,17 +1308,12 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                                if (IsPeakOver1(verticesOld[1], true,false)) return; // change
-                                if (IsPeakOver1(verticesOld[0], true, false)) return; // change
+
+                         //       if (IsPeakOver1(verticesOld[1], true,false)) return; // change
+                         //       if (IsPeakOver1(verticesOld[0], true, false)) return; // change
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(moveX, 0, 0);
                                 // if (newPos6.x > widthRatio || newPos7.x > widthRatio) return;
-
-                                vertices[0] = verticesOld[0] + diffP; // change
-                                vertices[1] = verticesOld[1] + diffP; // change
-                                vertices[4] = verticesOld[4] + diffP;
-                                vertices[5] = verticesOld[5] + diffP;
-
                                 if (newPos7.x > widthRatio)
                                 {
                                     if (!isYOver1)
@@ -1313,58 +1321,135 @@ public class Slice169 : MonoBehaviour
                                         vertices[3] = peak3;
                                         isYOver1 = true;
                                     }
+                                    Vector3 test = verticesOld[3] + new Vector3(0, moveY - Moved1, 0);
+                                    if (test.y < -heightRatio) return;
+                                    if (newPos6.x > widthRatio) return;
                                     vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
                                     vertices[7] = peak3 + (magDiffP - MovedDiffP1) * moveDirection;
                                     vertices[3] = verticesOld[3] + new Vector3(0, moveY - Moved1, 0);
 
                                 }
-
-                                else if (!isYOver2)
-                                {
-                                    if (isYOver1)
-                                    {
-                                        vertices[3] = new Vector3(peak3.x, peak3.y - 0.001f, 0);
-                                        isYOver1 = false;
-                                    }
-
-                                    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
-                                    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
-                                }
-
-
-                                if (newPos6.x > widthRatio)
+                                else if (newPos6.x > widthRatio)
                                 {
                                     if (!isYOver2)
                                     {
                                         vertices[2] = peak2;
                                         isYOver2 = true;
                                     }
+                                    Vector3 new2 = verticesOld[2] + new Vector3(0, moveY - Moved2, 0);
+                                    if (new2.y > heightRatio)
+                                    {
+
+                                        return;
+                                    }
+                                    if (newPos7.x > widthRatio)
+                                    {
+
+                                        return;
+
+                                    }
                                     vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
 
                                     vertices[6] = peak2 + (magDiffP - MovedDiffP2) * moveDirection;
                                     vertices[2] = verticesOld[2] + new Vector3(0, moveY - Moved2, 0);
-
                                 }
 
-                                else if (!isYOver1)
+                                else
                                 {
+
+                                    if (isYOver1)
+                                    {
+                                        vertices[3] = new Vector3(peak3.x, peak3.y - 0.001f, 0);
+                                        isYOver1 = false;
+                                    }
+
                                     if (isYOver2)
                                     {
                                         vertices[2] = new Vector3(peak2.x, peak2.y - 0.001f, 0);
                                         isYOver2 = false;
                                     }
-
                                     vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
                                     vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
                                 }
+                                //if (newPos7.x > widthRatio)
+                                //{
+                                //    if (!isYOver1)
+                                //    {
+                                //        vertices[3] = peak3;
+                                //        isYOver1 = true;
+                                //    }
+                                //    Vector3 test = verticesOld[3] + new Vector3(0, moveY - Moved1, 0);
+                                //    if (test.y < -heightRatio) return;
+                                //    if (newPos6.x > widthRatio) return;
+                                //    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
+                                //    vertices[7] = peak3 + (magDiffP - MovedDiffP1) * moveDirection;
+                                //    vertices[3] = verticesOld[3] + new Vector3(0, moveY - Moved1, 0);
+
+                                //}
+
+                                //else if (!isYOver2)
+                                //{
+                                //    if (isYOver1)
+                                //    {
+                                //        vertices[3] = new Vector3(peak3.x, peak3.y - 0.001f, 0);
+                                //        isYOver1 = false;
+                                //    }
+                                    
+
+                                //    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
+                                //    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
+                                //}
+
+
+                                //if (newPos6.x > widthRatio)
+                                //{
+                                //    if (!isYOver2)
+                                //    {
+                                //        vertices[2] = peak2;
+                                //        isYOver2 = true;
+                                //    }
+                                //    Vector3 new2 = verticesOld[2] + new Vector3(0, moveY - Moved2, 0);
+                                //    if (new2.y > heightRatio)
+                                //   {
+                  
+                                //        return;
+                                //    }
+                                //    if (newPos7.x > widthRatio)
+                                //    {
+    
+                                //        return;
+
+                                //    }
+                                //    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
+
+                                //    vertices[6] = peak2 + (magDiffP - MovedDiffP2) * moveDirection;
+                                //    vertices[2] = verticesOld[2] + new Vector3(0, moveY - Moved2, 0);
+
+                                //}
+
+                                //else if (!isYOver1)
+                                //{
+                                //    if (isYOver2)
+                                //    {
+                                //        vertices[2] = new Vector3(peak2.x, peak2.y - 0.001f, 0);
+                                //        isYOver2 = false;
+                                //    }
+                                 
+                                //    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
+                                //    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
+                                //}
+                                vertices[0] = verticesOld[0] + diffP; // change
+                                vertices[1] = verticesOld[1] + diffP; // change
+                                vertices[4] = verticesOld[4] + diffP;
+                                vertices[5] = verticesOld[5] + diffP;
 
 
                                 UpdateVerticesBackSide();
 
                                 // Update Mesh
-                                if (vertices[7].x > widthRatio) UpdateMeshDataWhenOverPeak(1);
-                                else if (vertices[6].x > widthRatio) UpdateMeshDataWhenOverPeak(2);
-                                else UpdateMeshDataWhenClickSmallerPart();
+                                if (vertices[7].x > widthRatio) { UpdateMeshDataWhenOverPeak(1); Debug.Log(1); }
+                                else if (vertices[6].x > widthRatio) { UpdateMeshDataWhenOverPeak(2); Debug.Log(2); }
+                                else { UpdateMeshDataWhenClickSmallerPart(); Debug.Log(3); }
 
                                 uvs[6] = VerToUv(vertices[6]);
                                 uvs[7] = VerToUv(vertices[7]);
@@ -1381,69 +1466,133 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                                if (IsPeakOver1(verticesOld[3], true, false)) return; // change
-                                if (IsPeakOver1(verticesOld[2], true, false)) return; // change
+                              //  if (IsPeakOver1(verticesOld[3], true, false)) return; // change
+                              //  if (IsPeakOver1(verticesOld[2], true, false)) return; // change
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(moveX, 0, 0);
                                 //if (newPos4.x < -widthRatio || newPos5.x < -widthRatio) return;
 
-                                vertices[2] = verticesOld[2] + diffP; // change
-                                vertices[3] = verticesOld[3] + diffP; // change
-                                vertices[6] = verticesOld[6] + diffP;
-                                vertices[7] = verticesOld[7] + diffP;
 
                                 if (newPos4.x < -widthRatio)
                                 {
                                     if (!isYOver3)
                                     {
-                                        vertices[3] = peak3;
+                                        vertices[0] = peak0;
                                         isYOver3 = true;
                                     }
+
+                                    Vector3 new0 = verticesOld[0] + new Vector3(0, moveY + Moved3, 0);
+                                    if (new0.y > heightRatio) return;
+                                    if (newPos5.x < -widthRatio) return;
+                                    vertices[0] = verticesOld[0] + new Vector3(0, moveY + Moved3, 0);
+
+
                                     vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
 
                                     vertices[4] = peak0 + (magDiffP + MovedDiffP3) * moveDirection;
-                                    vertices[0] = verticesOld[0] + new Vector3(0, moveY + Moved3, 0);
 
                                 }
-
-                                else if (!isYOver4)
-                                {
-                                    if (isYOver3)
-                                    {
-                                        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
-                                        isYOver3 = false;
-                                    }
-
-                                    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
-                                    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
-                                }
-                       
-
-                                if (newPos5.x < -widthRatio)
+                                else if (newPos5.x < -widthRatio)
                                 {
                                     if (!isYOver4)
                                     {
                                         vertices[1] = peak1;
                                         isYOver4 = true;
                                     }
+                                    Vector3 new1 = verticesOld[1] + new Vector3(0, moveY + Moved4, 0);
+                                    if (new1.y < -heightRatio) return;
+                                    if (newPos4.x < -widthRatio) return;
+
                                     vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
 
                                     vertices[5] = peak1 + (magDiffP + MovedDiffP4) * moveDirection;
                                     vertices[1] = verticesOld[1] + new Vector3(0, moveY + Moved4, 0);
 
                                 }
-
-                                else if (!isYOver3)
+                                else
                                 {
+
+                                    if (isYOver3)
+                                    {
+                                        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
+                                        isYOver3 = false;
+                                    }
                                     if (isYOver4)
                                     {
                                         vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
                                         isYOver4 = false;
                                     }
-
                                     vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
                                     vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
                                 }
+
+                                //if (newPos4.x < -widthRatio)
+                                //{
+                                //    if (!isYOver3)
+                                //    {
+                                //        vertices[0] = peak0;
+                                //        isYOver3 = true;
+                                //    }
+
+                                //    Vector3 new0 = verticesOld[0] + new Vector3(0, moveY + Moved3, 0);
+                                //    if (new0.y > heightRatio) return;
+                                //    if (newPos5.x < -widthRatio) return;
+                                //    vertices[0] = verticesOld[0] + new Vector3(0, moveY + Moved3, 0);
+
+
+                                //    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
+
+                                //    vertices[4] = peak0 + (magDiffP + MovedDiffP3) * moveDirection;
+
+                                //}
+
+                                //else if (!isYOver4)
+                                //{
+                                //    if (isYOver3)
+                                //    {
+                                //        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
+                                //        isYOver3 = false;
+                                //    }
+                    
+                                //    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
+                                //    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
+                                //}
+                       
+
+                                //if (newPos5.x < -widthRatio)
+                                //{
+                                //    if (!isYOver4)
+                                //    {
+                                //        vertices[1] = peak1;
+                                //        isYOver4 = true;
+                                //    }
+                                //    Vector3 new1 = verticesOld[1] + new Vector3(0, moveY + Moved4, 0);
+                                //    if (new1.y < -heightRatio) return;
+                                //    if (newPos4.x < -widthRatio) return;
+
+                                //    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
+
+                                //    vertices[5] = peak1 + (magDiffP + MovedDiffP4) * moveDirection;
+                                //    vertices[1] = verticesOld[1] + new Vector3(0, moveY + Moved4, 0);
+
+                                //}
+
+                                //else if (!isYOver3)
+                                //{
+                                //    if (isYOver4)
+                                //    {
+                                //        vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
+                                //        isYOver4 = false;
+                                //    }
+                          
+                                //    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
+                                //    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
+                                //}
+
+                                vertices[2] = verticesOld[2] + diffP; // change
+                                vertices[3] = verticesOld[3] + diffP; // change
+                                vertices[6] = verticesOld[6] + diffP;
+                                vertices[7] = verticesOld[7] + diffP;
 
 
                                 UpdateVerticesBackSide();
@@ -1488,13 +1637,15 @@ public class Slice169 : MonoBehaviour
                             lineSlicer.gameObject.SetActive(false);
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+                            startPos.z = 0;
                          //   startPos = mousePos;
-  
-                   
+
+
                         }
                         else
                         {
                             currentPos = mousePos;
+                            currentPos.z = 0;
 
                             if (!isCalculatorDiff)
                             {
@@ -1541,17 +1692,12 @@ public class Slice169 : MonoBehaviour
 
                                 }
                                 UpdateMeshDataWhenClickSmallerPart();
-                                if (IsPeakOver1(verticesOld[1], false,true)) break; // change
-                                if (IsPeakOver1(verticesOld[3], false, true)) break; // change
+                              //  if (IsPeakOver1(verticesOld[1], false,true)) break; // change
+                              //  if (IsPeakOver1(verticesOld[3], false, true)) break; // change
 
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(0, moveY, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(0, moveY, 0);
                                 //if (newPos6.y < -heightRatio || newPos7.y < -heightRatio) return;
-                                vertices[1] = verticesOld[1] + diffP; // change
-                                vertices[3] = verticesOld[3] + diffP; // change
-                                vertices[4] = verticesOld[4] + diffP;
-                                vertices[5] = verticesOld[5] + diffP;
-
 
                                 if (newPos7.y < -heightRatio)
                                 {
@@ -1560,42 +1706,37 @@ public class Slice169 : MonoBehaviour
                                         vertices[2] = peak2;
                                         isYOver1 = true;
                                     }
+                                    Vector3 new2 = verticesOld[2] + new Vector3(moveX + Moved1, 0, 0);
+                                    if (new2.x < -widthRatio) return;
+                                    if (newPos6.y < -heightRatio) return;
                                     vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
                                     vertices[7] = peak2 + (magDiffP + MovedDiffP1) * moveDirection;
                                     vertices[2] = verticesOld[2] + new Vector3(moveX + Moved1, 0, 0);
 
                                 }
-
-                                else if (!isYOver2)
-                                {
-                                    if (isYOver1)
-                                    {
-                                        vertices[2] = new Vector3(peak2.x, peak2.y /*- 0.001f*/, 0);
-                                        isYOver1 = false;
-                                    }
-
-                                    vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
-                                    vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
-                                }
-
-
-
-                                if (newPos6.y < -heightRatio)
+                                else if (newPos6.y < -heightRatio)
                                 {
                                     if (!isYOver2)
                                     {
                                         vertices[0] = peak0;
                                         isYOver2 = true;
                                     }
+                                    Vector3 new0 = verticesOld[0] + new Vector3(moveX + Moved2, 0, 0);
+                                    if (new0.x > widthRatio) return;
+                                    if (newPos7.y < -heightRatio) return;
                                     vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
 
                                     vertices[6] = peak0 + (magDiffP + MovedDiffP2) * moveDirection;
                                     vertices[0] = verticesOld[0] + new Vector3(moveX + Moved2, 0, 0);
 
                                 }
-
-                                else if (!isYOver1)
+                                else
                                 {
+                                    if (isYOver1)
+                                    {
+                                        vertices[2] = new Vector3(peak2.x, peak2.y /*- 0.001f*/, 0);
+                                        isYOver1 = false;
+                                    }
                                     if (isYOver2)
                                     {
                                         vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
@@ -1606,6 +1747,72 @@ public class Slice169 : MonoBehaviour
                                     vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
                                 }
 
+
+
+                                //if (newPos7.y < -heightRatio)
+                                //{
+                                //    if (!isYOver1)
+                                //    {
+                                //        vertices[2] = peak2;
+                                //        isYOver1 = true;
+                                //    }
+                                //    Vector3 new2 = verticesOld[2] + new Vector3(moveX + Moved1, 0, 0);
+                                //    if (new2.x < -widthRatio) return;
+                                //    if (newPos6.y < -heightRatio) return;
+                                //    vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
+                                //    vertices[7] = peak2 + (magDiffP + MovedDiffP1) * moveDirection;
+                                //    vertices[2] = verticesOld[2] + new Vector3(moveX + Moved1, 0, 0);
+
+                                //}
+
+                                //else if (!isYOver2)
+                                //{
+                                //    if (isYOver1)
+                                //    {
+                                //        vertices[2] = new Vector3(peak2.x, peak2.y /*- 0.001f*/, 0);
+                                //        isYOver1 = false;
+                                //    }
+
+                                //    vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
+                                //    vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
+                                //}
+
+
+
+                                //if (newPos6.y < -heightRatio)
+                                //{
+                                //    if (!isYOver2)
+                                //    {
+                                //        vertices[0] = peak0;
+                                //        isYOver2 = true;
+                                //    }
+                                //    Vector3 new0 = verticesOld[0] + new Vector3(moveX + Moved2, 0, 0);
+                                //    if (new0.x > widthRatio) return;
+                                //    if (newPos7.y < -heightRatio) return;
+                                //    vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
+
+                                //    vertices[6] = peak0 + (magDiffP + MovedDiffP2) * moveDirection;
+                                //    vertices[0] = verticesOld[0] + new Vector3(moveX + Moved2, 0, 0);
+
+                                //}
+
+                                //else if (!isYOver1)
+                                //{
+                                //    if (isYOver2)
+                                //    {
+                                //        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
+                                //        isYOver2 = false;
+                                //    }
+
+                                //    vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
+                                //    vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
+                                //}
+
+
+                                vertices[1] = verticesOld[1] + diffP; // change
+                                vertices[3] = verticesOld[3] + diffP; // change
+                                vertices[4] = verticesOld[4] + diffP;
+                                vertices[5] = verticesOld[5] + diffP;
                                 UpdateVerticesBackSide();
 
                                 if (vertices[7].y < -heightRatio) UpdateMeshDataWhenOverPeak(1);
@@ -1626,20 +1833,14 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                                if (IsPeakOver1(verticesOld[0], false, true)) break; // change
-                                if (IsPeakOver1(verticesOld[2], false, true)) break; // change
+                              //  if (IsPeakOver1(verticesOld[0], false, true)) break; // change
+                              //  if (IsPeakOver1(verticesOld[2], false, true)) break; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(0, moveY, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(0, moveY, 0);
                                 //if (newPos4.y > heightRatio || newPos5.y > heightRatio) return;
 
 
-                                vertices[2] = verticesOld[2] + diffP; // change
-                                vertices[0] = verticesOld[0] + diffP; // change
-                                vertices[6] = verticesOld[6] + diffP;
-                                vertices[7] = verticesOld[7] + diffP;
-
-                 
                                 if (newPos4.y > heightRatio)
                                 {
                                     if (!isYOver3)
@@ -1647,43 +1848,38 @@ public class Slice169 : MonoBehaviour
                                         vertices[1] = peak1;
                                         isYOver3 = true;
                                     }
+                                    Vector3 new1 = verticesOld[1] + new Vector3(moveX - Moved3, 0, 0);
+                                    if (new1.x > widthRatio) return;
+                                    if (newPos5.y > heightRatio) return;
                                     vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
 
                                     vertices[4] = peak1 + (magDiffP - MovedDiffP3) * moveDirection;
                                     vertices[1] = verticesOld[1] + new Vector3(moveX - Moved3, 0, 0);
 
                                 }
-
-                                else if (!isYOver4)
-                                {
-                                    if (isYOver3)
-                                    {
-                                        vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
-                                        isYOver3 = false;
-                                    }
-
-                                    vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
-                                    vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
-                                }
-
-
-
-                                if (newPos5.y > heightRatio)
+                                else if (newPos5.y > heightRatio)
                                 {
                                     if (!isYOver2)
                                     {
                                         vertices[3] = peak3;
                                         isYOver4 = true;
                                     }
+                                    Vector3 new3 = verticesOld[3] + new Vector3(moveX - Moved4, 0, 0);
+                                    if (new3.x < -widthRatio) return;
+                                    if (newPos4.y > heightRatio) return;
                                     vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
 
                                     vertices[5] = peak3 + (magDiffP - MovedDiffP4) * moveDirection;
                                     vertices[3] = verticesOld[3] + new Vector3(moveX - Moved4, 0, 0);
 
                                 }
-
-                                else if (!isYOver3)
+                                else
                                 {
+                                    if (isYOver3)
+                                    {
+                                        vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
+                                        isYOver3 = false;
+                                    }
                                     if (isYOver4)
                                     {
                                         vertices[3] = new Vector3(peak3.x, peak3.y /*- 0.001f*/, 0);
@@ -1692,8 +1888,74 @@ public class Slice169 : MonoBehaviour
 
                                     vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
                                     vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
+
                                 }
 
+                                //if (newPos4.y > heightRatio)
+                                //{
+                                //    if (!isYOver3)
+                                //    {
+                                //        vertices[1] = peak1;
+                                //        isYOver3 = true;
+                                //    }
+                                //    Vector3 new1 = verticesOld[1] + new Vector3(moveX - Moved3, 0, 0);
+                                //    if (new1.x > widthRatio) return;
+                                //    if (newPos5.y > heightRatio) return;
+                                //    vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
+
+                                //    vertices[4] = peak1 + (magDiffP - MovedDiffP3) * moveDirection;
+                                //    vertices[1] = verticesOld[1] + new Vector3(moveX - Moved3, 0, 0);
+
+                                //}
+
+                                //else if (!isYOver4)
+                                //{
+                                //    if (isYOver3)
+                                //    {
+                                //        vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
+                                //        isYOver3 = false;
+                                //    }
+
+                                //    vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
+                                //    vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
+                                //}
+
+
+
+                                //if (newPos5.y > heightRatio)
+                                //{
+                                //    if (!isYOver2)
+                                //    {
+                                //        vertices[3] = peak3;
+                                //        isYOver4 = true;
+                                //    }
+                                //    Vector3 new3 = verticesOld[3] + new Vector3(moveX - Moved4, 0, 0);
+                                //    if (new3.x < -widthRatio) return;
+                                //    if (newPos4.y > heightRatio) return;
+                                //    vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
+
+                                //    vertices[5] = peak3 + (magDiffP - MovedDiffP4) * moveDirection;
+                                //    vertices[3] = verticesOld[3] + new Vector3(moveX - Moved4, 0, 0);
+
+                                //}
+
+                                //else if (!isYOver3)
+                                //{
+                                //    if (isYOver4)
+                                //    {
+                                //        vertices[3] = new Vector3(peak3.x, peak3.y /*- 0.001f*/, 0);
+                                //        isYOver4 = false;
+                                //    }
+
+                                //    vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
+                                //    vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
+                                //}
+
+
+                                vertices[2] = verticesOld[2] + diffP; // change
+                                vertices[0] = verticesOld[0] + diffP; // change
+                                vertices[6] = verticesOld[6] + diffP;
+                                vertices[7] = verticesOld[7] + diffP;
                                 UpdateVerticesBackSide();
 
                                 if (vertices[4].y > heightRatio) UpdateMeshDataWhenOverPeak(3);
@@ -1731,12 +1993,12 @@ public class Slice169 : MonoBehaviour
                             lineSlicer.gameObject.SetActive(false);
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
+                            startPos.z = 0;
                         }
                         else
                         {
                             currentPos = mousePos;
-
+                            currentPos.z = 0;
 
                             if (!isCalculatorDiff)
                             {
@@ -1780,13 +2042,9 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                                if (IsPeakOver1(verticesOld[2], true,false)) return; // change
-                                if (IsPeakOver1(verticesOld[3], true, false)) return; // change
+                               // if (IsPeakOver1(verticesOld[2], true,false)) return; // change
+                               // if (IsPeakOver1(verticesOld[3], true, false)) return; // change
 
-                                vertices[2] = verticesOld[2] + diffP; // change
-                                vertices[3] = verticesOld[3] + diffP; // change
-                                vertices[4] = verticesOld[4] + diffP;
-                                vertices[5] = verticesOld[5] + diffP;
 
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(moveX, 0, 0);
@@ -1799,15 +2057,34 @@ public class Slice169 : MonoBehaviour
                                         vertices[1] = peak1;
                                         isYOver1 = true;
                                     }
+                                    if (newPos7.x < -widthRatio) return;
                                     vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
 
                                     vertices[6] = peak1 + (magDiffP + MovedDiffP1) * moveDirection;
                                     vertices[1] = verticesOld[1] + new Vector3(0, moveY + Moved1, 0);
 
                                 }
-
-                                else if (!isYOver2)
+                                else if (newPos7.x < -widthRatio)
                                 {
+                                    if (!isYOver2)
+                                    {
+                                        vertices[0] = peak0;
+                                        isYOver2 = true;
+                                    }
+                                    if (newPos6.x < -widthRatio) return;
+                                    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
+
+                                    vertices[7] = peak0 + (magDiffP + MovedDiffP2) * moveDirection;
+                                    vertices[0] = verticesOld[0] + new Vector3(0, moveY + Moved2, 0);
+
+                                }
+                                else
+                                {
+                                    if (isYOver2)
+                                    {
+                                        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
+                                        isYOver2 = false;
+                                    }
                                     if (isYOver1)
                                     {
                                         vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
@@ -1818,33 +2095,63 @@ public class Slice169 : MonoBehaviour
                                     vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
                                 }
 
+                                //if (newPos6.x < -widthRatio)
+                                //{
+                                //    if (!isYOver1)
+                                //    {
+                                //        vertices[1] = peak1;
+                                //        isYOver1 = true;
+                                //    }
+                                //    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
 
-                                if (newPos7.x < -widthRatio)
-                                {
-                                    if (!isYOver2)
-                                    {
-                                        vertices[0] = peak0;
-                                        isYOver2 = true;
-                                    }
-                                    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
+                                //    vertices[6] = peak1 + (magDiffP + MovedDiffP1) * moveDirection;
+                                //    vertices[1] = verticesOld[1] + new Vector3(0, moveY + Moved1, 0);
 
-                                    vertices[7] = peak0 + (magDiffP + MovedDiffP2) * moveDirection;
-                                    vertices[0] = verticesOld[0] + new Vector3(0, moveY + Moved2, 0);
+                                //}
 
-                                }
+                                //else if (!isYOver2)
+                                //{
+                                //    if (isYOver1)
+                                //    {
+                                //        vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
+                                //        isYOver1 = false;
+                                //    }
 
-                                else if (!isYOver1)
-                                {
-                                    if (isYOver2)
-                                    {
-                                        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
-                                        isYOver2 = false;
-                                    }
+                                //    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
+                                //    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
+                                //}
 
-                                    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
-                                    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
-                                }
 
+                                //if (newPos7.x < -widthRatio)
+                                //{
+                                //    if (!isYOver2)
+                                //    {
+                                //        vertices[0] = peak0;
+                                //        isYOver2 = true;
+                                //    }
+                                //    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
+
+                                //    vertices[7] = peak0 + (magDiffP + MovedDiffP2) * moveDirection;
+                                //    vertices[0] = verticesOld[0] + new Vector3(0, moveY + Moved2, 0);
+
+                                //}
+
+                                //else if (!isYOver1)
+                                //{
+                                //    if (isYOver2)
+                                //    {
+                                //        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
+                                //        isYOver2 = false;
+                                //    }
+
+                                //    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
+                                //    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
+                                //}
+
+                                vertices[2] = verticesOld[2] + diffP; // change
+                                vertices[3] = verticesOld[3] + diffP; // change
+                                vertices[4] = verticesOld[4] + diffP;
+                                vertices[5] = verticesOld[5] + diffP;
 
                                 UpdateVerticesBackSide();
 
@@ -1868,17 +2175,13 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                                if (IsPeakOver1(verticesOld[0], true, false)) break; // change
-                                if (IsPeakOver1(verticesOld[1], true, false)) break; // change
+                               // if (IsPeakOver1(verticesOld[0], true, false)) break; // change
+                              //  if (IsPeakOver1(verticesOld[1], true, false)) break; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(moveX, 0, 0);
                             //    if (newPos4.x > widthRatio || newPos5.x > widthRatio) return;
 
-                                vertices[0] = verticesOld[0] + diffP; // change
-                                vertices[1] = verticesOld[1] + diffP; // change
-                                vertices[6] = verticesOld[6] + diffP;
-                                vertices[7] = verticesOld[7] + diffP;
 
                                 if (newPos5.x > widthRatio)
                                 {
@@ -1887,43 +2190,35 @@ public class Slice169 : MonoBehaviour
                                         vertices[2] = peak2;
                                         isYOver3 = true;
                                     }
+                                    if (newPos4.x > widthRatio) return;
                                     vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
 
                                     vertices[5] = peak2 + (magDiffP - MovedDiffP3) * moveDirection;
                                     vertices[2] = verticesOld[2] + new Vector3(0, moveY - Moved3, 0);
 
                                 }
-
-                                else if (!isYOver4)
-                                {
-                                    if (isYOver3)
-                                    {
-                                        vertices[2] = new Vector3(peak2.x, peak2.y /*- 0.001f*/, 0);
-                                        isYOver3 = false;
-                                    }
-
-                                    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
-                                    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
-                                }
-
-
-                                if (newPos4.x > widthRatio)
+                                else if (newPos4.x > widthRatio)
                                 {
                                     if (!isYOver4)
                                     {
                                         vertices[3] = peak3;
                                         isYOver4 = true;
                                     }
+                                    if (newPos5.x > widthRatio) return;
                                     vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
 
                                     vertices[4] = peak3 + (magDiffP - MovedDiffP4) * moveDirection;
                                     vertices[3] = verticesOld[3] + new Vector3(0, moveY - Moved4, 0);
 
                                 }
-
-                                else if (!isYOver3)
+                                else
                                 {
-                                    
+
+                                    if (isYOver3)
+                                    {
+                                        vertices[2] = new Vector3(peak2.x, peak2.y /*- 0.001f*/, 0);
+                                        isYOver3 = false;
+                                    }
                                     if (isYOver4)
                                     {
                                         vertices[3] = new Vector3(peak3.x, peak3.y /*- 0.001f*/, 0);
@@ -1934,6 +2229,64 @@ public class Slice169 : MonoBehaviour
                                     vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
                                 }
 
+                                //if (newPos5.x > widthRatio)
+                                //{
+                                //    if (!isYOver3)
+                                //    {
+                                //        vertices[2] = peak2;
+                                //        isYOver3 = true;
+                                //    }
+                                //    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
+
+                                //    vertices[5] = peak2 + (magDiffP - MovedDiffP3) * moveDirection;
+                                //    vertices[2] = verticesOld[2] + new Vector3(0, moveY - Moved3, 0);
+
+                                //}
+
+                                //else if (!isYOver4)
+                                //{
+                                //    if (isYOver3)
+                                //    {
+                                //        vertices[2] = new Vector3(peak2.x, peak2.y /*- 0.001f*/, 0);
+                                //        isYOver3 = false;
+                                //    }
+
+                                //    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
+                                //    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
+                                //}
+
+
+                                //if (newPos4.x > widthRatio)
+                                //{
+                                //    if (!isYOver4)
+                                //    {
+                                //        vertices[3] = peak3;
+                                //        isYOver4 = true;
+                                //    }
+                                //    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
+
+                                //    vertices[4] = peak3 + (magDiffP - MovedDiffP4) * moveDirection;
+                                //    vertices[3] = verticesOld[3] + new Vector3(0, moveY - Moved4, 0);
+
+                                //}
+
+                                //else if (!isYOver3)
+                                //{
+
+                                //    if (isYOver4)
+                                //    {
+                                //        vertices[3] = new Vector3(peak3.x, peak3.y /*- 0.001f*/, 0);
+                                //        isYOver4 = false;
+                                //    }
+
+                                //    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
+                                //    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
+                                //}
+
+                                vertices[0] = verticesOld[0] + diffP; // change
+                                vertices[1] = verticesOld[1] + diffP; // change
+                                vertices[6] = verticesOld[6] + diffP;
+                                vertices[7] = verticesOld[7] + diffP;
 
                                 UpdateVerticesBackSide();
 
@@ -1973,12 +2326,12 @@ public class Slice169 : MonoBehaviour
                             lineSlicer.gameObject.SetActive(false);
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
+                            startPos.z = 0;
                         }
                         else
                         {
                             currentPos = mousePos;
-
+                            currentPos.z = 0;
 
                             if (!isCalculatorDiff)
                             {
@@ -2021,18 +2374,14 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                                if (IsPeakOver1(verticesOld[0], false,true)) return; // change
-                                if (IsPeakOver1(verticesOld[2], false, true)) return; // change
+                            //    if (IsPeakOver1(verticesOld[0], false,true)) return; // change
+                             //   if (IsPeakOver1(verticesOld[2], false, true)) return; // change
 
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(0, moveY, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(0, moveY, 0);
                                 //if (newPos6.y > heightRatio || newPos7.y > heightRatio) return;
 
-                                vertices[0] = verticesOld[0] + diffP; // change
-                                vertices[2] = verticesOld[2] + diffP; // change
-                                vertices[4] = verticesOld[4] + diffP;
-                                vertices[5] = verticesOld[5] + diffP;
-
+     
                                 if (newPos6.y > heightRatio)
                                 {
                                     if (!isYOver1)
@@ -2040,52 +2389,99 @@ public class Slice169 : MonoBehaviour
                                         vertices[3] = peak3;
                                         isYOver1 = true;
                                     }
+                                    if (newPos7.y > heightRatio) return;
                                     vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
                                     vertices[6] = peak3 + (magDiffP + MovedDiffP1) * moveDirection;
                                     vertices[3] = verticesOld[3] + new Vector3(moveX + Moved1, 0, 0);
 
                                 }
 
-                                else if (!isYOver2)
-                                {
-                                    if (isYOver1)
-                                    {
-                                        vertices[3] = new Vector3(peak3.x, peak3.y /*- 0.001f*/, 0);
-                                        isYOver1 = false;
-                                    }
-
-                                    vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
-                                    vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
-                                }
-
-
-
-                                if (newPos7.y > heightRatio)
+                                else if (newPos7.y > heightRatio)
                                 {
                                     if (!isYOver2)
                                     {
                                         vertices[1] = peak1;
                                         isYOver2 = true;
                                     }
+                                    if (newPos6.y > heightRatio) return;
                                     vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
 
                                     vertices[7] = peak1 + (magDiffP + MovedDiffP2) * moveDirection;
                                     vertices[1] = verticesOld[1] + new Vector3(moveX + Moved2, 0, 0);
 
                                 }
-
-                                else if (!isYOver1)
+                                else
                                 {
+                                    if (isYOver1)
+                                    {
+                                        vertices[3] = new Vector3(peak3.x, peak3.y /*- 0.001f*/, 0);
+                                        isYOver1 = false;
+                                    }
                                     if (isYOver2)
                                     {
                                         vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
                                         isYOver2 = false;
                                     }
-
                                     vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
                                     vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
                                 }
 
+                                //if (newPos6.y > heightRatio)
+                                //{
+                                //    if (!isYOver1)
+                                //    {
+                                //        vertices[3] = peak3;
+                                //        isYOver1 = true;
+                                //    }
+                                //    vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
+                                //    vertices[6] = peak3 + (magDiffP + MovedDiffP1) * moveDirection;
+                                //    vertices[3] = verticesOld[3] + new Vector3(moveX + Moved1, 0, 0);
+
+                                //}
+
+                                //else if (!isYOver2)
+                                //{
+                                //    if (isYOver1)
+                                //    {
+                                //        vertices[3] = new Vector3(peak3.x, peak3.y /*- 0.001f*/, 0);
+                                //        isYOver1 = false;
+                                //    }
+
+                                //    vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
+                                //    vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
+                                //}
+
+
+
+                                //if (newPos7.y > heightRatio)
+                                //{
+                                //    if (!isYOver2)
+                                //    {
+                                //        vertices[1] = peak1;
+                                //        isYOver2 = true;
+                                //    }
+                                //    vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
+
+                                //    vertices[7] = peak1 + (magDiffP + MovedDiffP2) * moveDirection;
+                                //    vertices[1] = verticesOld[1] + new Vector3(moveX + Moved2, 0, 0);
+
+                                //}
+
+                                //else if (!isYOver1)
+                                //{
+                                //    if (isYOver2)
+                                //    {
+                                //        vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
+                                //        isYOver2 = false;
+                                //    }
+
+                                //    vertices[7] = verticesOld[7] + new Vector3(0, moveY, 0);
+                                //    vertices[6] = verticesOld[6] + new Vector3(0, moveY, 0);
+                                //}
+                                vertices[0] = verticesOld[0] + diffP; // change
+                                vertices[2] = verticesOld[2] + diffP; // change
+                                vertices[4] = verticesOld[4] + diffP;
+                                vertices[5] = verticesOld[5] + diffP;
                                 UpdateVerticesBackSide();
 
                                 if (vertices[6].y > heightRatio) UpdateMeshDataWhenOverPeak(1);
@@ -2107,17 +2503,13 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                                if (IsPeakOver1(verticesOld[1], false, true)) return; // change
-                                if (IsPeakOver1(verticesOld[3], false, true)) return; // change
+                            //    if (IsPeakOver1(verticesOld[1], false, true)) return; // change
+                            //    if (IsPeakOver1(verticesOld[3], false, true)) return; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(0, moveY, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(0, moveY, 0);
                                // if (newPos4.y < -heightRatio || newPos5.y < -heightRatio) return;
 
-                                vertices[1] = verticesOld[1] + diffP; // change
-                                vertices[3] = verticesOld[3] + diffP; // change
-                                vertices[6] = verticesOld[6] + diffP;
-                                vertices[7] = verticesOld[7] + diffP;
                                 if (newPos5.y < -heightRatio)
                                 {
                                     if (!isYOver3)
@@ -2125,52 +2517,101 @@ public class Slice169 : MonoBehaviour
                                         vertices[0] = peak0;
                                         isYOver3 = true;
                                     }
+                                    if (newPos4.y < -heightRatio) return;
                                     vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
 
                                     vertices[5] = peak0 + (magDiffP - MovedDiffP3) * moveDirection;
                                     vertices[0] = verticesOld[0] + new Vector3(moveX - Moved3, 0, 0);
 
                                 }
-
-                                else if (!isYOver4)
-                                {
-                                    if (isYOver3)
-                                    {
-                                        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
-                                        isYOver3 = false;
-                                    }
-
-                                    vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
-                                    vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
-                                }
-
-
-
-                                if (newPos4.y < -heightRatio)
+                                else if (newPos4.y < -heightRatio)
                                 {
                                     if (!isYOver2)
                                     {
                                         vertices[2] = peak2;
                                         isYOver4 = true;
                                     }
+                                    if (newPos5.y < -heightRatio) return;
                                     vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
 
                                     vertices[4] = peak2 + (magDiffP - MovedDiffP4) * moveDirection;
                                     vertices[2] = verticesOld[2] + new Vector3(moveX - Moved4, 0, 0);
 
                                 }
-
-                                else if (!isYOver3)
+                                else
                                 {
+                                    if (isYOver3)
+                                    {
+                                        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
+                                        isYOver3 = false;
+                                    }
                                     if (isYOver4)
                                     {
                                         vertices[2] = new Vector3(peak2.x, peak2.y /*- 0.001f*/, 0);
                                         isYOver4 = false;
                                     }
-
                                     vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
                                     vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
                                 }
+
+                                //if (newPos5.y < -heightRatio)
+                                //{
+                                //    if (!isYOver3)
+                                //    {
+                                //        vertices[0] = peak0;
+                                //        isYOver3 = true;
+                                //    }
+                                //    vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
+
+                                //    vertices[5] = peak0 + (magDiffP - MovedDiffP3) * moveDirection;
+                                //    vertices[0] = verticesOld[0] + new Vector3(moveX - Moved3, 0, 0);
+
+                                //}
+
+                                //else if (!isYOver4)
+                                //{
+                                //    if (isYOver3)
+                                //    {
+                                //        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
+                                //        isYOver3 = false;
+                                //    }
+
+                                //    vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
+                                //    vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
+                                //}
+
+
+
+                                //if (newPos4.y < -heightRatio)
+                                //{
+                                //    if (!isYOver2)
+                                //    {
+                                //        vertices[2] = peak2;
+                                //        isYOver4 = true;
+                                //    }
+                                //    vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
+
+                                //    vertices[4] = peak2 + (magDiffP - MovedDiffP4) * moveDirection;
+                                //    vertices[2] = verticesOld[2] + new Vector3(moveX - Moved4, 0, 0);
+
+                                //}
+
+                                //else if (!isYOver3)
+                                //{
+                                //    if (isYOver4)
+                                //    {
+                                //        vertices[2] = new Vector3(peak2.x, peak2.y /*- 0.001f*/, 0);
+                                //        isYOver4 = false;
+                                //    }
+
+                                //    vertices[4] = verticesOld[4] + new Vector3(0, moveY, 0);
+                                //    vertices[5] = verticesOld[5] + new Vector3(0, moveY, 0);
+                                //}
+
+                                vertices[1] = verticesOld[1] + diffP; // change
+                                vertices[3] = verticesOld[3] + diffP; // change
+                                vertices[6] = verticesOld[6] + diffP;
+                                vertices[7] = verticesOld[7] + diffP;
 
                                 UpdateVerticesBackSide();
 
@@ -2200,6 +2641,23 @@ public class Slice169 : MonoBehaviour
             default: break;
 
 
+        }
+
+
+
+        if (diffP.magnitude < 0.3f && Input.GetMouseButtonUp(0))
+        {
+            Debug.Log(1);
+            startPos = currentPos;
+            for (int i = 0; i < 16; i++)
+            {
+                vertices[i] = verticesOld[i];
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                uvs[i] = VerToUv(vertices[i]);
+            }
+            isChoosePart = false;
         }
 
         VectorMove = v3tov2(diffP);
@@ -3934,7 +4392,7 @@ public class Slice169 : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawSphere(vertices[1], 0.5f);
             Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(vertices[3], 0.5f);
+            Gizmos.DrawSphere(vertices[2], 0.5f);
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(vertices[6], 0.5f);
             Gizmos.color = Color.black;

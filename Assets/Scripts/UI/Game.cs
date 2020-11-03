@@ -28,6 +28,8 @@ public class Game : MonoBehaviour
     {
         if (Instance != null) return;
         Instance = this;
+
+        Application.targetFrameRate = 60;
     }
     private void Update()
     {

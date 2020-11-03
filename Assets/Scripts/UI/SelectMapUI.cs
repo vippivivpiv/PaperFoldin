@@ -31,9 +31,12 @@ public class SelectMapUI : GameUI
     {
 
         base.Show();
+
         BackgroundManager.instance.selectMap.SetActive(true);
         // InstantiateSelectMap();
+
         UpdateStateOfSelectMap();
+
         CompletedMapCount.text = "Level: " + DataPlayer.GetTextOfCompletedMapCount();
     }
 
@@ -89,4 +92,5 @@ public class SelectMapUI : GameUI
         InGameUI.Show();
         Game.Instance.LoadMap();
     }
+
 }

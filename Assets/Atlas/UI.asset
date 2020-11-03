@@ -16,7 +16,7 @@ MonoBehaviour:
   mSprites:
   - name: ads
     x: 951
-    y: 1322
+    y: 1593
     width: 682
     height: 686
     borderLeft: 0
@@ -28,8 +28,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ADS
-    x: 0
-    y: 1050
+    x: 1322
+    y: 778
     width: 104
     height: 105
     borderLeft: 0
@@ -40,9 +40,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: blackBoder
+    x: 0
+    y: 168
+    width: 999
+    height: 1200
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
   - name: bt_back
-    x: 528
-    y: 750
+    x: 1021
+    y: 24
     width: 137
     height: 139
     borderLeft: 0
@@ -54,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bt_buy
-    x: 0
-    y: 211
+    x: 1000
+    y: 164
     width: 527
     height: 227
     borderLeft: 0
@@ -67,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BT_on_off
-    x: 403
-    y: 8
+    x: 368
+    y: 53
     width: 211
     height: 114
     borderLeft: 0
@@ -80,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Bt_play
-    x: 0
-    y: 35
+    x: 1000
+    y: 463
     width: 402
     height: 175
     borderLeft: 0
@@ -93,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: exit
-    x: 302
-    y: 912
+    x: 1322
+    y: 997
     width: 117
     height: 111
     borderLeft: 0
@@ -106,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_back
-    x: 620
-    y: 1030
+    x: 883
+    y: 24
     width: 137
     height: 139
     borderLeft: 0
@@ -119,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_hint
-    x: 455
-    y: 1024
+    x: 580
+    y: 22
     width: 164
     height: 145
     borderLeft: 0
@@ -132,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_reset
-    x: 620
-    y: 890
+    x: 745
+    y: 28
     width: 137
     height: 139
     borderLeft: 0
@@ -158,8 +171,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: khung_level_complete
-    x: 951
-    y: 2733
+    x: 0
+    y: 1369
     width: 950
     height: 1363
     borderLeft: 0
@@ -171,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: khung_level_selectmap
-    x: 455
-    y: 1170
+    x: 1000
+    y: 639
     width: 321
     height: 469
     borderLeft: 0
@@ -184,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: khung_option
-    x: 0
-    y: 1640
+    x: 951
+    y: 3004
     width: 950
     height: 1092
     borderLeft: 0
@@ -197,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Layer 16 copy 2
-    x: 403
-    y: 123
+    x: 0
+    y: 80
     width: 367
     height: 87
     borderLeft: 0
@@ -211,7 +224,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: logo
     x: 951
-    y: 2009
+    y: 2280
     width: 779
     height: 723
     borderLeft: 0
@@ -224,7 +237,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: no_thank
     x: 0
-    y: 972
+    y: 28
     width: 301
     height: 51
     borderLeft: 0
@@ -236,8 +249,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: play
-    x: 0
-    y: 1156
+    x: 1000
+    y: 1109
     width: 454
     height: 483
     borderLeft: 0
@@ -249,8 +262,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: setting
-    x: 420
-    y: 911
+    x: 1322
+    y: 884
     width: 108
     height: 112
     borderLeft: 0
@@ -262,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: vuong_mien
-    x: 105
-    y: 1088
+    x: 1322
+    y: 710
     width: 99
     height: 67
     borderLeft: 0
@@ -275,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: vuong_mien_be
-    x: 529
-    y: 963
+    x: 1322
+    y: 649
     width: 76
     height: 60
     borderLeft: 0
@@ -288,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: whitebackgorund 1
-    x: 777
-    y: 439
+    x: 1455
+    y: 392
     width: 100
     height: 1200
     borderLeft: 0

@@ -31,8 +31,8 @@ public class Exhibit : MonoBehaviour
             SelectMapUI.selectMapFrameUIs.Add(sss);
         }
 
-        GameObject n = new GameObject();
-        Instantiate(n, grid.transform);
+       // GameObject n = new GameObject();
+        Instantiate(new GameObject(), grid.transform);
 
         SelectMapFrameUI s = Instantiate(SelectMapFrameUIprefab, grid.transform);
         s.gameObject.name = "Map" + ((sttExh - 1) * 10 + 10).ToString();

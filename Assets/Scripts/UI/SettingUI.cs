@@ -7,6 +7,21 @@ public class SettingUI : GameUI
     public MainMenuUI MainMenuUI;
     public Transform thanhTruotSound, thanhTruotFx;
 
+    public TweenPosition tweenPosition;
+
+
+    public new void Show()
+    {
+        base.Show();
+
+        tweenPosition.from = new Vector3(0, 1600, 0);
+        tweenPosition.to = Vector3.zero;    
+        tweenPosition.PlayForward();
+        tweenPosition.ResetToBeginning();
+
+    }
+
+
     private void Start()
     {
         CheckSound();
@@ -14,7 +29,13 @@ public class SettingUI : GameUI
     }
     public void CloseSetting()
     {
-        Hide();
+        tweenPosition.from = new Vector3(0, -1600, 0);
+        tweenPosition.to = Vector3.zero;
+
+        tweenPosition.PlayReverse();
+        tweenPosition.ResetToBeginning();
+        Invoke("Hide", 0.2f);
+       // Hide();
     }
     public void ClickChangeSound()
     {

@@ -10,10 +10,14 @@ public class LevelComplete : GameUI
     public UISprite blackImage;
     public SpecialLevelUI SpecialLevelUI;
     public UILabel CompletedMapCount;
+    public TweenScale tweenScale;
 
     public new void Show()
     {
         base.Show();
+
+        tweenScale.PlayForward();
+
         BackgroundManager.instance.selectMap.SetActive(true);
         blackImage.spriteName = "Map" + Game.Instance.playingMap.GetComponentInChildren<ImageProperties>().stt + "_3";
         CompletedMapCount.text = DataPlayer.GetTextOfCompletedMapCount();
