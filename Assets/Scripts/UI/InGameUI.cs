@@ -12,22 +12,40 @@ public class InGameUI : GameUI
 
     public GameObject Btn_WatchAds;
 
-    
+
     public new void Show()
     {
         base.Show();
         BackgroundImageUI.Show();
+
         BackgroundManager.instance.Ingame.SetActive(true);
 
-        if (Game.Instance.currentMap %10 !=0)
+        //Panel.GetComponent<TweenAlpha>().from = 0;
+        //Panel.GetComponent<TweenAlpha>().to = 1;
+        //Panel.GetComponent<TweenAlpha>().ResetToBeginning();
+        //Panel.GetComponent<TweenAlpha>().PlayForward();
+
+        //BackgroundManager.instance.Ingame.GetComponent<TweenAlpha>().from = 0;
+        //BackgroundManager.instance.Ingame.GetComponent<TweenAlpha>().to = 1;
+        //BackgroundManager.instance.Ingame.GetComponent<TweenAlpha>().ResetToBeginning();
+        //BackgroundManager.instance.Ingame.GetComponent<TweenAlpha>().PlayForward();
+
+        //BackgroundImageUI.Panel.GetComponent<TweenAlpha>().from = 0;
+        //BackgroundImageUI.Panel.GetComponent<TweenAlpha>().from = 0;
+        //BackgroundImageUI.Panel.GetComponent<TweenAlpha>().to = 1;
+        //BackgroundImageUI.Panel.GetComponent<TweenAlpha>().ResetToBeginning();
+        //BackgroundImageUI.Panel.GetComponent<TweenAlpha>().PlayForward();
+
+
+        if (Game.Instance.currentMap % 10 != 0)
         {
-            currentLevel.text = "Level " + DataPlayer.Get10to9(Game.Instance.currentMap).ToString() ;
+            currentLevel.text = "Level " + DataPlayer.Get10to9(Game.Instance.currentMap).ToString();
         }
         else
         {
             currentLevel.text = "Special Level " + DataPlayer.Get10to9(Game.Instance.currentMap).ToString();
         }
-        
+
         Btn_WatchAds.GetComponent<UISprite>().color = Color.white;
         Btn_WatchAds.GetComponent<TweenColor>().enabled = false;
     }
@@ -36,6 +54,7 @@ public class InGameUI : GameUI
         base.Hide();
         BackgroundManager.instance.Ingame.SetActive(false);
         BackgroundImageUI.Hide();
+        if (Game.Instance.playingMap != null) Destroy(Game.Instance.playingMap.gameObject);
     }
 
     public void LoadMap()
@@ -45,9 +64,9 @@ public class InGameUI : GameUI
 
     public void LevelCompleted()
     {
-        Hide();
+        //Hide();
         LevelComplete.Show();
-       
+
     }
 
     public void BackToSelectMap()
@@ -58,7 +77,7 @@ public class InGameUI : GameUI
         SelectStageUI.Show();
 
         Game.Instance.DestroyMap();
- 
+
     }
 
     public void Replay()
@@ -80,5 +99,5 @@ public class InGameUI : GameUI
         Debug.Log("WatchAds");
     }
 
-   
+
 }

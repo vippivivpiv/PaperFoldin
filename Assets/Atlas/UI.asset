@@ -28,8 +28,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ADS
-    x: 1322
-    y: 778
+    x: 1320
+    y: 8
     width: 104
     height: 105
     borderLeft: 0
@@ -54,8 +54,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bt_back
-    x: 1021
-    y: 24
+    x: 377
+    y: 28
     width: 137
     height: 139
     borderLeft: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bt_buy
-    x: 1000
+    x: 1455
     y: 164
     width: 527
     height: 227
@@ -80,7 +80,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: BT_on_off
-    x: 368
+    x: 0
     y: 53
     width: 211
     height: 114
@@ -94,7 +94,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Bt_play
     x: 1000
-    y: 463
+    y: 202
     width: 402
     height: 175
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: exit
-    x: 1322
-    y: 997
+    x: 1093
+    y: 2
     width: 117
     height: 111
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_back
-    x: 883
-    y: 24
+    x: 515
+    y: 28
     width: 137
     height: 139
     borderLeft: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_hint
-    x: 580
+    x: 212
     y: 22
     width: 164
     height: 145
@@ -145,7 +145,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_reset
-    x: 745
+    x: 653
     y: 28
     width: 137
     height: 139
@@ -157,11 +157,11 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: khung_level
-    x: 0
-    y: 2733
-    width: 950
-    height: 1363
+  - name: khung
+    x: 1000
+    y: 862
+    width: 611
+    height: 730
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: khung_level_complete
+  - name: khung_level
     x: 0
     y: 1369
     width: 950
@@ -183,9 +183,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: khung_level_complete
+    x: 0
+    y: 2733
+    width: 950
+    height: 1363
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: khung_level_selectmap
-    x: 1000
-    y: 639
+    x: 1455
+    y: 392
     width: 321
     height: 469
     borderLeft: 0
@@ -210,8 +223,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Layer 16 copy 2
-    x: 0
-    y: 80
+    x: 1000
+    y: 114
     width: 367
     height: 87
     borderLeft: 0
@@ -236,8 +249,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: no_thank
-    x: 0
-    y: 28
+    x: 791
+    y: 62
     width: 301
     height: 51
     borderLeft: 0
@@ -250,7 +263,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: play
     x: 1000
-    y: 1109
+    y: 378
     width: 454
     height: 483
     borderLeft: 0
@@ -262,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: setting
-    x: 1322
-    y: 884
+    x: 1211
+    y: 1
     width: 108
     height: 112
     borderLeft: 0
@@ -275,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: vuong_mien
-    x: 1322
-    y: 710
+    x: 1425
+    y: 96
     width: 99
     height: 67
     borderLeft: 0
@@ -288,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: vuong_mien_be
-    x: 1322
-    y: 649
+    x: 791
+    y: 1
     width: 76
     height: 60
     borderLeft: 0
@@ -301,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: whitebackgorund 1
-    x: 1455
-    y: 392
+    x: 1634
+    y: 1079
     width: 100
     height: 1200
     borderLeft: 0

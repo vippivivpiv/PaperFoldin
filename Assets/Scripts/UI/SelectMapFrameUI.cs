@@ -31,6 +31,9 @@ public class SelectMapFrameUI : MonoBehaviour
     public bool isCompleted;
     public bool isUnlock;
 
+    public bool canClick;
+
+    UI2DSprite s;
     public void UpdateStateOfMap()
     {
 
@@ -59,34 +62,68 @@ public class SelectMapFrameUI : MonoBehaviour
 
         UI2DSprite_MapImage.sprite2D = Game.Instance.images[indexOfMap - 1].Image;
 
+        UI2DSprite_MapImage.transform.SetParent(this.transform);
+        UI2DSprite_MapImage.transform.localScale = Vector3.one;
+        UI2DSprite_MapImage.transform.localPosition = new Vector3(0, 30, 0);
+
         index.text = nameOfMap;
 
         isCom.enabled = isCompleted ? true : false;
+
+        canClick = true;
     }
 
     public void OnSelectThis()
     {
         if (!isUnlock) return;
+        if (!SelectMapUI.canClick) return;
 
+        SelectMapUI.canClick = false;
         Game.Instance.currentMap = indexOfMap;
 
-        //StartCoroutine(LoadMap());
         SelectMapUI.LoadMap();
+
+        // Invoke("DestroyImage", 0.6f);
+        //  StartCoroutine(LoadMap());
+
     }
 
 
-    //IEnumerator LoadMap()
-    //{
-    //    GameObject s = Instantiate(UI2DSprite_MapImage.gameObject,SelectMapUI.Panel.transform);
-    //    s.GetComponent<UI2DSprite>().depth = 3; 
-    //    s.GetComponent<TweenPosition>().from = transform.localPosition;
-    //    s.GetComponent<TweenPosition>().to = Vector3.zero;
+    IEnumerator LoadMap()
+    {
 
-    //    s.GetComponent<TweenPosition>().PlayForward();
-    //    yield return new WaitForSeconds(0.5f);
-    //    Destroy(s.gameObject);
+        UI2DSprite_MapImage.transform.SetParent(SelectMapUI.tweenImage.transform);
+        UI2DSprite_MapImage.depth = 3;
+        UI2DSprite_MapImage.enabled = false;
+        UI2DSprite_MapImage.enabled = true;
+        UI2DSprite_MapImage.GetComponent<TweenPosition>().from = UI2DSprite_MapImage.transform.localPosition;
+        UI2DSprite_MapImage.GetComponent<TweenPosition>().to = new Vector3(0, 100, 0);
+        UI2DSprite_MapImage.GetComponent<TweenPosition>().PlayForward();
+        UI2DSprite_MapImage.GetComponent<TweenPosition>().ResetToBeginning();
 
-    //    SelectMapUI.LoadMap();
-    //}
+
+        UI2DSprite_MapImage.GetComponent<TweenScale>().PlayForward();
+        UI2DSprite_MapImage.GetComponent<TweenScale>().ResetToBeginning();
+
+        yield return new WaitForSeconds(0f);
+     
+
+       SelectMapUI.LoadMap();
+
+
+
+
+    }
+
+
+    private void DestroyImage()
+    {
+
+        // Destroy(s.gameObject);
+        //UI2DSprite_MapImage.transform.SetParent(this.transform);
+        //UI2DSprite_MapImage.transform.localScale = Vector3.one;
+        //UI2DSprite_MapImage.transform.localPosition = new Vector3(0, 30, 0);
+
+    }
 
 }
