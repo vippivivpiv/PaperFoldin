@@ -19,7 +19,7 @@ public class SelectMapUI : GameUI
     private int numberOfMap;
     private int currentPlayingMap;
 
-
+    public UIPanel LabelTweenImage;
     private void Start()
     {
 
