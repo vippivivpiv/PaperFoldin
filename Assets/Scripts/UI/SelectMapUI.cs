@@ -20,6 +20,7 @@ public class SelectMapUI : GameUI
     private int currentPlayingMap;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public UIPanel LabelTweenImage;
 =======
     public UIPanel tweenImage;
@@ -27,6 +28,9 @@ public class SelectMapUI : GameUI
     public bool canClick;
 
 >>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
+=======
+
+>>>>>>> parent of b44d83b... 1
     private void Start()
     {
 

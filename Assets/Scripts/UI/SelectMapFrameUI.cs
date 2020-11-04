@@ -82,26 +82,29 @@ public class SelectMapFrameUI : MonoBehaviour
         Game.Instance.currentMap = indexOfMap;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         StartCoroutine(LoadMap());
 
         //SelectMapUI.LoadMap();
+=======
+        //StartCoroutine(LoadMap());
+        SelectMapUI.LoadMap();
+>>>>>>> parent of b44d83b... 1
     }
 
 
-    IEnumerator LoadMap()
-    {
-        // GameObject s = Instantiate(UI2DSprite_MapImage.gameObject, SelectMapUI.LabelTweenImage.transform);
-        UI2DSprite_MapImage.transform.SetParent(SelectMapUI.LabelTweenImage.transform,true);
-       // UI2DSprite_MapImage.depth = 3;
-       // UI2DSprite_MapImage.enabled = true;
-       // UI2DSprite_MapImage.GetComponent<TweenPosition>().from = transform.localPosition;
-       // UI2DSprite_MapImage.GetComponent<TweenPosition>().to = Vector3.zero;
+    //IEnumerator LoadMap()
+    //{
+    //    GameObject s = Instantiate(UI2DSprite_MapImage.gameObject,SelectMapUI.Panel.transform);
+    //    s.GetComponent<UI2DSprite>().depth = 3; 
+    //    s.GetComponent<TweenPosition>().from = transform.localPosition;
+    //    s.GetComponent<TweenPosition>().to = Vector3.zero;
 
-       // UI2DSprite_MapImage.GetComponent<TweenPosition>().PlayForward();
-        yield return new WaitForSeconds(0.5f);
+    //    s.GetComponent<TweenPosition>().PlayForward();
+    //    yield return new WaitForSeconds(0.5f);
+    //    Destroy(s.gameObject);
 
-       //// Destroy(s.gameObject);
-
+<<<<<<< HEAD
        // SelectMapUI.LoadMap();
 =======
         SelectMapUI.LoadMap();
@@ -149,5 +152,9 @@ public class SelectMapFrameUI : MonoBehaviour
 
 >>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
     }
+=======
+    //    SelectMapUI.LoadMap();
+    //}
+>>>>>>> parent of b44d83b... 1
 
 }
