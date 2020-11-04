@@ -19,7 +19,14 @@ public class SelectMapUI : GameUI
     private int numberOfMap;
     private int currentPlayingMap;
 
+<<<<<<< HEAD
     public UIPanel LabelTweenImage;
+=======
+    public UIPanel tweenImage;
+
+    public bool canClick;
+
+>>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
     private void Start()
     {
 
@@ -33,18 +40,32 @@ public class SelectMapUI : GameUI
         base.Show();
 
         BackgroundManager.instance.selectMap.SetActive(true);
-        // InstantiateSelectMap();
+
+
+        //Panel.GetComponent<TweenAlpha>().from = 0;
+        //Panel.GetComponent<TweenAlpha>().to = 1;
+        //Panel.GetComponent<TweenAlpha>().ResetToBeginning();
+        //Panel.GetComponent<TweenAlpha>().PlayForward();
+
+        //BackgroundManager.instance.selectMap.GetComponent<TweenAlpha>().from = 0;
+        //BackgroundManager.instance.selectMap.GetComponent<TweenAlpha>().to = 1;
+        //BackgroundManager.instance.selectMap.GetComponent<TweenAlpha>().ResetToBeginning();
+        //BackgroundManager.instance.selectMap.GetComponent<TweenAlpha>().PlayForward();
+
 
         UpdateStateOfSelectMap();
 
         CompletedMapCount.text = "Level: " + DataPlayer.GetTextOfCompletedMapCount();
+
+        canClick = true;
     }
 
 
     public new void Hide()
     {
         base.Hide();
-        BackgroundManager.instance.selectMap.SetActive(false);
+
+
     }
     public void InstantiateSelectMap()
     {
@@ -88,9 +109,31 @@ public class SelectMapUI : GameUI
 
     public void LoadMap()
     {
-        Hide();
+
         InGameUI.Show();
+        Hide();
         Game.Instance.LoadMap();
+        //Panel.GetComponent<TweenAlpha>().from = 1;
+        //Panel.GetComponent<TweenAlpha>().to = 0;
+        //Panel.GetComponent<TweenAlpha>().ResetToBeginning();
+        //Panel.GetComponent<TweenAlpha>().PlayForward();
+
+        //BackgroundManager.instance.selectMap.GetComponent<TweenAlpha>().from = 1;
+        //BackgroundManager.instance.selectMap.GetComponent<TweenAlpha>().to = 0;
+        //BackgroundManager.instance.selectMap.GetComponent<TweenAlpha>().ResetToBeginning();
+        //BackgroundManager.instance.selectMap.GetComponent<TweenAlpha>().PlayForward();
+
+
+        //StartCoroutine(OnLoadMap());
+    }
+
+    IEnumerator OnLoadMap()
+    {
+
+        yield return new WaitForSeconds(0.5f);
+
+        Game.Instance.LoadMap();
+
     }
 
 }

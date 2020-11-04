@@ -63,7 +63,9 @@ public class Game : MonoBehaviour
     public void LoadMap()
     {
         // if (LoadFromMainmenu) currentMap = DataPlayer.CurrentPlayingMap;
-        
+
+        if (playingMap != null) Destroy(playingMap.gameObject);
+
         playingMap = Instantiate(mapPrefab, transform);
         
         playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
@@ -86,7 +88,7 @@ public class Game : MonoBehaviour
 
         InGameUI.LevelCompleted();
 
-        DestroyMap();
+      //  DestroyMap();
     }
     public void ShowHint()
     {
