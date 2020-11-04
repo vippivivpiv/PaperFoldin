@@ -1541,35 +1541,11 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  startingRenderQueue: 3002
-  mClipTexture: {fileID: 0}
-  mAlpha: 1
-  mClipping: 3
-  mClipRange: {x: 0, y: -343.00003, z: 1071.9999, w: 1770}
-=======
   startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
   mClipRange: {x: 0, y: -553, z: 1072, w: 2190}
->>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
-=======
-  startingRenderQueue: 3005
-  mClipTexture: {fileID: 0}
-  mAlpha: 1
-  mClipping: 3
-  mClipRange: {x: 0, y: -463, z: 1072, w: 2010}
->>>>>>> parent of b44d83b... 1
-=======
-  startingRenderQueue: 3005
-  mClipTexture: {fileID: 0}
-  mAlpha: 1
-  mClipping: 3
-  mClipRange: {x: 0, y: -463, z: 1072, w: 2010}
->>>>>>> parent of b44d83b... 1
   mClipSoftness: {x: 4, y: 4}
   mDepth: 3
   mSortingOrder: 0
@@ -1808,9 +1784,7 @@ MonoBehaviour:
   MainMenuUI: {fileID: 579979767}
   thanhTruotSound: {fileID: 800247328}
   thanhTruotFx: {fileID: 1833513981}
-  tweenScale: {fileID: 0}
   tweenPosition: {fileID: 400231924}
-  tweenAlpha: {fileID: 0}
 --- !u!4 &286339004
 Transform:
   m_ObjectHideFlags: 0
@@ -2199,17 +2173,7 @@ Transform:
   - {fileID: 773775404}
   - {fileID: 1781713625}
   - {fileID: 1097236759}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 1982889812}
-=======
   - {fileID: 766070716}
->>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
-=======
->>>>>>> parent of b44d83b... 1
-=======
->>>>>>> parent of b44d83b... 1
   - {fileID: 1846916306}
   - {fileID: 1062623442}
   - {fileID: 397188288}
@@ -2298,7 +2262,7 @@ Transform:
   - {fileID: 2008180456}
   - {fileID: 1006994062}
   m_Father: {fileID: 378687738}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &397188289
 MonoBehaviour:
@@ -2847,7 +2811,7 @@ Transform:
   - {fileID: 980881633}
   - {fileID: 1144404216}
   m_Father: {fileID: 378687738}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &510686986
 MonoBehaviour:
@@ -3528,18 +3492,8 @@ MonoBehaviour:
     type: 3}
   ExhibitPrefab: {fileID: 1102972523994211600, guid: 77248d0d1e03f0e45be2594bb019fe39,
     type: 3}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  LabelTweenImage: {fileID: 1982889813}
-=======
   tweenImage: {fileID: 766070717}
   canClick: 0
->>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
-=======
->>>>>>> parent of b44d83b... 1
-=======
->>>>>>> parent of b44d83b... 1
 --- !u!4 &595968178
 Transform:
   m_ObjectHideFlags: 0
@@ -4531,7 +4485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &773775404
 Transform:
   m_ObjectHideFlags: 0
@@ -5220,19 +5174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999644078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: 0, y: 960, z: 5.3109736}
-=======
   m_LocalPosition: {x: 0, y: 1170, z: 5.311203}
->>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
-=======
-  m_LocalPosition: {x: 0, y: 1080, z: 5.3105164}
->>>>>>> parent of b44d83b... 1
-=======
-  m_LocalPosition: {x: 0, y: 1080, z: 5.3105164}
->>>>>>> parent of b44d83b... 1
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1707448060}
@@ -5546,7 +5488,7 @@ Transform:
   m_Children:
   - {fileID: 2020224215}
   m_Father: {fileID: 378687738}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1062623443
 MonoBehaviour:
@@ -9827,7 +9769,7 @@ Transform:
   - {fileID: 561709733}
   - {fileID: 222636539}
   m_Father: {fileID: 378687738}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1846916307
 MonoBehaviour:
@@ -10007,19 +9949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940626017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: 540, y: 960, z: 5.3091426}
-=======
   m_LocalPosition: {x: 540, y: 1170, z: 5.3089714}
->>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
-=======
-  m_LocalPosition: {x: 540, y: 1080, z: 5.3094864}
->>>>>>> parent of b44d83b... 1
-=======
-  m_LocalPosition: {x: 540, y: 1080, z: 5.3094864}
->>>>>>> parent of b44d83b... 1
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 696582249}
@@ -10891,19 +10821,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118457504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: -540, y: 960, z: 5.3054805}
-=======
   m_LocalPosition: {x: -540, y: 1170, z: 5.305624}
->>>>>>> 5d931418928b54d8a66623910e85834575dd5cf5
-=======
-  m_LocalPosition: {x: -540, y: 1080, z: 5.3053665}
->>>>>>> parent of b44d83b... 1
-=======
-  m_LocalPosition: {x: -540, y: 1080, z: 5.3053665}
->>>>>>> parent of b44d83b... 1
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 731662447}
