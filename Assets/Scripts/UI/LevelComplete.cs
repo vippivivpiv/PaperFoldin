@@ -50,21 +50,19 @@ public class LevelComplete : GameUI
         blackImage.spriteName = "Map" + Game.Instance.playingMap.GetComponentInChildren<ImageProperties>().stt + "_3";
         imageNextLevel.sprite2D = Game.Instance.images[Game.Instance.currentMap].Image;
 
-
-
-
         CompletedMapCount.text = DataPlayer.GetTextOfCompletedMapCount();
-        Debug.Log(Game.Instance.currentMap);
 
-        if (DataPlayer.Get10to9(Game.Instance.currentMap) % 9 == 0)
-        {
-            if (!DataPlayer.IsShowedSpecialLevel(Game.Instance.currentMap))
-            {
-                SpecialLevelUI.Show();
-            }
-        }
 
-        levelComplete= StartCoroutine(OnLevelComplete());
+
+        //if (DataPlayer.Get10to9(Game.Instance.currentMap) % 9 == 0)
+        //{
+        //    if (!DataPlayer.IsShowedSpecialLevel(Game.Instance.currentMap))
+        //    {
+        //        SpecialLevelUI.Show();
+        //    }
+        //}
+
+       // levelComplete= StartCoroutine(OnLevelComplete());
 
 
 
@@ -84,6 +82,32 @@ public class LevelComplete : GameUI
 
         //  StopAllCoroutines();
     }
+
+    public void ClickNext()
+    {
+
+        Debug.Log(Game.Instance.images[Game.Instance.currentMap].isSpecialLevel);
+        if (Game.Instance.images[Game.Instance.currentMap].isSpecialLevel && !DataPlayer.IsShowedSpecialLevel(DataPlayer.Get10to9(Game.Instance.currentMap)))
+        {
+            SpecialLevelUI.Show();
+        }
+        else
+        {
+            Game.Instance.currentMap += 1;
+
+            InGameUI.Show();
+
+
+            Game.Instance.LoadMap();
+
+
+            Hide();
+        }
+
+        // playNextMap = StartCoroutine( OnPlayNextMap());
+
+    }
+
 
     IEnumerator OnHide()
     {
@@ -111,20 +135,6 @@ public class LevelComplete : GameUI
 
         Hide();
 
-
-    }
-    public void ClickNext()
-    {
-        Game.Instance.currentMap += 1;
-
-        InGameUI.Show();
-
-
-        Game.Instance.LoadMap();
-      
-       
-        Hide();
-       // playNextMap = StartCoroutine( OnPlayNextMap());
 
     }
 

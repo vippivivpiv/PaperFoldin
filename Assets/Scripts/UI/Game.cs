@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
 
     public static Game Instance;
 
+    public TutorialController TutorialController;
 
     public Camera mainCam;
     public InGameUI InGameUI;

@@ -9,22 +9,26 @@ public class SpecialLevelUI : GameUI
     public SelectMapUI SelectMapUI;
 
     public UI2DSprite specialImageMap;
-
+    public TweenPosition tweenPosition;
     public new void Show()
     {
         base.Show();
 
         specialImageMap.sprite2D = Game.Instance.images[Game.Instance.currentMap].Image;
 
+
+        tweenPosition.from = new Vector3(0, 2000, 0);
+        tweenPosition.to = Vector3.zero;
+        tweenPosition.ResetToBeginning();
+        tweenPosition.PlayForward();
     }
     
 
     public void ClickPlay()
     {
-        Debug.Log(Game.Instance.currentMap);
+
         DataPlayer.ShowedSpecialLevel(DataPlayer.Get10to9(Game.Instance.currentMap));
 
-        Debug.Log(DataPlayer.IsShowedSpecialLevel(Game.Instance.currentMap));
         Hide();
         LevelComplete.Hide();
 
@@ -41,8 +45,16 @@ public class SpecialLevelUI : GameUI
 
     public void ClickNoThanks()
     {
-        Hide();
-        LevelComplete.Hide();
+
+        tweenPosition.from = Vector3.zero;
+        tweenPosition.to = new Vector3(0, -2000, 0);
+        tweenPosition.ResetToBeginning();
+        tweenPosition.PlayForward();
+
+        Invoke("Hide",0.3f);
+        LevelComplete.Invoke("Hide", 0.3f);
+       // Hide();
+       // LevelComplete.Hide();
 
         DataPlayer.ShowedSpecialLevel(DataPlayer.Get10to9(Game.Instance.currentMap));
         Game.Instance.currentMap += 2;

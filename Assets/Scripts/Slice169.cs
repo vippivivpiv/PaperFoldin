@@ -13,6 +13,10 @@ using UnityEngine.TextCore.LowLevel;
 public class Slice169 : MonoBehaviour
 {
     #region Properties
+    public bool isTutorial;
+
+
+
     public WinCheckOneAnswer winCheck;
 
 
@@ -37,9 +41,9 @@ public class Slice169 : MonoBehaviour
     public Vector3[] edgeSliced;
 
     private Vector3 startPos;
-    
-    public  Vector2 VectorMove;
-    public  Vector3 peak0, peak1, peak2, peak3;
+
+    public Vector2 VectorMove;
+    public Vector3 peak0, peak1, peak2, peak3;
     private Vector3 currentPos;
     private Vector3 oldPos;
     private Vector3 curPos;
@@ -145,7 +149,9 @@ public class Slice169 : MonoBehaviour
 
         if (winCheck.isWin) return;
 
+        if (isTutorial)
         {
+
             if (!isSliced)
             {
                 Slice();
@@ -164,6 +170,19 @@ public class Slice169 : MonoBehaviour
         }
 
 
+        if (!isSliced)
+        {
+            Slice();
+        }
+        else
+        {
+
+            Move();
+
+            CreateMesh();
+
+            UpdateVerOfEdgeSliced();
+        }
 
     }
 
@@ -251,7 +270,7 @@ public class Slice169 : MonoBehaviour
         bigPartVerteces = new List<Vector3>();
         bigPartVerteces.Add(vertices[6]);
         bigPartVerteces.Add(vertices[7]);
-       switch ( casePos)
+        switch (casePos)
         {
             case eCasePos.TH1:
                 smallPartVertices.Add(vertices[0]);
@@ -308,15 +327,15 @@ public class Slice169 : MonoBehaviour
         UpdatePositionMoveVertercies();
         float angle = 0;
         mousePos.z = 0;
-        for (int i = 0; i < smallPartVertices.Count-1; i++)
+        for (int i = 0; i < smallPartVertices.Count - 1; i++)
         {
-            
+
             angle += Vector3.Angle(smallPartVertices[i + 1] - mousePos, smallPartVertices[i] - mousePos);
 
         }
         angle += Vector3.Angle(smallPartVertices[0] - mousePos, smallPartVertices[smallPartVertices.Count - 1] - mousePos);
 
-        return (angle>359 && angle< 361) ? true : false;
+        return (angle > 359 && angle < 361) ? true : false;
     }
 
     bool CheckTotalAngleOfPointAndBIgPolygons()
@@ -329,7 +348,7 @@ public class Slice169 : MonoBehaviour
             angle += Vector3.Angle(bigPartVerteces[i + 1] - mousePos, bigPartVerteces[i] - mousePos);
         }
         angle += Vector3.Angle(bigPartVerteces[0] - mousePos, bigPartVerteces[bigPartVerteces.Count - 1] - mousePos);
-  
+
         return (angle > 359 && angle < 361) ? true : false;
     }
 
@@ -375,7 +394,7 @@ public class Slice169 : MonoBehaviour
 
 
         }
-            
+
         if (!isChoosePart) return;
 
         if (!isCheckPart && Input.GetMouseButtonDown(0))
@@ -445,7 +464,7 @@ public class Slice169 : MonoBehaviour
 
                             diff = currentPos - startPos;
 
-     
+
                             magDiffP = diff.magnitude * Mathf.Cos((Mathf.PI / 180) * (Vector2.SignedAngle(lineSlicer.GetChild(0).transform.up, diff)));
                             diffP = magDiffP * moveDirection;
                             float angleA = -Vector2.SignedAngle(lineSlicer.GetChild(0).transform.up, Vector2.right);
@@ -464,7 +483,7 @@ public class Slice169 : MonoBehaviour
                             }
                             isUpdateOldDiff = true;
 
-             
+
 
                             if (isChooseSmallPart) // Phần Cắt bé
                             {
@@ -478,7 +497,6 @@ public class Slice169 : MonoBehaviour
 
                                 if (diff.magnitude < 0.5f && Input.GetMouseButtonUp(0))
                                 {
-                                    Debug.Log(1);
                                     startPos = currentPos;
                                     isChoosePart = false;
                                 }
@@ -490,7 +508,7 @@ public class Slice169 : MonoBehaviour
 
                                     return;
                                 }
-            
+
 
 
                                 vertices[0] = verticesOld[0] + diffP;
@@ -541,7 +559,7 @@ public class Slice169 : MonoBehaviour
                                         vertices[1] = peak1;
                                         isYOver2 = true;
 
-                                    } 
+                                    }
                                     vertices[7] = peak1 + (magDiffP - MovedDiffP2) * moveDirection;
                                     vertices[1] = verticesOld[1] + new Vector3(moveX - Moved2, 0, 0);
 
@@ -596,7 +614,7 @@ public class Slice169 : MonoBehaviour
                                 if (diffP.x > 0)
                                 {
                                     if (Input.GetMouseButtonUp(0)) isChoosePart = false;
-                          
+
                                     startPos = currentPos;
                                     return;
 
@@ -629,7 +647,7 @@ public class Slice169 : MonoBehaviour
                     // Nhả chuột
                     if (Input.GetMouseButtonUp(0))
                     {
-                        
+
                         oldPos = currentPos;
                         isCalculatorDiff = false;
                         isMoving = false;
@@ -1266,7 +1284,7 @@ public class Slice169 : MonoBehaviour
                             {
                                 isCalculatorDiff = true;
                                 diffBetweenCurandOldPos = currentPos - oldPos;
-   
+
                             }
                             currentPos -= diffBetweenCurandOldPos;
 
@@ -1284,13 +1302,13 @@ public class Slice169 : MonoBehaviour
                             {
                                 MovedDiffP1 = 2 * (2 * widthRatio - disp2) * Mathf.Cos(-angleA * Mathf.PI / 180);
                                 Moved1 = MovedDiffP1 / (2 * Mathf.Sin(angleA * Mathf.PI / 180)); // y
-           
+
                                 MovedDiffP2 = 2 * (2 * widthRatio - disp1) * Mathf.Cos(-angleA * Mathf.PI / 180);
                                 Moved2 = MovedDiffP2 / (2 * Mathf.Sin(angleA * Mathf.PI / 180)); // y
 
                                 MovedDiffP3 = 2 * (disp1) * Mathf.Cos(-angleA * Mathf.PI / 180);
                                 Moved3 = MovedDiffP3 / (2 * Mathf.Sin(angleA * Mathf.PI / 180)); // y
-                    
+
                                 MovedDiffP4 = 2 * (disp2) * Mathf.Cos(-angleA * Mathf.PI / 180);
                                 Moved4 = MovedDiffP4 / (2 * Mathf.Sin(angleA * Mathf.PI / 180)); // y
 
@@ -1309,8 +1327,8 @@ public class Slice169 : MonoBehaviour
 
                                 }
 
-                         //       if (IsPeakOver1(verticesOld[1], true,false)) return; // change
-                         //       if (IsPeakOver1(verticesOld[0], true, false)) return; // change
+                                //       if (IsPeakOver1(verticesOld[1], true,false)) return; // change
+                                //       if (IsPeakOver1(verticesOld[0], true, false)) return; // change
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(moveX, 0, 0);
                                 // if (newPos6.x > widthRatio || newPos7.x > widthRatio) return;
@@ -1394,7 +1412,7 @@ public class Slice169 : MonoBehaviour
                                 //        vertices[3] = new Vector3(peak3.x, peak3.y - 0.001f, 0);
                                 //        isYOver1 = false;
                                 //    }
-                                    
+
 
                                 //    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
                                 //    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
@@ -1411,12 +1429,12 @@ public class Slice169 : MonoBehaviour
                                 //    Vector3 new2 = verticesOld[2] + new Vector3(0, moveY - Moved2, 0);
                                 //    if (new2.y > heightRatio)
                                 //   {
-                  
+
                                 //        return;
                                 //    }
                                 //    if (newPos7.x > widthRatio)
                                 //    {
-    
+
                                 //        return;
 
                                 //    }
@@ -1434,7 +1452,7 @@ public class Slice169 : MonoBehaviour
                                 //        vertices[2] = new Vector3(peak2.x, peak2.y - 0.001f, 0);
                                 //        isYOver2 = false;
                                 //    }
-                                 
+
                                 //    vertices[7] = verticesOld[7] + new Vector3(moveX, 0, 0);
                                 //    vertices[6] = verticesOld[6] + new Vector3(moveX, 0, 0);
                                 //}
@@ -1447,9 +1465,9 @@ public class Slice169 : MonoBehaviour
                                 UpdateVerticesBackSide();
 
                                 // Update Mesh
-                                if (vertices[7].x > widthRatio) { UpdateMeshDataWhenOverPeak(1); Debug.Log(1); }
-                                else if (vertices[6].x > widthRatio) { UpdateMeshDataWhenOverPeak(2); Debug.Log(2); }
-                                else { UpdateMeshDataWhenClickSmallerPart(); Debug.Log(3); }
+                                if (vertices[7].x > widthRatio) { UpdateMeshDataWhenOverPeak(1); }
+                                else if (vertices[6].x > widthRatio) { UpdateMeshDataWhenOverPeak(2); }
+                                else { UpdateMeshDataWhenClickSmallerPart(); }
 
                                 uvs[6] = VerToUv(vertices[6]);
                                 uvs[7] = VerToUv(vertices[7]);
@@ -1466,8 +1484,8 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                              //  if (IsPeakOver1(verticesOld[3], true, false)) return; // change
-                              //  if (IsPeakOver1(verticesOld[2], true, false)) return; // change
+                                //  if (IsPeakOver1(verticesOld[3], true, false)) return; // change
+                                //  if (IsPeakOver1(verticesOld[2], true, false)) return; // change
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(moveX, 0, 0);
                                 //if (newPos4.x < -widthRatio || newPos5.x < -widthRatio) return;
@@ -1553,11 +1571,11 @@ public class Slice169 : MonoBehaviour
                                 //        vertices[0] = new Vector3(peak0.x, peak0.y /*- 0.001f*/, 0);
                                 //        isYOver3 = false;
                                 //    }
-                    
+
                                 //    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
                                 //    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
                                 //}
-                       
+
 
                                 //if (newPos5.x < -widthRatio)
                                 //{
@@ -1584,7 +1602,7 @@ public class Slice169 : MonoBehaviour
                                 //        vertices[1] = new Vector3(peak1.x, peak1.y /*- 0.001f*/, 0);
                                 //        isYOver4 = false;
                                 //    }
-                          
+
                                 //    vertices[4] = verticesOld[4] + new Vector3(moveX, 0, 0);
                                 //    vertices[5] = verticesOld[5] + new Vector3(moveX, 0, 0);
                                 //}
@@ -1638,7 +1656,7 @@ public class Slice169 : MonoBehaviour
                             startPoint.gameObject.SetActive(false);
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                             startPos.z = 0;
-                         //   startPos = mousePos;
+                            //   startPos = mousePos;
 
 
                         }
@@ -1664,7 +1682,7 @@ public class Slice169 : MonoBehaviour
                             float angleA = -Vector2.SignedAngle(lineSlicer.GetChild(0).transform.up, Vector2.right);
                             float moveX = magDiffP / (2 * Mathf.Cos(angleA * Mathf.PI / 180));
                             float moveY = magDiffP / (2 * Mathf.Sin(angleA * Mathf.PI / 180));
-                   
+
                             if (!isUpdateOldDiff)
                             {
                                 MovedDiffP1 = 2 * (2 * heightRatio - disp2) * Mathf.Sin(angleA * Mathf.PI / 180);
@@ -1692,8 +1710,8 @@ public class Slice169 : MonoBehaviour
 
                                 }
                                 UpdateMeshDataWhenClickSmallerPart();
-                              //  if (IsPeakOver1(verticesOld[1], false,true)) break; // change
-                              //  if (IsPeakOver1(verticesOld[3], false, true)) break; // change
+                                //  if (IsPeakOver1(verticesOld[1], false,true)) break; // change
+                                //  if (IsPeakOver1(verticesOld[3], false, true)) break; // change
 
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(0, moveY, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(0, moveY, 0);
@@ -1833,8 +1851,8 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                              //  if (IsPeakOver1(verticesOld[0], false, true)) break; // change
-                              //  if (IsPeakOver1(verticesOld[2], false, true)) break; // change
+                                //  if (IsPeakOver1(verticesOld[0], false, true)) break; // change
+                                //  if (IsPeakOver1(verticesOld[2], false, true)) break; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(0, moveY, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(0, moveY, 0);
@@ -2042,8 +2060,8 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                               // if (IsPeakOver1(verticesOld[2], true,false)) return; // change
-                               // if (IsPeakOver1(verticesOld[3], true, false)) return; // change
+                                // if (IsPeakOver1(verticesOld[2], true,false)) return; // change
+                                // if (IsPeakOver1(verticesOld[3], true, false)) return; // change
 
 
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(moveX, 0, 0);
@@ -2175,12 +2193,12 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                               // if (IsPeakOver1(verticesOld[0], true, false)) break; // change
-                              //  if (IsPeakOver1(verticesOld[1], true, false)) break; // change
+                                // if (IsPeakOver1(verticesOld[0], true, false)) break; // change
+                                //  if (IsPeakOver1(verticesOld[1], true, false)) break; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(moveX, 0, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(moveX, 0, 0);
-                            //    if (newPos4.x > widthRatio || newPos5.x > widthRatio) return;
+                                //    if (newPos4.x > widthRatio || newPos5.x > widthRatio) return;
 
 
                                 if (newPos5.x > widthRatio)
@@ -2374,14 +2392,14 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                            //    if (IsPeakOver1(verticesOld[0], false,true)) return; // change
-                             //   if (IsPeakOver1(verticesOld[2], false, true)) return; // change
+                                //    if (IsPeakOver1(verticesOld[0], false,true)) return; // change
+                                //   if (IsPeakOver1(verticesOld[2], false, true)) return; // change
 
                                 Vector3 newPos6 = verticesOld[6] + new Vector3(0, moveY, 0);
                                 Vector3 newPos7 = verticesOld[7] + new Vector3(0, moveY, 0);
                                 //if (newPos6.y > heightRatio || newPos7.y > heightRatio) return;
 
-     
+
                                 if (newPos6.y > heightRatio)
                                 {
                                     if (!isYOver1)
@@ -2503,12 +2521,12 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                            //    if (IsPeakOver1(verticesOld[1], false, true)) return; // change
-                            //    if (IsPeakOver1(verticesOld[3], false, true)) return; // change
+                                //    if (IsPeakOver1(verticesOld[1], false, true)) return; // change
+                                //    if (IsPeakOver1(verticesOld[3], false, true)) return; // change
 
                                 Vector3 newPos4 = verticesOld[4] + new Vector3(0, moveY, 0);
                                 Vector3 newPos5 = verticesOld[5] + new Vector3(0, moveY, 0);
-                               // if (newPos4.y < -heightRatio || newPos5.y < -heightRatio) return;
+                                // if (newPos4.y < -heightRatio || newPos5.y < -heightRatio) return;
 
                                 if (newPos5.y < -heightRatio)
                                 {
@@ -2616,7 +2634,7 @@ public class Slice169 : MonoBehaviour
                                 UpdateVerticesBackSide();
 
                                 if (vertices[5].y < -heightRatio) UpdateMeshDataWhenOverPeak(3);
-                                else if (vertices[4].y < - heightRatio) UpdateMeshDataWhenOverPeak(4);
+                                else if (vertices[4].y < -heightRatio) UpdateMeshDataWhenOverPeak(4);
                                 else UpdateMeshDataWhenChooseBiggerPart();
                                 //uv
                                 uvs[0] = VerToUv(vertices[0]);
@@ -2647,7 +2665,6 @@ public class Slice169 : MonoBehaviour
 
         if (diffP.magnitude < 0.3f && Input.GetMouseButtonUp(0))
         {
-            Debug.Log(1);
             startPos = currentPos;
             for (int i = 0; i < 16; i++)
             {
@@ -2993,7 +3010,7 @@ public class Slice169 : MonoBehaviour
     }
     private bool IsPeakOver(Vector3 peak, int n)
     {
-        switch ( n)
+        switch (n)
         {
             case 1:
                 if (peak.y < -heightRatio) return true;
@@ -3018,15 +3035,15 @@ public class Slice169 : MonoBehaviour
         else return false;
     }
 
-    private bool IsPeakOver2(Vector3 peak, bool x=true, bool y=true)
+    private bool IsPeakOver2(Vector3 peak, bool x = true, bool y = true)
     {
 
-       // Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
+        // Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
         Vector3 test = peak + diffP; // change
 
 
         if ((test.x <= -widthRatio && test.y <= -heightRatio) || (test.x <= -widthRatio && test.y >= heightRatio) || (test.x >= widthRatio && test.y <= -heightRatio) || (test.x >= widthRatio && test.y >= heightRatio))
-       // if ( ( x && ( test.x < -widthRatio || (test.x > widthRatio))) || ( y &&( (test.y < -heightRatio)  || ( test.y > heightRatio))))
+        // if ( ( x && ( test.x < -widthRatio || (test.x > widthRatio))) || ( y &&( (test.y < -heightRatio)  || ( test.y > heightRatio))))
         {
 
             return true;
@@ -3034,15 +3051,15 @@ public class Slice169 : MonoBehaviour
         else return false;
     }
 
-    private bool IsPeakOver1(Vector3 peak, bool x=true, bool y=true)
+    private bool IsPeakOver1(Vector3 peak, bool x = true, bool y = true)
     {
 
-       // Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
+        // Vector3 test = peak + diffu * new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0); // change
         Vector3 test = peak + diffP; // change
 
 
-       // if ((test.x <= -widthRatio && test.y <= -heightRatio) || (test.x <= -widthRatio && test.y >= heightRatio) || (test.x >= widthRatio && test.y <= -heightRatio) || (test.x >= widthRatio && test.y >= heightRatio))
-        if ( ( x && ( test.x < -widthRatio || (test.x > widthRatio))) || ( y &&( (test.y < -heightRatio)  || ( test.y > heightRatio))))
+        // if ((test.x <= -widthRatio && test.y <= -heightRatio) || (test.x <= -widthRatio && test.y >= heightRatio) || (test.x >= widthRatio && test.y <= -heightRatio) || (test.x >= widthRatio && test.y >= heightRatio))
+        if ((x && (test.x < -widthRatio || (test.x > widthRatio))) || (y && ((test.y < -heightRatio) || (test.y > heightRatio))))
         {
 
             return true;
@@ -4281,22 +4298,22 @@ public class Slice169 : MonoBehaviour
             if (insteadEdge0 * insteadCentre < 0 && insteadEdge3 * insteadCentre > 0)
             {
                 if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0)
-                { 
-                    Debug.Log("TH5"); casePos = eCasePos.TH5; 
-                }
-                else if (insteadEdge2 * insteadCentre < 0 && insteadEdge1 * insteadCentre > 0)
-                { 
-                    Debug.Log("TH8"); casePos = eCasePos.TH8;
-                }
-                else if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre > 0)
-                { 
-                    Debug.Log("TH1"); casePos = eCasePos.TH1; 
-                }
-                else if (insteadEdge0 * insteadEdge1 > 0 )
                 {
                     Debug.Log("TH5"); casePos = eCasePos.TH5;
                 }
-                else if (insteadEdge0 * insteadEdge1 < 0 ) 
+                else if (insteadEdge2 * insteadCentre < 0 && insteadEdge1 * insteadCentre > 0)
+                {
+                    Debug.Log("TH8"); casePos = eCasePos.TH8;
+                }
+                else if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre > 0)
+                {
+                    Debug.Log("TH1"); casePos = eCasePos.TH1;
+                }
+                else if (insteadEdge0 * insteadEdge1 > 0)
+                {
+                    Debug.Log("TH5"); casePos = eCasePos.TH5;
+                }
+                else if (insteadEdge0 * insteadEdge1 < 0)
                 {
                     Debug.Log("TH6"); casePos = eCasePos.TH6;
                 }
@@ -4305,7 +4322,7 @@ public class Slice169 : MonoBehaviour
 
             else if (insteadEdge0 * insteadCentre > 0 && insteadEdge3 * insteadCentre < 0)
             {
-                if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0) 
+                if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0)
                 {
                     Debug.Log("TH6"); casePos = eCasePos.TH6;
                 }
@@ -4314,8 +4331,8 @@ public class Slice169 : MonoBehaviour
                     Debug.Log("TH7"); casePos = eCasePos.TH7;
                 }
                 else if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre > 0)
-                { 
-                    Debug.Log("TH3"); casePos = eCasePos.TH3; 
+                {
+                    Debug.Log("TH3"); casePos = eCasePos.TH3;
                 }
                 else Debug.Log(" Deo hieu kieu gi");
             }
@@ -4323,13 +4340,13 @@ public class Slice169 : MonoBehaviour
         }
         else if (insteadEdge0 * insteadEdge3 > 0)
         {
-            if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre < 0) 
+            if (insteadEdge1 * insteadCentre > 0 && insteadEdge2 * insteadCentre < 0)
             {
-                Debug.Log("TH4"); casePos = eCasePos.TH4; 
+                Debug.Log("TH4"); casePos = eCasePos.TH4;
             }
             else if (insteadEdge1 * insteadCentre < 0 && insteadEdge2 * insteadCentre > 0)
-            { 
-                Debug.Log("TH2"); casePos = eCasePos.TH2; 
+            {
+                Debug.Log("TH2"); casePos = eCasePos.TH2;
             }
             else Debug.Log(" Deo hieu kieu gi");
         }
