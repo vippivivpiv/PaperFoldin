@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class DataPlayer : MonoBehaviour
 {
-    
+    public static bool IsPlayTutorial
+    {
+        set
+        {
+            PlayerPrefs.SetInt("PlayTutorial", value ? 1 : 0);
+        }
+        get
+        {
+            return PlayerPrefs.GetInt("PlayTutorial", 0) == 1;
+        }
+    }
     public static int CurrentPlayingMap
     {
         set

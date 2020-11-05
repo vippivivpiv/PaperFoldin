@@ -20,6 +20,7 @@ public class Game : MonoBehaviour
 
     public AudioSource AudioSource;
 
+    public bool isTutorial;
 
     public int currentMap = 1;
 
@@ -35,6 +36,7 @@ public class Game : MonoBehaviour
     private void Update()
     {
 
+
         sinceLoadGame += Time.deltaTime;
         if (sinceLoadGame > 5f)
         {
@@ -49,7 +51,12 @@ public class Game : MonoBehaviour
     private void Start()
     {
 
-        mainCam.orthographicSize = 19.224f * (((float)Screen.height/(float)Screen.width) / (16f/9f));
+        if ((float)Screen.height / (float)Screen.width <= 16f / 9f) mainCam.orthographicSize = 19.224f;
+        else if ((float)Screen.height / (float)Screen.width > 16f / 9f)
+        {
+            mainCam.orthographicSize = 19.224f * (((float)Screen.height / (float)Screen.width) / (16f / 9f));
+        }
+
 
         for (int i = 1; i <= images.Length; i++)
         {
@@ -68,7 +75,18 @@ public class Game : MonoBehaviour
         if (playingMap != null) Destroy(playingMap.gameObject);
 
         playingMap = Instantiate(mapPrefab, transform);
-        
+
+        if (!DataPlayer.IsPlayTutorial)
+        {
+            TutorialController.gameObject.SetActive(true);
+            TutorialController.Show();
+
+            TutorialController.Slice169 = playingMap;
+            playingMap.isTutorial = true;
+            InGameUI.currentLevel.text = "";
+           // BackgroundManager.instance.Ingame.gameObject.SetActive(false);
+        }
+
         playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
         sinceLoadGame = 0f;
         first = false;
@@ -80,6 +98,12 @@ public class Game : MonoBehaviour
     }
     public void LevelCompleted()
     {
+        if (!DataPlayer.IsPlayTutorial)
+        {
+            TutorialController.gameObject.SetActive(false);
+            TutorialController.Hide();
+            DataPlayer.IsPlayTutorial = true;
+        }
         if (DataPlayer.CurrentPlayingMap == currentMap)
         {
             DataPlayer.CompletedMapCount += 1;

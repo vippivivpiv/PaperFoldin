@@ -96,11 +96,19 @@ public class Slice169 : MonoBehaviour
     private bool first;
     private bool isCheckPart;
     private bool canMove;
+
+
+    public LineRenderer lineTut;
+
+
     #endregion
     private void Start()
     {
 
+     //   isTutorial = true;
 
+        lineTut.positionCount = 2;
+        lineTut.gameObject.SetActive(true);
         //widthRatio = 16;
         //heightRatio = 9;
         // mainCamera.orthographicSize = 12;
@@ -120,7 +128,7 @@ public class Slice169 : MonoBehaviour
         CreateMesh();
         diffBetweenCurandOldPos = new Vector3(0, 0, 0);
 
-        mainCamera = Camera.main;
+        mainCamera = Game.Instance.mainCam;
 
         //  GetComponent<WinCheck>().enabled = true;
 
@@ -147,7 +155,11 @@ public class Slice169 : MonoBehaviour
     private void Update()
     {
 
-        if (winCheck.isWin) return;
+        if (winCheck.isWin)
+        {
+
+            return;
+        }
 
         if (isTutorial)
         {
@@ -208,12 +220,27 @@ public class Slice169 : MonoBehaviour
 
                 startPoint.position = new Vector3(startPos.x, startPos.y, -0.1f);
 
+                if (isTutorial)
+                {
+                    startPos = startPoint.position = new Vector3(startPos.x, winCheck.answer.p1MatchedOfPoint2.y, -0.1f);
+
+                }
+                lineTut.SetPosition(0, new Vector3(startPos.x,startPos.y,-0.1f));
+
+
                 //lineSlicer.position = new Vector3(startPos.x, startPos.y, 0);
 
             }
             else
             {
                 curPos = mousePos;
+
+                if (isTutorial)
+                {
+                    curPos = new Vector3(curPos.x, winCheck.answer.p1MatchedOfPoint2.y, -0.1f);
+                   
+                }
+                lineTut.SetPosition(1, new Vector3(curPos.x, curPos.y, -0.1f));
                 diff = curPos - startPos;
 
 
@@ -222,6 +249,11 @@ public class Slice169 : MonoBehaviour
                 point1 = new Vector3(lineIntersection[0].x, lineIntersection[0].y, 0);
                 point2 = new Vector3(lineIntersection[1].x, lineIntersection[1].y, 0);
 
+                //if (isTutorial)
+                //{
+                //    point1 = winCheck.answer.p1MatchedOfPoint2;
+                //    point2 = winCheck.answer.p2MatchedOfPoint2;
+                //}
 
                 float dist = Vector2.Distance(point1, point2);
 
@@ -234,7 +266,8 @@ public class Slice169 : MonoBehaviour
 
                 lineSlicer.GetChild(0).localScale = new Vector3(dist, 0.1f, 0.1f);
                 lineSlicer.GetChild(0).transform.position = new Vector3(lineSlicer.GetChild(0).transform.position.x, lineSlicer.GetChild(0).transform.position.y, -1.1f);
-                lineSlicer.gameObject.SetActive(true);
+                lineSlicer.gameObject.SetActive(false);
+
 
 
             }
@@ -245,6 +278,17 @@ public class Slice169 : MonoBehaviour
 
             isClick = false;
             isSliced = true;
+
+            lineSlicer.gameObject.SetActive(true);
+            lineTut.gameObject.SetActive(false);
+            startPoint.gameObject.SetActive(false);
+            //if ( isTutorial)
+            //{
+            //    point1 = winCheck.answer.p1MatchedOfPoint1;
+            //    point2 = winCheck.answer.p2MatchedOfPoint1;
+            //}
+
+
 
             // DisplayLineSlicer(winCheck.AutoMatchLine());
 

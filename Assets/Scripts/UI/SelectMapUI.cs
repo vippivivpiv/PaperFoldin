@@ -60,7 +60,7 @@ public class SelectMapUI : GameUI
     public new void Hide()
     {
         base.Hide();
-
+        BackgroundManager.instance.selectMap.SetActive(false);
 
     }
     public void InstantiateSelectMap()

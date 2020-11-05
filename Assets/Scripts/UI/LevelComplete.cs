@@ -47,6 +47,15 @@ public class LevelComplete : GameUI
         TweenPosition.ResetToBeginning();
         TweenPosition.PlayForward();
 
+
+
+        TweenColor c = blackImage.GetComponent<TweenColor>();
+        c.from = Color.black;
+        c.to = Color.white;
+        c.duration = 1f;
+        c.ResetToBeginning();
+        c.PlayForward();
+
         blackImage.spriteName = "Map" + Game.Instance.playingMap.GetComponentInChildren<ImageProperties>().stt + "_3";
         imageNextLevel.sprite2D = Game.Instance.images[Game.Instance.currentMap].Image;
 

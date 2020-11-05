@@ -14,22 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: fa66c4fff192b664391c2ac83329ddb2, type: 2}
   mSprites:
-  - name: block
-    x: 1235
-    y: 602
-    width: 285
-    height: 342
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: Map1_3
-    x: 795
-    y: 384
+    x: 900
+    y: 1090
     width: 439
     height: 367
     borderLeft: 0
@@ -41,10 +28,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map10_3
-    x: 1235
-    y: 409
-    width: 232
-    height: 192
+    x: 1342
+    y: 1373
+    width: 446
+    height: 369
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -54,10 +41,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map11_3
-    x: 1692
-    y: 1246
-    width: 336
-    height: 214
+    x: 1342
+    y: 1743
+    width: 583
+    height: 305
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -67,10 +54,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map12_3
-    x: 0
-    y: 1210
-    width: 678
-    height: 838
+    x: 471
+    y: 1067
+    width: 428
+    height: 468
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -80,10 +67,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map13_3
-    x: 1445
-    y: 950
-    width: 246
-    height: 389
+    x: 970
+    y: 1458
+    width: 371
+    height: 590
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -93,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map14_3
-    x: 930
-    y: 1771
+    x: 0
+    y: 15
     width: 462
     height: 277
     borderLeft: 0
@@ -106,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map15_3
-    x: 795
-    y: 2
+    x: 900
+    y: 708
     width: 382
     height: 381
     borderLeft: 0
@@ -118,193 +105,11 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Map16_3
-    x: 1937
-    y: 1656
-    width: 85
-    height: 392
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map17_3
-    x: 1521
-    y: 407
-    width: 411
-    height: 223
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map18_3
-    x: 679
-    y: 1504
-    width: 250
-    height: 544
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map19_3
-    x: 1552
-    y: 8
-    width: 156
-    height: 130
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: Map2_3
-    x: 1866
-    y: 125
-    width: 283
-    height: 281
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map20_3
-    x: 679
-    y: 1236
-    width: 502
-    height: 267
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map21_3
-    x: 1393
-    y: 1775
-    width: 383
-    height: 273
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map22_3
-    x: 1771
-    y: 1477
-    width: 165
-    height: 297
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map23_3
-    x: 1521
-    y: 631
-    width: 297
-    height: 318
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map24_3
     x: 0
-    y: 169
-    width: 422
-    height: 1040
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map25_3
-    x: 930
-    y: 1511
-    width: 238
-    height: 259
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map26_3
-    x: 423
-    y: 36
-    width: 332
-    height: 217
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map27_3
-    x: 423
-    y: 752
-    width: 422
-    height: 457
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map28_3
-    x: 1191
-    y: 945
-    width: 253
-    height: 394
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map29_3
-    x: 1182
-    y: 1340
-    width: 282
-    height: 430
+    y: 1082
+    width: 470
+    height: 466
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -314,23 +119,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map3_3
-    x: 1178
-    y: 34
-    width: 373
-    height: 349
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Map30_3
     x: 0
-    y: 16
-    width: 286
-    height: 152
+    y: 668
+    width: 421
+    height: 413
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -340,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map4_3
-    x: 846
-    y: 861
+    x: 0
+    y: 293
     width: 344
     height: 374
     borderLeft: 0
@@ -353,10 +145,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map5_3
-    x: 1465
-    y: 1461
-    width: 305
-    height: 313
+    x: 0
+    y: 1549
+    width: 530
+    height: 499
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -366,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map6_3
-    x: 1552
-    y: 139
+    x: 345
+    y: 370
     width: 313
     height: 267
     borderLeft: 0
@@ -379,10 +171,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map7_3
-    x: 423
-    y: 254
-    width: 371
-    height: 497
+    x: 422
+    y: 638
+    width: 320
+    height: 428
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -392,10 +184,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map8_3
-    x: 1692
-    y: 961
-    width: 243
-    height: 284
+    x: 531
+    y: 1536
+    width: 438
+    height: 512
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -405,10 +197,10 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map9_3
-    x: 1819
-    y: 654
-    width: 149
-    height: 306
+    x: 1340
+    y: 803
+    width: 278
+    height: 569
     borderLeft: 0
     borderRight: 0
     borderTop: 0

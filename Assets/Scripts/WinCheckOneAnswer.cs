@@ -180,41 +180,57 @@ public class WinCheckOneAnswer : MonoBehaviour
             first = true;
 
             Vector2 P1P2 = answer.point2 - answer.point1;
-            answer.spriteHalfPoint2.gameObject.SetActive(true);
-            answer.spriteHalfPoint2.GetComponent<TweenAlpha>().duration =2f;
-            answer.spriteHalfPoint2.GetComponent<TweenAlpha>().from = 0f;
-            answer.spriteHalfPoint2.GetComponent<TweenAlpha>().to = 1f;
-            answer.spriteHalfPoint2.GetComponent<TweenAlpha>().PlayForward();
-
             answer.spriteHalfPoint1.gameObject.SetActive(true);
-            answer.spriteHalfPoint1.GetComponent<TweenAlpha>().duration = 2f;
-            answer.spriteHalfPoint1.GetComponent<TweenAlpha>().from = 0f;
-            answer.spriteHalfPoint1.GetComponent<TweenAlpha>().to = 1f;
-            answer.spriteHalfPoint1.GetComponent<TweenAlpha>().PlayForward();
+            answer.spriteHalfPoint2.gameObject.SetActive(true);
+
+            TweenColor c = answer.spriteHalfPoint2.AddComponent<TweenColor>();
+            c.duration = 1f;
+            c.from = Color.black;
+            c.to = Color.white;
+            c.PlayForward();
+
+            TweenColor c1 = answer.spriteHalfPoint1.AddComponent<TweenColor>();
+            c1.duration = 1f;
+            c1.from = Color.black;
+            c1.to = Color.white;
+            c1.PlayForward();
+
+            //answer.spriteHalfPoint2.GetComponent<TweenAlpha>().duration =1f;
+            //answer.spriteHalfPoint2.GetComponent<TweenAlpha>().from = 0f;
+            //answer.spriteHalfPoint2.GetComponent<TweenAlpha>().to = 1f;
+            //answer.spriteHalfPoint2.GetComponent<TweenAlpha>().PlayForward();
+
+            
+
+            //answer.spriteHalfPoint1.gameObject.SetActive(true);
+            //answer.spriteHalfPoint1.GetComponent<TweenAlpha>().duration = 1f;
+            //answer.spriteHalfPoint1.GetComponent<TweenAlpha>().from = 0f;
+            //answer.spriteHalfPoint1.GetComponent<TweenAlpha>().to = 1f;
+            //answer.spriteHalfPoint1.GetComponent<TweenAlpha>().PlayForward();
 
             if (answer.DisP1toLine <= answer.DisP2toLine)
             {
-                Debug.Log(2);
                 answer.spriteHalfPoint1.transform.position += new Vector3( slice169.VectorMove.x,slice169.VectorMove.y,0);
-
-                yield return new WaitForSeconds(2f);
-
-                answer.spriteHalfPoint1.GetComponent<TweenPosition>().from = answer.spriteHalfPoint1.transform.localPosition;
-                answer.spriteHalfPoint1.GetComponent<TweenPosition>().to = answer.spriteHalfPoint2.transform.localPosition;
-                answer.spriteHalfPoint1.GetComponent<TweenPosition>().PlayForward();
+                yield return new WaitForSeconds(1f);
+                TweenPosition p = answer.spriteHalfPoint1.GetComponent<TweenPosition>();
+                p.from = answer.spriteHalfPoint1.transform.localPosition;
+                p.to = answer.spriteHalfPoint2.transform.localPosition;
+                p.duration = 0.5f;
+                p.PlayForward();
 
 
             }
             else if (answer.DisP1toLine > answer.DisP2toLine)
             {
-                Debug.Log(1);
                 answer.spriteHalfPoint2.transform.position += new Vector3(slice169.VectorMove.x, slice169.VectorMove.y, 0);
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
+                TweenPosition p = answer.spriteHalfPoint2.GetComponent<TweenPosition>();
 
-                answer.spriteHalfPoint2.GetComponent<TweenPosition>().from = answer.spriteHalfPoint2.transform.localPosition;
-                answer.spriteHalfPoint2.GetComponent<TweenPosition>().to = answer.spriteHalfPoint1.transform.localPosition;
-                answer.spriteHalfPoint2.GetComponent<TweenPosition>().PlayForward();
+                p.from = answer.spriteHalfPoint2.transform.localPosition;
+                p.to = answer.spriteHalfPoint1.transform.localPosition;
+                p.duration = 0.5f;
+                p.PlayForward();
             }
 
            

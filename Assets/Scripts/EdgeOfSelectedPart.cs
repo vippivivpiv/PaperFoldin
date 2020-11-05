@@ -9,7 +9,7 @@ public class EdgeOfSelectedPart : MonoBehaviour
 
     void Update()
     {
-
+        if (slice169.winCheck.isWin) gameObject.SetActive(false);
 
         if (slice169.isSliced)
 
