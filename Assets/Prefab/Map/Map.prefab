@@ -937,32 +937,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a643380229fbd741ba67b30b19256a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTutorial: 0
-  winCheck: {fileID: 5794953430320002945}
   mainCamera: {fileID: 0}
+  winCheck: {fileID: 5794953430320002945}
   meshRenderer: {fileID: 4098811501436304458}
+  lineSegment: {fileID: 5802499713947550099}
   lineSlicer: {fileID: 2924846267108110825}
-  confirmPanel: {fileID: 0}
   startPoint: {fileID: 9124067399587638024}
   widthRatio: 10
   heightRatio: 12
-  point1: {x: 0, y: 0, z: 0}
-  point2: {x: 0, y: 0, z: 0}
-  vertices: []
-  triagles: 
-  uvs: []
   edgeSliced: []
   VectorMove: {x: 0, y: 0}
   peak0: {x: 0, y: 0, z: 0}
   peak1: {x: 0, y: 0, z: 0}
   peak2: {x: 0, y: 0, z: 0}
   peak3: {x: 0, y: 0, z: 0}
+  point1: {x: 0, y: 0, z: 0}
+  point2: {x: 0, y: 0, z: 0}
   isConfirmSlice: 0
   isSliced: 0
   isMoving: 0
   isClick: 0
-  isWin: 0
-  lineTut: {fileID: 5802499713947550099}
+  isTutorial: 0
 --- !u!114 &5794953430320002945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,7 +1797,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8f780145613018f4cae771e40541bf07, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
