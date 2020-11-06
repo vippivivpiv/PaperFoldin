@@ -33,21 +33,21 @@ public class Game : MonoBehaviour
 
         Application.targetFrameRate = 60;
     }
-    private void Update()
-    {
+    //private void Update()
+    //{
 
 
-        sinceLoadGame += Time.deltaTime;
-        if (sinceLoadGame > 5f)
-        {
-            if ( !first)
-            {
-                first = true;
-                InGameUI.DisplayWatchAds();
-            }
+    //    sinceLoadGame += Time.deltaTime;
+    //    if (sinceLoadGame > 5f)
+    //    {
+    //        if ( !first)
+    //        {
+    //            first = true;
+    //            InGameUI.DisplayWatchAds();
+    //        }
             
-        }
-    }
+    //    }
+    //}
     private void Start()
     {
 
