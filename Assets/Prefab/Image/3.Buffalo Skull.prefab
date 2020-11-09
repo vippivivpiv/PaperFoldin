@@ -262,7 +262,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 3.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2371704917463680210
@@ -460,7 +460,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 3.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4085824539293953514
@@ -544,7 +544,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 3.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &658379548076180197
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: -7928574799489625353}
   m_Layer: 0
-  m_Name: Image3
+  m_Name: 3.Buffalo Skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,8 +928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 3
   KeyWord: Buffalo Skull
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 6e856817577bdfe4f80d58f61e6bbd7d, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 64886eff4ed71844a94b9faac7c5cce8, type: 3}
+  BackAnswer: {fileID: 21300000, guid: d3f67ba5abc7bfc41af2ca36c360a6a7, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 19fc6161ca6021648bff64b8ed56f2cd, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: d4b5e8d3fce4f594e809d0e8625df099, type: 2}
   imagePoint1: {fileID: 0}

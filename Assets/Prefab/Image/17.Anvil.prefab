@@ -78,7 +78,7 @@ SpriteRenderer:
   m_Size: {x: 4.11, y: 2.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3212130912708993970
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_Size: {x: 4.11, y: 2.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3371642781661755005
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_Size: {x: 4.11, y: 2.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4704945961045058413
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: -715538230405520020}
   m_Layer: 0
-  m_Name: Image17
+  m_Name: 17.Anvil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,8 +928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 17
   KeyWord: Anvil
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: e87c6d9807a4cbb458242a70a77f92d4, type: 3}
-  BackAnswer: {fileID: 21300000, guid: e1fb083e70ef48348a67ef4726ee78d3, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 535f82695dea7704d9b4d66e372cd23f, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 82743fcb889fe3d4b8c45f90002f840d, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 621aac21e14f87a478b2795868ad92a6, type: 2}
   imagePoint1: {fileID: 0}

@@ -343,7 +343,7 @@ SpriteRenderer:
   m_Size: {x: 3.83, y: 2.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6115605651017739814
@@ -608,7 +608,7 @@ SpriteRenderer:
   m_Size: {x: 3.83, y: 2.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7721396937509178550
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 5283655143517612115}
   m_Layer: 0
-  m_Name: Image21
+  m_Name: 21.Turtle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,8 +657,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 21
   KeyWord: Turtle
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 6ae4f7f84347dfd4e9747eac9c0ef2e3, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 0da6e875c0e274740819863b4d683a29, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 4887c74048d6405499a3c5640bc3e033, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 7082a267515dfbd4bbc86d1471716496, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 01210809451c374409b0fb46c49f1c1a, type: 2}
   imagePoint1: {fileID: 0}
@@ -759,7 +760,7 @@ SpriteRenderer:
   m_Size: {x: 3.83, y: 2.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2553830737896259429

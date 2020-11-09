@@ -14,6 +14,7 @@ public class InGameUI : GameUI
     public GameObject WatchAds_SpriteFree;
 
     public UISprite Hint_BlackImage;
+    public UI2DSprite Hint_BlackImage_2Dsprite;
 
     public new void Show()
     {
@@ -50,6 +51,7 @@ public class InGameUI : GameUI
 
         WatchAds_SpriteFree.SetActive(DataPlayer.IsWatchedAdsMap(Game.Instance.currentMap));
 
+        Hint_BlackImage_2Dsprite.sprite2D = Game.Instance.images[Game.Instance.currentMap-1].BackAnswer;
         Hint_BlackImage.spriteName = "Map" + Game.Instance.currentMap.ToString() + "_3";
 
         ShowHint_BlackImage(false);
@@ -113,9 +115,10 @@ public class InGameUI : GameUI
 
     public void ShowHint_BlackImage(bool b)
     {
-        
 
-        Hint_BlackImage.gameObject.SetActive(b);
+        Hint_BlackImage_2Dsprite.gameObject.SetActive(b);
+
+       // Hint_BlackImage.gameObject.SetActive(b);
         Hint_BlackImage.GetComponent<TweenAlpha>().ResetToBeginning();
 
         Hint_BlackImage.GetComponent<TweenAlpha>().PlayForward();

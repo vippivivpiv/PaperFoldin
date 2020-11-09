@@ -117,7 +117,7 @@ SpriteRenderer:
   m_Size: {x: 2.82, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3828733124770196733
@@ -533,7 +533,7 @@ SpriteRenderer:
   m_Size: {x: 2.82, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5879549773163757120
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 9140863653279538536}
   m_Layer: 0
-  m_Name: Image29
+  m_Name: 29.Djin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,8 +847,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 29
   KeyWord: Djin
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 4017fc18720d7d042a85e15fa7123b95, type: 3}
-  BackAnswer: {fileID: 21300000, guid: f5e2fb05d5e55aa4ea526179a4a2072d, type: 3}
+  BackAnswer: {fileID: 21300000, guid: e428956310d345b4fbf82f701fcfbc19, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: b66ba550d0590a94cb1c6919331665df, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: e02b9f51961e84f42b703a7c9a1c23a7, type: 2}
   imagePoint1: {fileID: 0}
@@ -946,6 +947,6 @@ SpriteRenderer:
   m_Size: {x: 2.82, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

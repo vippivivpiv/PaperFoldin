@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 4.22, y: 10.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3913229680756108632
@@ -497,7 +497,7 @@ SpriteRenderer:
   m_Size: {x: 4.22, y: 10.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7510441091996860828
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 8713599330050894264}
   m_Layer: 0
-  m_Name: Image24
+  m_Name: 24.Standing Man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,8 +663,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 24
   KeyWord: Standing Man
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: a68603c20204d62448a7f2cacfd3c94c, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 9e161ca8ee2584f43a2b754cf8cab067, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 3ad2812043d36194c8430314ab006c36, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 36d7f8e6b878f0d4eb1da4272e9a2041, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 31279a13604e77f449e8f3b771f34869, type: 2}
   imagePoint1: {fileID: 0}
@@ -762,7 +763,7 @@ SpriteRenderer:
   m_Size: {x: 4.22, y: 10.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8708354800604249291

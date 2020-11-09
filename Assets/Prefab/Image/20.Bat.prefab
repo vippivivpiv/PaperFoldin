@@ -379,7 +379,7 @@ SpriteRenderer:
   m_Size: {x: 5.02, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7191638061469729969
@@ -460,7 +460,7 @@ SpriteRenderer:
   m_Size: {x: 5.02, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7721396937509178550
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: -5759119788955295528}
   m_Layer: 0
-  m_Name: Image20
+  m_Name: 20.Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,8 +509,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 20
   KeyWord: Bat
+  isSpecialLevel: 1
   Image: {fileID: 21300000, guid: 09a1eb4d8ca468a40b7598528727dbaf, type: 3}
-  BackAnswer: {fileID: 21300000, guid: d928ec7aaefe7734597453a858e73349, type: 3}
+  BackAnswer: {fileID: 21300000, guid: f7336bc7cb70f654e95071704d33c928, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 60831af7080941c4fafbff491a61f153, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 3e44d56150eec9c4faacf1a68eb0830d, type: 2}
   imagePoint1: {fileID: 0}
@@ -795,7 +796,7 @@ SpriteRenderer:
   m_Size: {x: 5.02, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &653150097446765668

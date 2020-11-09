@@ -78,7 +78,7 @@ SpriteRenderer:
   m_Size: {x: 4.62, y: 2.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1199421245897469441
@@ -424,7 +424,7 @@ SpriteRenderer:
   m_Size: {x: 4.62, y: 2.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6224853711619956805
@@ -544,7 +544,7 @@ SpriteRenderer:
   m_Size: {x: 4.62, y: 2.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7583022611578724351
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 2527883384178575245}
   m_Layer: 0
-  m_Name: Image14
+  m_Name: 14.Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,8 +744,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 14
   KeyWord: Hat
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: e1e6630358909fe4289b398235e99c6e, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 7968415aa1f664f4692710f015a3b339, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 69eb017366ef1234a870eff146751c77, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 0d310cea746bac647b1882561016eaf1, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: a8dd4c9b0178f20479084b9d20a3f143, type: 2}
   imagePoint1: {fileID: 0}

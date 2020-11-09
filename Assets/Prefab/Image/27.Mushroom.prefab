@@ -117,7 +117,7 @@ SpriteRenderer:
   m_Size: {x: 4.22, y: 4.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1205718565261102316
@@ -533,7 +533,7 @@ SpriteRenderer:
   m_Size: {x: 4.22, y: 4.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6591399976463831505
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 1377680750487426413}
   m_Layer: 0
-  m_Name: Image27
+  m_Name: 27.Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,8 +847,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 27
   KeyWord: Mushroom
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: be807415b8c33b849938c7a64a39d808, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 16342bc05d34f114393b0beb7b99ab5b, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 85c72cd3c1ec29d41ab4e36f3b5df7ef, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 86581d66cf58a3945bd45b3e7a3056b1, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: b13b0baf35cab4e4a9654a751162af45, type: 2}
   imagePoint1: {fileID: 0}
@@ -946,6 +947,6 @@ SpriteRenderer:
   m_Size: {x: 4.22, y: 4.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

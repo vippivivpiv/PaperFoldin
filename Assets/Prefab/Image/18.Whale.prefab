@@ -343,7 +343,7 @@ SpriteRenderer:
   m_Size: {x: 2.5, y: 5.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4754208730238750804
@@ -427,7 +427,7 @@ SpriteRenderer:
   m_Size: {x: 2.5, y: 5.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5747482243756055541
@@ -659,7 +659,7 @@ SpriteRenderer:
   m_Size: {x: 2.5, y: 5.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7721396937509178550
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: -6687733007300495973}
   m_Layer: 0
-  m_Name: Image18
+  m_Name: 18.Whale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,8 +708,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 18
   KeyWord: Whale
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 290102c9cf9a48c4dbfb4880d6f51306, type: 3}
-  BackAnswer: {fileID: 21300000, guid: f9d69dccc383537489b8a3afeb04c0cf, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 3663bd82654b0d34c94a25a5f78b2b9b, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 787d529308c403e499aa7728606e77fe, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: b7579231ec56c5c45b0b2413fa9e9e79, type: 2}
   imagePoint1: {fileID: 0}

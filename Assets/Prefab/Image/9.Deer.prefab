@@ -117,7 +117,7 @@ SpriteRenderer:
   m_Size: {x: 1.49, y: 3.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4855999844564979227
@@ -349,7 +349,7 @@ SpriteRenderer:
   m_Size: {x: 1.49, y: 3.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6413560168347728394
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 6395918365559562971}
   m_Layer: 0
-  m_Name: Image9
+  m_Name: 9.Deer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,8 +847,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 9
   KeyWord: Deer
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: f1a5acb5a979ca148a800f0502dc5af5, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 6ff1075c4a9c4974fb8e7814cd7a78d4, type: 3}
+  BackAnswer: {fileID: 21300000, guid: c0dfcd671ec10ab4fb5378299f04f925, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: c9bb8e80c794a3841aa64d00d8f86318, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: c8f4bf6fb8e3c3f4a829ba5916ad9674, type: 2}
   imagePoint1: {fileID: 0}
@@ -946,6 +947,6 @@ SpriteRenderer:
   m_Size: {x: 1.49, y: 3.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

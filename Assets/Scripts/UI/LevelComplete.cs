@@ -13,7 +13,7 @@ public class LevelComplete : GameUI
     public TweenPosition TweenPosition;
 
     public UISprite blackImage;
-
+    public UI2DSprite blackImage_2DSprite;
 
 
     public UI2DSprite imageNextLevel;
@@ -56,7 +56,8 @@ public class LevelComplete : GameUI
         c.ResetToBeginning();
         c.PlayForward();
 
-        blackImage.spriteName = "Map" + Game.Instance.currentMap + "_3";
+        //blackImage.spriteName = "Map" + Game.Instance.currentMap + "_3";
+        blackImage_2DSprite.sprite2D = Game.Instance.images[Game.Instance.currentMap-1].BackAnswer;
         imageNextLevel.sprite2D = Game.Instance.images[Game.Instance.currentMap].Image;
 
         CompletedMapCount.text = DataPlayer.GetTextOfCompletedMapCount();

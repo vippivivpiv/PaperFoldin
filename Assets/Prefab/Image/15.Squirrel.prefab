@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 3.82, y: 3.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1654277462609319525
@@ -313,7 +313,7 @@ SpriteRenderer:
   m_Size: {x: 3.82, y: 3.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2461563771381244397
@@ -762,7 +762,7 @@ SpriteRenderer:
   m_Size: {x: 3.82, y: 3.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4101780751076819251
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: -7041442430731287954}
   m_Layer: 0
-  m_Name: Image15
+  m_Name: 15.Squirrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,8 +928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 15
   KeyWord: Squirrel
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: b84e1f0a74a680b4887f2b92020970ea, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 8f3ca068f86a7934b8685a467d8005cb, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 300518eb38e58f74fbd3793b9e90c467, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: d71909e1b03c4bb46a968c9574f97f95, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: a707abe6d94393b408418f23de3da298, type: 2}
   imagePoint1: {fileID: 0}

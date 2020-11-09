@@ -563,7 +563,7 @@ SpriteRenderer:
   m_Size: {x: 3.44, y: 3.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2442553707959561580
@@ -644,7 +644,7 @@ SpriteRenderer:
   m_Size: {x: 3.44, y: 3.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7721396937509178550
@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: -6561331755704036343}
   m_Layer: 0
-  m_Name: Image4
+  m_Name: 4.Maple leave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -693,8 +693,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 4
   KeyWord: Maple leave
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 6b767587db5f2cb41880c7e14b82f635, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 0b5baf4c93174c2418432efc3f659a7c, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 4483d8322f2e4e94cbe688c74783e1e6, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: a4e4e22c8f9461540aac164dfd7d9f36, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: b604d7208b1d0e247a3f3e34ec46dd42, type: 2}
   imagePoint1: {fileID: 0}
@@ -795,7 +796,7 @@ SpriteRenderer:
   m_Size: {x: 3.44, y: 3.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1289640529130249195

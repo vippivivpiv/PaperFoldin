@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 4.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2391861103910552701
@@ -313,7 +313,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 4.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1810662002531413752
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_Size: {x: 3.71, y: 4.97}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3324852825112865289
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: -4234406324931946158}
   m_Layer: 0
-  m_Name: Image7
+  m_Name: 7.Hourglass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,8 +663,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 7
   KeyWord: Hourglass
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 3ee87f8a096790f4f961df15a9d2d835, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 0fd7d02ba3f64be4f89cee0cb197c87d, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 74b2c27d26c1c82429d459ed02f97d8d, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 8a7fa581c9cd9b045aaec8fc3e0dbbfd, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 1bf697d8ec3b3ce4b8119522a85a453c, type: 2}
   imagePoint1: {fileID: 0}

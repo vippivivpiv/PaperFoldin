@@ -446,7 +446,7 @@ SpriteRenderer:
   m_Size: {x: 2.14, y: 3.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2716625697406029950
@@ -527,7 +527,7 @@ SpriteRenderer:
   m_Size: {x: 2.14, y: 3.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3862883403904150249
@@ -728,7 +728,7 @@ SpriteRenderer:
   m_Size: {x: 2.14, y: 3.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4967887627280565397
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 3214409186806145862}
   m_Layer: 0
-  m_Name: Image11
+  m_Name: 11.Snail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,8 +928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 11
   KeyWord: Snail
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: f5898589fdb8a254fb02bb959e12bc22, type: 3}
-  BackAnswer: {fileID: 21300000, guid: df1f5ea0a944b3549bf6f2649247b7e0, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 35971753a8186254a9d2dc13b2f4737f, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 8f5d0156b26ee64449583645aa6a563c, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 14b61f22ee6dafb4b9aea5362a4a93a8, type: 2}
   imagePoint1: {fileID: 0}

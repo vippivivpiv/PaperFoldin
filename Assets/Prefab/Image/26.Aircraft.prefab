@@ -379,7 +379,7 @@ SpriteRenderer:
   m_Size: {x: 3.32, y: 2.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6593101884845552190
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 4222835214055654245}
   m_Layer: 0
-  m_Name: Image26
+  m_Name: 26.Aircraft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,8 +612,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 26
   KeyWord: Aircraft
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 9798662293f176c44a05203475a7ce0a, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 151196b1e609e5d409b48a97e0985294, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 129dc738ae790ca40b94d18863e3144e, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 45431e54def525549b498a8850f00d15, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 3dc7c87910ac9ba458771f6ab8349431, type: 2}
   imagePoint1: {fileID: 0}
@@ -711,7 +712,7 @@ SpriteRenderer:
   m_Size: {x: 3.32, y: 2.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8792930983419812401
@@ -795,7 +796,7 @@ SpriteRenderer:
   m_Size: {x: 3.32, y: 2.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1581584657572442275

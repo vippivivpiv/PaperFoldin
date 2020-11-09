@@ -78,7 +78,7 @@ SpriteRenderer:
   m_Size: {x: 3.13, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3214434009185288710
@@ -427,7 +427,7 @@ SpriteRenderer:
   m_Size: {x: 3.13, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6840813613502736751
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 7442598849213126814}
   m_Layer: 0
-  m_Name: Image6
+  m_Name: 6.Moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,8 +627,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 6
   KeyWord: Moon
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 440a49fd8bffdcf46b7852ac03a78f1a, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 98ef81550181cb94590d32f985ba330e, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 46150f61fd40d614eba8b568c6f46178, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: eff378fd51343ed40bc0224ca25a2b0f, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: e56b0ca2101d46a4e825abcadd629a59, type: 2}
   imagePoint1: {fileID: 0}
@@ -726,7 +727,7 @@ SpriteRenderer:
   m_Size: {x: 3.13, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8004838479522297710

@@ -78,7 +78,7 @@ SpriteRenderer:
   m_Size: {x: 2.53, y: 3.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1787396261530462499
@@ -382,7 +382,7 @@ SpriteRenderer:
   m_Size: {x: 2.53, y: 3.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &743660712821879255
@@ -695,7 +695,7 @@ SpriteRenderer:
   m_Size: {x: 2.53, y: 3.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7721396937509178550
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 1943923599523665651}
   m_Layer: 0
-  m_Name: Image28
+  m_Name: 28.Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,8 +744,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 28
   KeyWord: Flame
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 9ee90fa2bc8a7fa4e8d33af3b4fb9eff, type: 3}
-  BackAnswer: {fileID: 21300000, guid: d4a1bd28d3c0f81459f78420802ca276, type: 3}
+  BackAnswer: {fileID: 21300000, guid: 702dbc94f737d7b48a4b8c8c7acf993f, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: c3e5d92feb5d9bb44b33a6beae94cb2a, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 9a1f6676622d52749998a390611eceb7, type: 2}
   imagePoint1: {fileID: 0}
