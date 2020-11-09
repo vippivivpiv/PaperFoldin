@@ -48,7 +48,11 @@ public class MainMenuUI : GameUI
     {
         PlayerPrefs.DeleteAll();
 
-      //  DataPlayer.CurrentPlayingMap = 9;
+    }
+    public void JumpToMap9()
+    {
+        DataPlayer.IsPlayTutorial = true;
+        DataPlayer.CurrentPlayingMap = 9;
     }
     public void UnlockAllMap()
     {

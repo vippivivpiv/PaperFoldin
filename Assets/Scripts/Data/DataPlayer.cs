@@ -37,6 +37,16 @@ public class DataPlayer : MonoBehaviour
         return PlayerPrefs.GetInt("IsCompletedMap" + indexOfMap.ToString(), 0)==1;
     }
 
+    public static void WatchedAdsMap(int indexOfMap)
+    {
+        PlayerPrefs.SetInt("IsWatchAdsMap" + indexOfMap.ToString(), 1);
+    }
+
+    public static bool IsWatchedAdsMap(int indexOfMap)
+    {
+        return PlayerPrefs.GetInt("IsWatchAdsMap" + indexOfMap.ToString(), 0) == 1;
+    }
+
 
     public static int CompletedMapCount
     {
@@ -102,6 +112,9 @@ public class DataPlayer : MonoBehaviour
         }
 
     }
+
+
+
 
 
     public static int Get10to9(int input)

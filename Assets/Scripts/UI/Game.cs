@@ -25,7 +25,11 @@ public class Game : MonoBehaviour
     public int currentMap = 1;
 
     public float sinceLoadGame;
+
     private bool first;
+
+
+    public bool isShowBlackImage;
     private void Awake()
     {
         if (Instance != null) return;
@@ -33,21 +37,25 @@ public class Game : MonoBehaviour
 
         Application.targetFrameRate = 60;
     }
-    //private void Update()
-    //{
+    private void Update()
+    {
 
+        if (playingMap!= null && playingMap.winCheck.isWin) return;
 
-    //    sinceLoadGame += Time.deltaTime;
-    //    if (sinceLoadGame > 5f)
-    //    {
-    //        if ( !first)
-    //        {
-    //            first = true;
-    //            InGameUI.DisplayWatchAds();
-    //        }
-            
-    //    }
-    //}
+        sinceLoadGame += Time.deltaTime;
+
+        if (sinceLoadGame > 5)
+        {
+            if ( !first && !isShowBlackImage)
+            {
+                isShowBlackImage = true;
+                InGameUI. ShowHint_BlackImage(true);
+                first = true;
+            }
+
+        }
+
+    }
     private void Start()
     {
 

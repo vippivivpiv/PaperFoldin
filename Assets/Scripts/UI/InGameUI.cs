@@ -11,7 +11,9 @@ public class InGameUI : GameUI
     public UILabel currentLevel;
 
     public GameObject Btn_WatchAds;
+    public GameObject WatchAds_SpriteFree;
 
+    public UISprite Hint_BlackImage;
 
     public new void Show()
     {
@@ -46,8 +48,14 @@ public class InGameUI : GameUI
             currentLevel.text = "Special Level " + DataPlayer.Get10to9(Game.Instance.currentMap).ToString();
         }
 
-        Btn_WatchAds.GetComponent<UISprite>().color = Color.white;
-        Btn_WatchAds.GetComponent<TweenColor>().enabled = false;
+        WatchAds_SpriteFree.SetActive(DataPlayer.IsWatchedAdsMap(Game.Instance.currentMap));
+
+        Hint_BlackImage.spriteName = "Map" + Game.Instance.currentMap.ToString() + "_3";
+
+        ShowHint_BlackImage(false);
+        Game.Instance.isShowBlackImage = false;
+
+
     }
     public new void Hide()
     {
@@ -90,13 +98,27 @@ public class InGameUI : GameUI
     {
         // Btn_WatchAds.SetActive(true);
         Btn_WatchAds.GetComponent<TweenColor>().enabled = true;
+        Show();
 
     }
     public void WatchAds()
     {
         Game.Instance.ShowHint();
 
-        Debug.Log("WatchAds");
+        DataPlayer.WatchedAdsMap(Game.Instance.currentMap);
+
+        Show();
+    }
+
+
+    public void ShowHint_BlackImage(bool b)
+    {
+        
+
+        Hint_BlackImage.gameObject.SetActive(b);
+        Hint_BlackImage.GetComponent<TweenAlpha>().ResetToBeginning();
+
+        Hint_BlackImage.GetComponent<TweenAlpha>().PlayForward();
     }
 
 

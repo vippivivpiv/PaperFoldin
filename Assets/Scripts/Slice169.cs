@@ -141,6 +141,16 @@ public class Slice169 : MonoBehaviour
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
+        if (isTutorial)
+        {
+            if (Mathf.Abs(winCheck.answer.p1MatchedOfPoint2.y - mousePos.y) < 1f)
+            {
+                mousePos.y = winCheck.answer.p1MatchedOfPoint2.y;
+            }
+            else return;
+
+        }
+
         if (Input.GetMouseButton(0))
         {
             if (!isClick)
@@ -152,11 +162,11 @@ public class Slice169 : MonoBehaviour
 
                 startPoint.position = startPos = mousePos;
 
-                if (isTutorial)
-                {
-                    startPoint.position = startPos =  new Vector3(startPos.x, winCheck.answer.p1MatchedOfPoint2.y, 0f);
+                //if (isTutorial)
+                //{
+                //    startPoint.position = startPos =  new Vector3(startPos.x, winCheck.answer.p1MatchedOfPoint2.y, 0f);
 
-                }
+                //}
 
                 lineSegment.SetPosition(0, new Vector3(startPos.x,startPos.y,0f));
 
@@ -165,11 +175,11 @@ public class Slice169 : MonoBehaviour
             {
                 currentPos = mousePos;
 
-                if (isTutorial)
-                {
-                    currentPos = new Vector3(currentPos.x, winCheck.answer.p1MatchedOfPoint2.y, 0f);
+                //if (isTutorial)
+                //{
+                //    currentPos = new Vector3(currentPos.x, winCheck.answer.p1MatchedOfPoint2.y, 0f);
                    
-                }
+                //}
                 lineSegment.SetPosition(1, new Vector3(currentPos.x, currentPos.y, 0f));
                 diffPos = currentPos - startPos;
 

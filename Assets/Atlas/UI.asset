@@ -67,7 +67,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bt_back
-    x: 1580
+    x: 1856
     y: 24
     width: 137
     height: 139
@@ -131,6 +131,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Free
+    x: 0
+    y: 12
+    width: 170
+    height: 63
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: hand
     x: 1731
     y: 2763
@@ -145,7 +158,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_back
-    x: 1856
+    x: 1718
     y: 24
     width: 137
     height: 139
@@ -171,7 +184,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_reset
-    x: 1718
+    x: 1580
     y: 24
     width: 137
     height: 139
@@ -275,8 +288,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: NetDut
-    x: 966
-    y: 18
+    x: 0
+    y: 6
     width: 957
     height: 5
     borderLeft: 0

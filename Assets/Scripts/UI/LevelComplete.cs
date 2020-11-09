@@ -56,7 +56,7 @@ public class LevelComplete : GameUI
         c.ResetToBeginning();
         c.PlayForward();
 
-        blackImage.spriteName = "Map" + Game.Instance.playingMap.GetComponentInChildren<ImageProperties>().stt + "_3";
+        blackImage.spriteName = "Map" + Game.Instance.currentMap + "_3";
         imageNextLevel.sprite2D = Game.Instance.images[Game.Instance.currentMap].Image;
 
         CompletedMapCount.text = DataPlayer.GetTextOfCompletedMapCount();
