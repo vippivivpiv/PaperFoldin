@@ -59,12 +59,23 @@ public class SelectMapFrameUI : MonoBehaviour
         }
         isCompleted = DataPlayer.IsCompletedMap(indexOfMap);
 
+        if ( indexOfMap>Game.Instance.images.Length )
+        {
+            UI2DSprite_MapImage.gameObject.SetActive(false);
+            UI2DSprite_LockedImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            UI2DSprite_MapImage.sprite2D = Game.Instance.images[indexOfMap - 1].Image;
+        }
 
-        UI2DSprite_MapImage.sprite2D = Game.Instance.images[indexOfMap - 1].Image;
 
-        UI2DSprite_MapImage.transform.SetParent(this.transform);
-        UI2DSprite_MapImage.transform.localScale = Vector3.one;
-        UI2DSprite_MapImage.transform.localPosition = new Vector3(0, 30, 0);
+
+
+        //UI2DSprite_MapImage.transform.SetParent(this.transform);
+        //UI2DSprite_MapImage.transform.localScale = Vector3.one;
+        //UI2DSprite_MapImage.transform.localPosition = new Vector3(0, 30, 0);
+
 
         index.text = nameOfMap;
 

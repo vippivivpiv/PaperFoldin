@@ -27,7 +27,7 @@ public class SelectMapUI : GameUI
     {
 
         selectMapFrameUIs = new List<SelectMapFrameUI>();
-        Invoke("InstantiateSelectMap", 0.1f);
+        Invoke(nameof(InstantiateSelectMap), 0.1f);
 
     }
     public new void Show()
@@ -65,7 +65,7 @@ public class SelectMapUI : GameUI
     }
     public void InstantiateSelectMap()
     {
-        for (int i = 1; i < 4; i++)
+        for (int i = 1; i <= 5; i++)
         {
             
             Exhibit e = Instantiate(ExhibitPrefab, UIScrollView.transform);

@@ -10,11 +10,15 @@ public class ImageProperties : MonoBehaviour
     public Sprite Image;
     public Sprite BackAnswer;
     public Material AnswerMaterial, OriginalMaterial;
-    public Transform imagePoint1, imagePoint2;
 
+
+    [HideInInspector]
     public Vector3 p1MatchedOfPoint1;
+    [HideInInspector]
     public Vector3 p2MatchedOfPoint1;
+    [HideInInspector]
     public Vector3 p1MatchedOfPoint2;
+    [HideInInspector]
     public Vector3 p2MatchedOfPoint2;
 
     private Slice169 slice169;
@@ -35,24 +39,20 @@ public class ImageProperties : MonoBehaviour
     public GameObject spriteHalfPoint2;
     public GameObject spriteDisplay;
 
-
-
-
-
     private void Start()
     {
         slice169 = GetComponentInParent<Slice169>();
-        ShowOrHideAnswer();
+        slice169.meshRenderer.material = OriginalMaterial;
 
         spriteDisplay.GetComponent<SpriteRenderer>().sprite = BackAnswer;
     }
 
 
-    public void ShowOrHideAnswer()
-    {
-        if (!DataPlayer.ShowAnswer) slice169.meshRenderer.material = OriginalMaterial;
-        else slice169.meshRenderer.material = AnswerMaterial;
-    }
+    //public void ShowOrHideAnswer()
+    //{
+    //    if (!DataPlayer.ShowAnswer) slice169.meshRenderer.material = OriginalMaterial;
+    //    else slice169.meshRenderer.material = AnswerMaterial;
+    //}
 
 
 

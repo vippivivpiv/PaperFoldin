@@ -58,17 +58,17 @@ public class MainMenuUI : GameUI
     {
         DataPlayer.CurrentPlayingMap = 30;
     }
-    public void ClickShowAnswer()
-    {
-        DataPlayer.ShowAnswer = true;
-        if (Game.Instance != null) Game.Instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
-    }
+    //public void ClickShowAnswer()
+    //{
+    //    DataPlayer.ShowAnswer = true;
+    //    if (Game.Instance != null) Game.Instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
+    //}
 
-    public void ClickHideAnswer()
-    {
-        DataPlayer.ShowAnswer = false;
-        if (Game.Instance != null) Game.Instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
-    }
+    //public void ClickHideAnswer()
+    //{
+    //    DataPlayer.ShowAnswer = false;
+    //    if (Game.Instance != null) Game.Instance.playingMap.gameObject.GetComponentInChildren<ImageProperties>().ShowOrHideAnswer();
+    //}
 
 
 
