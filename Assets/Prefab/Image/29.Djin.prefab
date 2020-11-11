@@ -606,15 +606,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4cc6a6b431b1d3b4e95b85c1e0f03223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4017fc18720d7d042a85e15fa7123b95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.82, y: 4.3}
+  m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7100092501848179619
@@ -644,7 +644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7100092501848179619}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.138, y: 1.226, z: -1.04}
+  m_LocalPosition: {x: 2.138, y: 1.219, z: -1.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 161655863932807658}
@@ -852,8 +852,6 @@ MonoBehaviour:
   BackAnswer: {fileID: 21300000, guid: e428956310d345b4fbf82f701fcfbc19, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: b66ba550d0590a94cb1c6919331665df, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: e02b9f51961e84f42b703a7c9a1c23a7, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

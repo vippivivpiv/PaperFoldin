@@ -933,8 +933,6 @@ MonoBehaviour:
   BackAnswer: {fileID: 21300000, guid: 535f82695dea7704d9b4d66e372cd23f, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 82743fcb889fe3d4b8c45f90002f840d, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 621aac21e14f87a478b2795868ad92a6, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

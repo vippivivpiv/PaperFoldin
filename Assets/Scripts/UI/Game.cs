@@ -24,7 +24,7 @@ public class Game : MonoBehaviour
 
     public int currentMap = 1;
 
-    public float sinceLoadGame;
+
 
     private bool first;
 
@@ -42,17 +42,19 @@ public class Game : MonoBehaviour
 
         if (playingMap!= null && playingMap.winCheck.isWin) return;
 
-        sinceLoadGame += Time.deltaTime;
-
-        if (sinceLoadGame > 5)
+        if (Input.GetMouseButtonDown(0))
         {
-            if ( !first && !isShowBlackImage)
-            {
-                isShowBlackImage = true;
-                InGameUI. ShowHint_BlackImage(true);
-                first = true;
-            }
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                // whatever tag you are looking for on your game object
+                if (hit.collider.tag == "Trigger")
+                {
+                    Debug.Log("---> Hit: ");
+                }
+            }
         }
 
     }
@@ -96,7 +98,7 @@ public class Game : MonoBehaviour
         }
 
         playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
-        sinceLoadGame = 0f;
+
         first = false;
     }
     public void Replay()

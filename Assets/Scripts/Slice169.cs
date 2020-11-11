@@ -48,6 +48,7 @@ public class Slice169 : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 mousePos;
     public Vector3 point1, point2;
+    public Transform p1, p2;
     private float disP1, disP2;
 
     private bool isYOver1;

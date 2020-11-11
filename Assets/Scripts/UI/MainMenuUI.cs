@@ -47,21 +47,7 @@ public class MainMenuUI : GameUI
         Game.Instance.LoadMap();
     }
 
-    public void ResetData()
-    {
-       // PlayerPrefs.DeleteAll();
 
-    }
-    public void JumpToMap9()
-    {
-        DataPlayer.IsPlayTutorial = true;
-        DataPlayer.CurrentPlayingMap = 9;
-    }
-    public void UnlockAllMap()
-    {
-        DataPlayer.IsPlayTutorial = true;
-        DataPlayer.CurrentPlayingMap = 45;
-    }
     //public void ClickShowAnswer()
     //{
     //    DataPlayer.ShowAnswer = true;
@@ -115,5 +101,39 @@ public class MainMenuUI : GameUI
 
         btnPlay.PlayReverse();
         // OpenSetting();
+    }
+
+
+
+
+
+
+
+    public void ResetData()
+    {
+         PlayerPrefs.DeleteAll();
+        DataPlayer.IsPlayTutorial = true;
+
+    }
+    public void JumpToMap9()
+    {
+        DataPlayer.IsPlayTutorial = true;
+        DataPlayer.CurrentPlayingMap = 9;
+    }
+    public void UnlockAllMap()
+    {
+        DataPlayer.IsPlayTutorial = true;
+        DataPlayer.CurrentPlayingMap = 45;
+    }
+
+
+    public void ShowHintBlackImage()
+    {
+        DataPlayer.IsShowHintBlackImage = true;
+    }
+
+    public void HideHintBlackImage()
+    {
+        DataPlayer.IsShowHintBlackImage = false;
     }
 }

@@ -790,7 +790,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8590b55f37f75924e92302577f4701d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be807415b8c33b849938c7a64a39d808, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -798,7 +798,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7721396937509178550
@@ -852,8 +852,6 @@ MonoBehaviour:
   BackAnswer: {fileID: 21300000, guid: 85c72cd3c1ec29d41ab4e36f3b5df7ef, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 86581d66cf58a3945bd45b3e7a3056b1, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: b13b0baf35cab4e4a9654a751162af45, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

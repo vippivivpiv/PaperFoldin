@@ -15,6 +15,19 @@ public class DataPlayer : MonoBehaviour
             return PlayerPrefs.GetInt("PlayTutorial", 0) == 1;
         }
     }
+
+    public static bool IsShowHintBlackImage
+    {
+        set
+        {
+            PlayerPrefs.SetInt("IsShowHintBlackImage", value ? 1 : 0);
+        }
+        get
+        {
+            return PlayerPrefs.GetInt("IsShowHintBlackImage", 0) == 1;
+        }
+    }
+
     public static int CurrentPlayingMap
     {
         set

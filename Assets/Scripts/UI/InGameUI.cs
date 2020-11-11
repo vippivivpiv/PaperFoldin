@@ -15,7 +15,23 @@ public class InGameUI : GameUI
 
     public UISprite Hint_BlackImage;
     public UI2DSprite Hint_BlackImage_2Dsprite;
+    private float sinceLoadGame;
+    private bool isShowBlackImage;
 
+    private void Update()
+    {
+        sinceLoadGame += Time.deltaTime;
+
+        if (sinceLoadGame > 10f)
+        {
+            if (!isShowBlackImage)
+            {
+                isShowBlackImage = true;
+                ShowHint_BlackImage(true); 
+            }
+
+        }
+    }
     public new void Show()
     {
         base.Show();
@@ -23,6 +39,8 @@ public class InGameUI : GameUI
 
         BackgroundManager.instance.Ingame.SetActive(true);
 
+        sinceLoadGame = 0f;
+        isShowBlackImage = false;
         //Panel.GetComponent<TweenAlpha>().from = 0;
         //Panel.GetComponent<TweenAlpha>().to = 1;
         //Panel.GetComponent<TweenAlpha>().ResetToBeginning();
@@ -54,7 +72,10 @@ public class InGameUI : GameUI
         Hint_BlackImage_2Dsprite.sprite2D = Game.Instance.images[Game.Instance.currentMap-1].BackAnswer;
         Hint_BlackImage.spriteName = "Map" + Game.Instance.currentMap.ToString() + "_3";
 
+        Hint_BlackImage_2Dsprite.gameObject.SetActive(false);
+
         ShowHint_BlackImage(false);
+
         Game.Instance.isShowBlackImage = false;
 
 
@@ -115,10 +136,10 @@ public class InGameUI : GameUI
 
     public void ShowHint_BlackImage(bool b)
     {
-
+        if (!DataPlayer.IsShowHintBlackImage) return;
         Hint_BlackImage_2Dsprite.gameObject.SetActive(b);
-
-       // Hint_BlackImage.gameObject.SetActive(b);
+        
+        // Hint_BlackImage.gameObject.SetActive(b);
         Hint_BlackImage.GetComponent<TweenAlpha>().ResetToBeginning();
 
         Hint_BlackImage.GetComponent<TweenAlpha>().PlayForward();
