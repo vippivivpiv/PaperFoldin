@@ -56,7 +56,7 @@ public class MainMenuUI : GameUI
     }
     public void UnlockAllMap()
     {
-        DataPlayer.CurrentPlayingMap = 30;
+        DataPlayer.CurrentPlayingMap = 45;
     }
     //public void ClickShowAnswer()
     //{
