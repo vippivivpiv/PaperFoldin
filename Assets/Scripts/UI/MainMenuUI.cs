@@ -12,6 +12,9 @@ public class MainMenuUI : GameUI
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
+
+        DataPlayer.IsPlayTutorial = true;
+       // DataPlayer.CurrentPlayingMap = 45;
     }
 
     public new void Show()
@@ -46,7 +49,7 @@ public class MainMenuUI : GameUI
 
     public void ResetData()
     {
-        PlayerPrefs.DeleteAll();
+       // PlayerPrefs.DeleteAll();
 
     }
     public void JumpToMap9()
@@ -56,6 +59,7 @@ public class MainMenuUI : GameUI
     }
     public void UnlockAllMap()
     {
+        DataPlayer.IsPlayTutorial = true;
         DataPlayer.CurrentPlayingMap = 45;
     }
     //public void ClickShowAnswer()

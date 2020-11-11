@@ -15,10 +15,10 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: a44a9c3e7d49ce34d987d86df8f4c350, type: 2}
   mSprites:
   - name: Free
-    x: 1285
-    y: 1793
-    width: 648
-    height: 255
+    x: 1901
+    y: 921
+    width: 170
+    height: 63
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -41,8 +41,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map10_3
-    x: 429
-    y: 108
+    x: 1285
+    y: 1679
     width: 446
     height: 369
     borderLeft: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Map11_3
     x: 1182
-    y: 489
+    y: 871
     width: 464
     height: 305
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map14_3
-    x: 1647
-    y: 702
+    x: 1732
+    y: 1771
     width: 462
     height: 277
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map15_3
-    x: 1182
-    y: 795
+    x: 869
+    y: 96
     width: 382
     height: 381
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map16_3
-    x: 2424
-    y: 1077
+    x: 2139
+    y: 332
     width: 85
     height: 392
     borderLeft: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Map17_3
     x: 1982
-    y: 159
+    y: 1547
     width: 411
     height: 223
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map18_3
-    x: 1316
-    y: 1248
+    x: 1252
+    y: 326
     width: 250
     height: 544
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map19_3
-    x: 2110
-    y: 725
+    x: 1786
+    y: 459
     width: 156
     height: 130
     borderLeft: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map2_3
-    x: 876
+    x: 429
     y: 110
     width: 439
     height: 367
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map20_3
-    x: 1565
-    y: 980
+    x: 1252
+    y: 58
     width: 502
     height: 267
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map21_3
-    x: 1850
-    y: 1519
+    x: 1755
+    y: 166
     width: 383
     height: 273
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map22_3
-    x: 2532
-    y: 1751
+    x: 2199
+    y: 1031
     width: 165
     height: 297
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map23_3
-    x: 1982
-    y: 383
+    x: 1786
+    y: 590
     width: 297
     height: 318
     borderLeft: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map23_3a
-    x: 2234
-    y: 1730
+    x: 1901
+    y: 985
     width: 297
     height: 318
     borderLeft: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map25_3
-    x: 2322
-    y: 1470
+    x: 2084
+    y: 725
     width: 238
     height: 259
     borderLeft: 0
@@ -275,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map26_3
-    x: 2280
-    y: 638
+    x: 1982
+    y: 1329
     width: 332
     height: 217
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map28_3
-    x: 2068
-    y: 1124
+    x: 1647
+    y: 909
     width: 253
     height: 394
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map29_3
-    x: 1567
-    y: 1362
+    x: 1503
+    y: 440
     width: 282
     height: 430
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map30_3
-    x: 1647
-    y: 549
+    x: 1755
+    y: 13
     width: 286
     height: 152
     borderLeft: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Map4_3
     x: 1637
-    y: 114
+    y: 1304
     width: 344
     height: 374
     borderLeft: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Map6_3
-    x: 2110
-    y: 856
+    x: 2195
+    y: 1781
     width: 313
     height: 267
     borderLeft: 0
@@ -393,7 +393,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: Map7_3
     x: 1316
-    y: 60
+    y: 1250
     width: 320
     height: 428
     borderLeft: 0

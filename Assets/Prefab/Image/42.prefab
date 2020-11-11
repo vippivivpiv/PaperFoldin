@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stt: 30
-  KeyWord: Swan
+  KeyWord: Duck
   isSpecialLevel: 0
   Image: {fileID: 21300000, guid: a3bca61e7cf0038408a48a98b271c10e, type: 3}
   BackAnswer: {fileID: 21300000, guid: f24c92359120e224ba50d96ef5cd21bd, type: 3}

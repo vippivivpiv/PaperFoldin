@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4041674286938335391
 Transform:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1775849134005051987
 Transform:
   m_ObjectHideFlags: 0
@@ -716,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &210057532223763761
 Transform:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stt: 30
-  KeyWord: Swan
+  KeyWord: Paint Brush
   isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 9d5137138e6580c4b8dd84d865178c9d, type: 3}
   BackAnswer: {fileID: 21300000, guid: 1a1304d588948c448a104a8e1cc8ce91, type: 3}

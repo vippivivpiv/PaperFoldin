@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4041674286938335391
 Transform:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1775849134005051987
 Transform:
   m_ObjectHideFlags: 0
@@ -716,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &210057532223763761
 Transform:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stt: 30
-  KeyWord: Swan
+  KeyWord: Broom
   isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 6553a73fe8ed1ff4497ebc4f1d14321c, type: 3}
   BackAnswer: {fileID: 21300000, guid: 0b327fdbbb2c6474bbdc24314348a9c9, type: 3}
