@@ -69,8 +69,23 @@ public class WinCheckOneAnswer : MonoBehaviour
 
     private void Update()
     {
-        
-        if (slice169.isSliced)
+
+        //if (slice169.isSliced)
+        //{
+        //    if (!iscalculator)
+        //    {
+        //        iscalculator = true;
+
+        //        if (angleCheck == 180) angleCheck = 0;
+        //        CalculateDistanceFromPointToLine();
+        //        SelectPointMoveAndDisplayImage();
+        //    }
+        //    UpdatePointPos();
+        //    if ( !slice169.isMoving) CheckAnswers();
+        //}
+
+
+        if (slice169.isChoosePart)
         {
             if (!iscalculator)
             {
@@ -81,7 +96,11 @@ public class WinCheckOneAnswer : MonoBehaviour
                 SelectPointMoveAndDisplayImage();
             }
             UpdatePointPos();
-            if ( !slice169.isMoving) CheckAnswers();
+            if (!slice169.isMoving) CheckAnswers();
+        }
+        else
+        {
+            iscalculator = false;
         }
     }
 
@@ -270,9 +289,9 @@ public class WinCheckOneAnswer : MonoBehaviour
 
     private void CheckAnswers()
     {
-        if (answer.DisP1toLine <= 1f || answer.DisP2toLine <= 1f)
+        if (answer.DisP1toLine <= 0.5f || answer.DisP2toLine <= 0.5f)
         {
-            if (Vector2.Distance(answer.Point1, answer.Point2) <= 1f)
+            if (Vector2.Distance(answer.Point1, answer.Point2) <= 0.5f)
             {
                 timerCount += Time.deltaTime;
              //   Debug.Log(timerCount);

@@ -87,7 +87,7 @@ public class Slice169 : MonoBehaviour
     private bool isUpdateOldDiff;
 
     private bool isCheckPart;
-    private bool isChoosePart;
+    public bool isChoosePart;
     private bool isChooseSmallPart;
     private bool canMove;
 
@@ -97,6 +97,7 @@ public class Slice169 : MonoBehaviour
 
     private List<Vector3> smallPartVertices, bigPartVerteces;
     private bool isMovePoint;
+    private bool swap;
 
     #endregion
     private void Start()
@@ -199,11 +200,14 @@ public class Slice169 : MonoBehaviour
 
                     if (hit.collider.tag == "point1")
                     {
+                        Debug.Log("Hit point 1");
+                   
                         isHitPoint1 = true;
                     }
                     else if (hit.collider.tag == "point2")
                     {
                         isHitPoint1 = false;
+                        Debug.Log("Hit point 2");
                     }
                 }
                 else
@@ -260,7 +264,8 @@ public class Slice169 : MonoBehaviour
 
 
             ClassSlicePosition();
-            SortP1P2Position();
+            SortP1P2();
+            CalculateDistance();
             UpdateMeshDataAfterSlice();
             UpdatePositionMoveVertercies();
 
@@ -276,6 +281,13 @@ public class Slice169 : MonoBehaviour
 
 
 
+    }
+
+    private void SortP1P2()
+    {
+        Debug.Log(Vector3.SignedAngle( point2 - Vector3.zero, point1 - Vector3.zero,Vector3.forward ) );
+
+        if (Vector3.SignedAngle(point2 - Vector3.zero, point1 - Vector3.zero, Vector3.forward) < 0f) swapP1P2();
     }
 
     //----------------------------------------Gameplay-----------------------------------------------------------------------------------------------------------------------------------------------
@@ -339,7 +351,8 @@ public class Slice169 : MonoBehaviour
 
 
             ClassSlicePosition();
-            SortP1P2Position();
+            SortP1P2();
+            CalculateDistance();
             UpdateMeshDataAfterSlice();
             UpdatePositionMoveVertercies();
     
@@ -3443,7 +3456,7 @@ public class Slice169 : MonoBehaviour
 
     }
     // Sắp xếp P1 P2 theo chiều kim đồng hồ: P1 trước, P2 sau
-    private void SortP1P2Position()
+    private void CalculateDistance()
     {
         switch (casePos)
         {
@@ -3466,7 +3479,7 @@ public class Slice169 : MonoBehaviour
             case eCasePos.TH3:
                 {
 
-                    swapP1P2();
+                  //  if (!swap) swapP1P2();
 
                     disP1 = Vector2.Distance(v3tov2(point1), v3tov2(peak3));
                     disP2 = Vector2.Distance(v3tov2(point2), v3tov2(peak3));
@@ -3496,7 +3509,8 @@ public class Slice169 : MonoBehaviour
                 }
             case eCasePos.TH6:
                 {
-                    swapP1P2();
+                  //  if ( !swap) swapP1P2();
+
 
                     disP1 = Vector2.Distance(v3tov2(point1), v3tov2(peak1));
                     disP2 = Vector2.Distance(v3tov2(point2), v3tov2(peak3));
@@ -3508,7 +3522,7 @@ public class Slice169 : MonoBehaviour
                 }
             case eCasePos.TH7:
                 {
-                    swapP1P2();
+                   // if (!swap) swapP1P2();
 
                     disP1 = Vector2.Distance(v3tov2(point1), v3tov2(peak3));
                     disP2 = Vector2.Distance(v3tov2(point2), v3tov2(peak2));
@@ -3528,7 +3542,7 @@ public class Slice169 : MonoBehaviour
                 }
             default: break;
         }
-
+        swap = true;
 
 
     }
