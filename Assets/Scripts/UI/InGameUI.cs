@@ -114,6 +114,10 @@ public class InGameUI : GameUI
     public void Replay()
     {
         Game.Instance.Replay();
+
+
+
+
     }
 
 

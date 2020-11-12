@@ -18,8 +18,6 @@ public class EdgeOfSelectedPart : MonoBehaviour
             if (slice169.isClick)
             {
 
-                //gameObject.SetActive(true);
-                lineRenderer.enabled = true;
                 lineRenderer.positionCount = slice169.edgeSliced.Length;
                 for (int i = 0; i < lineRenderer.positionCount; i++)
                 {

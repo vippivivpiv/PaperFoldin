@@ -42,20 +42,7 @@ public class Game : MonoBehaviour
 
         if (playingMap!= null && playingMap.winCheck.isWin) return;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                // whatever tag you are looking for on your game object
-                if (hit.collider.tag == "Trigger")
-                {
-                    Debug.Log("---> Hit: ");
-                }
-            }
-        }
 
     }
     private void Start()
@@ -103,8 +90,13 @@ public class Game : MonoBehaviour
     }
     public void Replay()
     {
+        Vector3 p1 = playingMap.point1;
+        Vector3 p2 = playingMap.point2;
+
         Destroy(playingMap.gameObject);
+
         LoadMap();
+        playingMap.DisplayGiayNhan(p1, p2);
     }
     public void LevelCompleted()
     {
