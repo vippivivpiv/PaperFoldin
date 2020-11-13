@@ -57,6 +57,13 @@ public class WinCheckOneAnswer : MonoBehaviour
         answer.p1MatchedOfPoint2.z = -1;
         answer.p2MatchedOfPoint2.z = -1;
 
+        Debug.Log(answer.p1MatchedOfPoint1);
+        Debug.Log(answer.p2MatchedOfPoint1);
+        Debug.Log(answer.p1MatchedOfPoint2);
+        Debug.Log(answer.p2MatchedOfPoint2);
+
+
+
         hintP1.positionCount = 2;
         hintP1.SetPosition(0, answer.p1MatchedOfPoint1);
         hintP1.SetPosition(1, answer.p2MatchedOfPoint1);
@@ -108,11 +115,15 @@ public class WinCheckOneAnswer : MonoBehaviour
 
     private void CalculatePointAutoMatch()
     {
-        Vector2[] testMatch = slice169.GetLineIntersection(answer.point1, answer.angle, slice169.peak3, slice169.peak2, slice169.peak0, slice169.peak1, GetComponent<Slice169>().widthRatio, GetComponent<Slice169>().heightRatio);
+        Vector2[] testMatch = slice169.GetLineIntersection(answer.point1, answer.angle, slice169.peak3, slice169.peak2, slice169.peak0, slice169.peak1, slice169.widthRatio, slice169.heightRatio);
+        Debug.Log(testMatch[0]);
+        Debug.Log(testMatch[1]);
         answer.p1MatchedOfPoint1 = new Vector3(testMatch[0].x, testMatch[0].y, 0);
         answer.p2MatchedOfPoint1 = new Vector3(testMatch[1].x, testMatch[1].y, 0);
 
-        testMatch = GetComponent<Slice169>().GetLineIntersection(answer.point2, answer.angle, slice169.peak3, slice169.peak2, slice169.peak0, slice169.peak1, GetComponent<Slice169>().widthRatio, GetComponent<Slice169>().heightRatio);
+        testMatch = slice169.GetLineIntersection(answer.point2, answer.angle, slice169.peak3, slice169.peak2, slice169.peak0, slice169.peak1, slice169.widthRatio, slice169.heightRatio);
+        Debug.Log(testMatch[0]);
+        Debug.Log(testMatch[1]); 
         answer.p1MatchedOfPoint2 = new Vector3(testMatch[0].x, testMatch[0].y, 0);
         answer.p2MatchedOfPoint2 = new Vector3(testMatch[1].x, testMatch[1].y, 0);
 
@@ -289,9 +300,9 @@ public class WinCheckOneAnswer : MonoBehaviour
 
     private void CheckAnswers()
     {
-        if (answer.DisP1toLine <= 0.5f || answer.DisP2toLine <= 0.5f)
+        if (answer.DisP1toLine <= 1f || answer.DisP2toLine <= 1f)
         {
-            if (Vector2.Distance(answer.Point1, answer.Point2) <= 0.5f)
+            if (Vector2.Distance(answer.Point1, answer.Point2) <= 1f)
             {
                 timerCount += Time.deltaTime;
              //   Debug.Log(timerCount);

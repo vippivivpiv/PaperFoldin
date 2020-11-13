@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446954892421821681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.069, y: -3.55, z: -1.04}
+  m_LocalPosition: {x: -0.602, y: -1.146, z: -1.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6772258190456861462}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23626155f0353b44dbe96ca99ed82517, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4de00a6321c242046a4416076444f70b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -254,7 +254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1464acd0056607448ada41abb4dfd712, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e815ae94ea2cdd4d8d34d2bd805a9e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -725,7 +725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085097829951475957}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.584, y: -5.082, z: -1.04}
+  m_LocalPosition: {x: 2.513, y: -4.25, z: -1.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6772258190456861462}
@@ -770,7 +770,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 78a8cb42d2b456444b9c220d1fb9e2f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e8b15c174af0ce4dabb515587ad6d47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 4735006710389204285}
   m_Layer: 0
-  m_Name: 37
+  m_Name: 38.Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -927,19 +927,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stt: 30
-  KeyWord: Handsaw
+  KeyWord: Axe
   isSpecialLevel: 0
-  Image: {fileID: 21300000, guid: 0397a768e39477548a4be3825b9cd09c, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 5f61530eb92e215449f0beb0d517717d, type: 3}
+  Image: {fileID: 21300000, guid: 51ad654181fc8a144b8c59ab35648875, type: 3}
+  BackAnswer: {fileID: 21300000, guid: c0bbc3ca276f41b4fb0e6f6448c472bc, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 366f5e6dcdcc5014f9a032afdee99886, type: 2}
-  OriginalMaterial: {fileID: 2100000, guid: a6af987c7fc653b4389dc1ed9f1ff8ad, type: 2}
+  OriginalMaterial: {fileID: 2100000, guid: e34ee90abdb207147a4b18fabd3aed7a, type: 2}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
-  point1: {x: -3.2893, y: -6.9278}
-  point2: {x: 3.9422, y: -10.0475}
-  angle: 67
+  point1: {x: -2.6488, y: -0.9827}
+  point2: {x: 3.5759, y: -7.11}
+  angle: 46
   distanceSlice: 1
   distanceWin: 1
   holdTime: 1

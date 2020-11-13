@@ -892,13 +892,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 10
   KeyWord: Butterfly
-  isSpecialLevel: 1
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 55685c6a4753b3d4a8fd8fb63ad29c20, type: 3}
   BackAnswer: {fileID: 21300000, guid: f593a17afb374d541b159ef3396d7b9f, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: a85f4759580303145a5b3a4f1cc7b9ea, type: 2}
   OriginalMaterial: {fileID: 2100000, guid: 8710e3a63c26ead40a54d57a52f54f13, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

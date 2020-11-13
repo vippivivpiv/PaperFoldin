@@ -11,7 +11,11 @@ public class InGameUI : GameUI
     public UILabel currentLevel;
 
     public GameObject Btn_WatchAds;
-    public GameObject WatchAds_SpriteFree;
+    public GameObject Sprite_Ads;
+    public GameObject Sprite_HandPointWatchAds;
+
+    public GameObject Btn_Replay;
+    public GameObject Sprite_HandPointReplay;
 
     public UISprite Hint_BlackImage;
     public UI2DSprite Hint_BlackImage_2Dsprite;
@@ -67,7 +71,44 @@ public class InGameUI : GameUI
             currentLevel.text = "Special Level " + DataPlayer.Get10to9(Game.Instance.currentMap).ToString();
         }
 
-        WatchAds_SpriteFree.SetActive(DataPlayer.IsWatchedAdsMap(Game.Instance.currentMap));
+        Sprite_Ads.SetActive(!DataPlayer.IsWatchedAdsMap(Game.Instance.currentMap));
+
+
+        if ( Game.Instance.currentMap == 2 )
+        {
+
+            Sprite_HandPointReplay.SetActive(true);
+            Sprite_HandPointWatchAds.SetActive(false);
+
+            Btn_Replay.SetActive(true);
+            Btn_WatchAds.SetActive(false);
+        }
+        if ( Game.Instance.currentMap == 3)
+        {
+            Sprite_HandPointReplay.SetActive(false);
+            Sprite_HandPointWatchAds.SetActive(true);
+
+            Btn_WatchAds.SetActive(true);
+            Sprite_Ads.SetActive(false);
+        }
+        if (Game.Instance.currentMap > 3)
+        {
+            Sprite_HandPointReplay.SetActive(false);
+            Sprite_HandPointWatchAds.SetActive(false);
+        }
+
+        if ( Game.Instance.currentMap > 5)
+        {
+            Sprite_HandPointReplay.SetActive(false);
+            Sprite_HandPointWatchAds.SetActive(false);
+
+            Btn_Replay.SetActive(true);
+            Btn_WatchAds.SetActive(true);
+        }
+
+
+
+
 
         Hint_BlackImage_2Dsprite.sprite2D = Game.Instance.images[Game.Instance.currentMap-1].BackAnswer;
         Hint_BlackImage.spriteName = "Map" + Game.Instance.currentMap.ToString() + "_3";

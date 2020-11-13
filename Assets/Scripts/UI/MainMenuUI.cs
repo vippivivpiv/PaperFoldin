@@ -13,7 +13,7 @@ public class MainMenuUI : GameUI
     {
         //PlayerPrefs.DeleteAll();
 
-        DataPlayer.IsPlayTutorial = true;
+       // DataPlayer.IsPlayTutorial = true;
        // DataPlayer.CurrentPlayingMap = 45;
     }
 
@@ -112,7 +112,7 @@ public class MainMenuUI : GameUI
     public void ResetData()
     {
          PlayerPrefs.DeleteAll();
-        DataPlayer.IsPlayTutorial = true;
+        //DataPlayer.IsPlayTutorial = true;
 
     }
     public void JumpToMap9()
@@ -136,4 +136,17 @@ public class MainMenuUI : GameUI
     {
         DataPlayer.IsShowHintBlackImage = false;
     }
+
+    public void DieuKhien2Diem()
+    {
+        DataPlayer.IsControllerPoint = true;
+        DataPlayer.IsAutoMatch = false;
+
+    }
+    public void TuDongBatDuongCat()
+    {
+        DataPlayer.IsControllerPoint = false;
+        DataPlayer.IsAutoMatch = true;
+    }
+
 }

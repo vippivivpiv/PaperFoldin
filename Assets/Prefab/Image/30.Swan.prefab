@@ -928,7 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stt: 30
   KeyWord: Swan
-  isSpecialLevel: 1
+  isSpecialLevel: 0
   Image: {fileID: 21300000, guid: 1d968318041fdfc4f8240e73cb6a23aa, type: 3}
   BackAnswer: {fileID: 21300000, guid: bbcca85a705210c41b162f05ad996c81, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 366f5e6dcdcc5014f9a032afdee99886, type: 2}

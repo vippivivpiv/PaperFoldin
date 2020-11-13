@@ -14,6 +14,7 @@ public class Slice169 : MonoBehaviour
 {
     #region Properties
 
+
     public Camera mainCamera;
 
     public WinCheckOneAnswer winCheck;
@@ -103,7 +104,8 @@ public class Slice169 : MonoBehaviour
     private void Start()
     {
 
-        lineSegment.gameObject.SetActive(true);
+      //  lineSegment.gameObject.SetActive(true);
+
         lineSegment.positionCount = 2;
         lineSlicer.gameObject.SetActive(false);
 
@@ -138,25 +140,35 @@ public class Slice169 : MonoBehaviour
             }
             else
             {
+
                 p1.position = point1 + new Vector3(0, 0, -1);
                 
                 p2.position = point2 + new Vector3(0, 0, -1);
 
-
-
-                if ( !isMovePoint)
+                if (!isTutorial && DataPlayer.IsControllerPoint)
                 {
-                    MovePoint();
+                    if (!isMovePoint)
+                    {
+                        MovePoint();
 
+                    }
+
+                    if (isMovePoint)
+                    {
+
+                        Move();
+                        CreateMesh();
+                        UpdateVerOfEdgeSliced();
+                    }
                 }
-
-                if ( isMovePoint)
+                else
                 {
-     
                     Move();
                     CreateMesh();
                     UpdateVerOfEdgeSliced();
                 }
+
+
             }
         }
 
@@ -285,7 +297,6 @@ public class Slice169 : MonoBehaviour
 
     private void SortP1P2()
     {
-        Debug.Log(Vector3.SignedAngle( point2 - Vector3.zero, point1 - Vector3.zero,Vector3.forward ) );
 
         if (Vector3.SignedAngle(point2 - Vector3.zero, point1 - Vector3.zero, Vector3.forward) < 0f) swapP1P2();
     }
@@ -313,10 +324,11 @@ public class Slice169 : MonoBehaviour
             {
                 if (Mathf.Abs(mousePos.x) > widthRatio || Mathf.Abs(mousePos.y) > heightRatio) return;
 
-                startPoint.gameObject.SetActive(true);
+   
                 isClick = true;
-
+   
                 startPoint.position = startPos = mousePos;
+                startPoint.gameObject.SetActive(true);
 
                 lineSegment.SetPosition(0, new Vector3(startPos.x,startPos.y,0f));
 
@@ -327,7 +339,9 @@ public class Slice169 : MonoBehaviour
 
       
                 lineSegment.SetPosition(1, new Vector3(currentPos.x, currentPos.y, 0f));
-                diffPos = currentPos - startPos;
+                lineSegment.gameObject.SetActive(true);
+
+                         diffPos = currentPos - startPos;
 
                 Vector2[] lineIntersection = GetLineIntersection(startPos, currentPos, peak3, peak2, peak0, peak1, widthRatio, heightRatio);
                 point1 = new Vector3(lineIntersection[0].x, lineIntersection[0].y, 0);
@@ -349,6 +363,10 @@ public class Slice169 : MonoBehaviour
             p1.gameObject.SetActive(true);
             p2.gameObject.SetActive(true);
 
+            if ( DataPlayer.IsAutoMatch) CheckAutoMatch();
+
+
+
 
             ClassSlicePosition();
             SortP1P2();
@@ -365,6 +383,51 @@ public class Slice169 : MonoBehaviour
                 verticesOriginal[i] = vertices[i];
             }
         }
+    }
+
+    private void CheckAutoMatch()
+    {
+        Debug.Log(point1);
+        Vector3 point1Clone = point1;
+        Vector3 point2Clone = point2;
+        if ( point1Clone.y > point2Clone.y  )
+        {
+            Vector3 t = point1Clone;
+            point1Clone = point2Clone;
+            point2Clone = t;
+        }
+        float angle = -Vector3.SignedAngle(point2Clone - point1Clone, Vector3.right, Vector3.forward);
+        winCheck.CalculateDistanceFromPointToLine();
+
+
+        if ( winCheck.answer.DisP1toLine < 0.5f)
+        {
+            if ((Math.Abs(angle - winCheck.answer.angle) < 5f) || (Math.Abs(angle - 180 - winCheck.answer.angle) < 5f) || (Math.Abs(angle + 180 - winCheck.answer.angle) < 5f))
+            {
+
+                point1 = winCheck.answer.p1MatchedOfPoint1;
+                point2 = winCheck.answer.p2MatchedOfPoint1;
+  
+                UpdateLineSlicer();
+            }
+
+        }
+
+        if ( winCheck.answer.DisP2toLine <0.5f)
+        {
+            if ((Math.Abs(angle - winCheck.answer.angle) < 5f) || (Math.Abs(angle - 180 - winCheck.answer.angle) < 5f) || (Math.Abs(angle + 180 - winCheck.answer.angle) < 5f))
+            {
+     
+                point1 = winCheck.answer.p1MatchedOfPoint2;
+                point2 = winCheck.answer.p2MatchedOfPoint2;
+
+                UpdateLineSlicer();
+            }
+        }
+
+        point1.z = 0;
+        point2.z = 0;
+
     }
 
     private void UpdatePositionEdgeOfSelected()
@@ -499,11 +562,13 @@ public class Slice169 : MonoBehaviour
     private void Move()
     {
 
-        Debug.Log(casePos);
+
         moveDirection = new Vector3(lineSlicer.GetChild(0).transform.up.x, lineSlicer.GetChild(0).transform.up.y, 0);
         mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        lineSlicer.gameObject.SetActive(false);
+        if (DataPlayer.IsControllerPoint) lineSlicer.gameObject.SetActive(false);
+
+     //   lineSlicer.gameObject.SetActive(false);
         lineSegment.gameObject.SetActive(false);
         startPoint.gameObject.SetActive(false);
         p1.gameObject.SetActive(false);
@@ -512,7 +577,9 @@ public class Slice169 : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            lineSlicer.gameObject.SetActive(false);
             EdgeOfSelected.enabled = true;
+
             if (!isChoosePart)
             {
 
@@ -526,8 +593,13 @@ public class Slice169 : MonoBehaviour
 
             }
         }
-
-        if (!isChoosePart) return;
+        Debug.Log(isChoosePart);
+        if (!isChoosePart)
+        {
+            lineSlicer.gameObject.SetActive(true);
+            EdgeOfSelected.enabled = false;
+            return;
+        }
 
         if (!isCheckPart && Input.GetMouseButtonDown(0))
         {
@@ -3853,7 +3925,8 @@ public class Slice169 : MonoBehaviour
         while (count < 2 && temp < 5)
         {
             a = LineIntersection(pointA, angle, edge[temp % 4], edge[(temp + 1) % 4]);
-            if (a != new Vector2(float.MaxValue, float.MaxValue) && Mathf.Abs(a.x) <= width && Mathf.Abs(a.y) <= height)
+            Debug.Log(a);
+            if (a != new Vector2(float.MaxValue, float.MaxValue) && Mathf.Abs(a.x) <= (width + 0.00001f) && Mathf.Abs(a.y) <= (height + 0.00001f))
             {
                 lineIntersection[count] = a;
                 count++;
@@ -3886,6 +3959,8 @@ public class Slice169 : MonoBehaviour
         {
             float x = (b2 * c1 - b1 * c2) / determinant;
             float y = (a1 * c2 - a2 * c1) / determinant;
+
+          //  Debug.Log(x+ " " + y);
             return new Vector2(x, y);
         }
     }
@@ -4045,20 +4120,33 @@ public class Slice169 : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (isSliced)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawSphere(point1, 1f);
-            Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(point2, 1f);
-            Gizmos.color = Color.red;
-            Gizmos.color = Color.red;
-            for ( int i = 0; i < 8; i++)
-            {
-                Gizmos.DrawSphere(vertices[i], 0.5f);
-            }
+        //if (isSliced)
+        //{
+        //    Gizmos.color = Color.green;
+        //    Gizmos.DrawSphere(point1, 1f);
+        //    Gizmos.color = Color.blue;
+        //    Gizmos.DrawSphere(point2, 1f);
+        //    Gizmos.color = Color.red;
+        //    Gizmos.color = Color.red;
+        //    for ( int i = 0; i < 8; i++)
+        //    {
+        //        Gizmos.DrawSphere(vertices[i], 0.5f);
+        //    }
 
-        }
+        //}
+
+        //if ( isSliced)
+        //{
+
+        //    Gizmos.color = Color.green;
+        //    Gizmos.DrawSphere(smallPartVertices[0], 0.5f);
+        //    Gizmos.color = Color.blue;
+        //    Gizmos.DrawSphere(smallPartVertices[1], 0.5f);
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawSphere(smallPartVertices[2], 0.5f);
+        //    Gizmos.color = Color.white;
+        //    Gizmos.DrawSphere(smallPartVertices[3], 0.5f);
+        //}
 
     }
 }

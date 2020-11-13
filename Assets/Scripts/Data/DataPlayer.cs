@@ -15,6 +15,30 @@ public class DataPlayer : MonoBehaviour
             return PlayerPrefs.GetInt("PlayTutorial", 0) == 1;
         }
     }
+    public static bool IsAutoMatch
+    {
+        set
+        {
+            PlayerPrefs.SetInt("IsAutoMatch", value ? 1 : 0);
+        }
+        get
+        {
+            return PlayerPrefs.GetInt("IsAutoMatch", 0) == 1;
+        }
+    }
+
+    public static bool IsControllerPoint
+    {
+        set
+        {
+            PlayerPrefs.SetInt("IsControllerPoint", value ? 1 : 0);
+        }
+        get
+        {
+            return PlayerPrefs.GetInt("IsControllerPoint", 1) == 1;
+        }
+    }
+
 
     public static bool IsShowHintBlackImage
     {

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446954892421821681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.754, y: -3.587, z: -1.04}
+  m_LocalPosition: {x: -1.018, y: -2.865, z: -1.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6772258190456861462}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bb30cc73eb70f9644b0fe271f0dbf2a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3115a8b901359945ad91a5405ca0dea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -254,7 +254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b07969191880c614dbb20fd922f29499, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73c06165198ef8b48a09ddeb393352e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -725,7 +725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7085097829951475957}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.261, y: 1.548, z: -1.04}
+  m_LocalPosition: {x: 0.13, y: -4.636, z: -1.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6772258190456861462}
@@ -770,7 +770,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e59e633f09adc92408de5f9a22c8f197, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 950f7c0ca07008641bbdd47d696578ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 2207305258036102516}
   - component: {fileID: 4735006710389204285}
   m_Layer: 0
-  m_Name: 32
+  m_Name: 40.Candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -927,19 +927,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stt: 30
-  KeyWord: Cog-wheel
+  KeyWord: Candle
   isSpecialLevel: 0
-  Image: {fileID: 21300000, guid: 3f68fe59d397fdb43a9fa74218020fe2, type: 3}
-  BackAnswer: {fileID: 21300000, guid: 95ef85477aa306a4fb890e18b1c1219a, type: 3}
+  Image: {fileID: 21300000, guid: 5f391ad23b4f14d48a3f511f0a421559, type: 3}
+  BackAnswer: {fileID: 21300000, guid: d46b26b374dbb424a881cb14ceba0fe2, type: 3}
   AnswerMaterial: {fileID: 2100000, guid: 366f5e6dcdcc5014f9a032afdee99886, type: 2}
-  OriginalMaterial: {fileID: 2100000, guid: 1215ce245673e9b48859608ca6e9a0a9, type: 2}
+  OriginalMaterial: {fileID: 2100000, guid: 761f4a0f2b1868f459c785ba2d946653, type: 2}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint2: {x: 0, y: 0, z: 0}
-  point1: {x: -7.5095, y: -7.1357}
-  point2: {x: -0.4957, y: 3.1868}
-  angle: 146
+  point1: {x: -2.814, y: -4.4564}
+  point2: {x: -0.5732, y: -8.017}
+  angle: 33
   distanceSlice: 1
   distanceWin: 1
   holdTime: 1
