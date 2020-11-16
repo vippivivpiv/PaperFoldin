@@ -343,7 +343,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3285502004327179708
@@ -929,12 +929,10 @@ MonoBehaviour:
   stt: 3
   KeyWord: Buffalo Skull
   isSpecialLevel: 0
-  Image: {fileID: 21300000, guid: 6e856817577bdfe4f80d58f61e6bbd7d, type: 3}
+  Image: {fileID: 21300000, guid: 75907793a837e6a438217e8bd0086ce3, type: 3}
   BackAnswer: {fileID: 21300000, guid: d3f67ba5abc7bfc41af2ca36c360a6a7, type: 3}
-  AnswerMaterial: {fileID: 2100000, guid: 19fc6161ca6021648bff64b8ed56f2cd, type: 2}
+  AnswerMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 2100000, guid: d4b5e8d3fce4f594e809d0e8625df099, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

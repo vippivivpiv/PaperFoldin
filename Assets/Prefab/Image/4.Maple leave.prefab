@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3439234780348018784
@@ -298,7 +298,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &886114333123507939
@@ -381,7 +381,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1820712966993247754
@@ -694,12 +694,10 @@ MonoBehaviour:
   stt: 4
   KeyWord: Maple leave
   isSpecialLevel: 0
-  Image: {fileID: 21300000, guid: 6b767587db5f2cb41880c7e14b82f635, type: 3}
+  Image: {fileID: 21300000, guid: adb1a6479ce0a3c4ea4910724f77b0ac, type: 3}
   BackAnswer: {fileID: 21300000, guid: 4483d8322f2e4e94cbe688c74783e1e6, type: 3}
-  AnswerMaterial: {fileID: 2100000, guid: a4e4e22c8f9461540aac164dfd7d9f36, type: 2}
+  AnswerMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 2100000, guid: b604d7208b1d0e247a3f3e34ec46dd42, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

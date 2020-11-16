@@ -343,7 +343,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6003744576627418464
@@ -745,12 +745,10 @@ MonoBehaviour:
   stt: 14
   KeyWord: Hat
   isSpecialLevel: 0
-  Image: {fileID: 21300000, guid: e1e6630358909fe4289b398235e99c6e, type: 3}
+  Image: {fileID: 21300000, guid: 726a66f60a1e8b34bb9d86338b205174, type: 3}
   BackAnswer: {fileID: 21300000, guid: 69eb017366ef1234a870eff146751c77, type: 3}
-  AnswerMaterial: {fileID: 2100000, guid: 0d310cea746bac647b1882561016eaf1, type: 2}
+  AnswerMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 2100000, guid: a8dd4c9b0178f20479084b9d20a3f143, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

@@ -664,12 +664,10 @@ MonoBehaviour:
   stt: 7
   KeyWord: Hourglass
   isSpecialLevel: 0
-  Image: {fileID: 21300000, guid: 3ee87f8a096790f4f961df15a9d2d835, type: 3}
+  Image: {fileID: 21300000, guid: a14dad7ca5819ec4eb13103ffed08ede, type: 3}
   BackAnswer: {fileID: 21300000, guid: 74b2c27d26c1c82429d459ed02f97d8d, type: 3}
-  AnswerMaterial: {fileID: 2100000, guid: 8a7fa581c9cd9b045aaec8fc3e0dbbfd, type: 2}
+  AnswerMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 2100000, guid: 1bf697d8ec3b3ce4b8119522a85a453c, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}
@@ -763,7 +761,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8327619495441945618

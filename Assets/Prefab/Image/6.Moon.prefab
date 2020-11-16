@@ -159,7 +159,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4820395243861025916
@@ -628,12 +628,10 @@ MonoBehaviour:
   stt: 6
   KeyWord: Moon
   isSpecialLevel: 0
-  Image: {fileID: 21300000, guid: 440a49fd8bffdcf46b7852ac03a78f1a, type: 3}
+  Image: {fileID: 21300000, guid: f64f6264f78281c4f846b8d8d51207b2, type: 3}
   BackAnswer: {fileID: 21300000, guid: 46150f61fd40d614eba8b568c6f46178, type: 3}
-  AnswerMaterial: {fileID: 2100000, guid: eff378fd51343ed40bc0224ca25a2b0f, type: 2}
+  AnswerMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 2100000, guid: e56b0ca2101d46a4e825abcadd629a59, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

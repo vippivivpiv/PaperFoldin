@@ -644,7 +644,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6252600582979798007
@@ -929,12 +929,10 @@ MonoBehaviour:
   stt: 2
   KeyWord: Pegasus
   isSpecialLevel: 0
-  Image: {fileID: 21300000, guid: b30d133423b26ef4380ce236d604d30c, type: 3}
+  Image: {fileID: 21300000, guid: 28cb2afa94d715148b9b148856bb0b4b, type: 3}
   BackAnswer: {fileID: 21300000, guid: 8a9e37b5bf50b684c8f61dc1c40fbf80, type: 3}
-  AnswerMaterial: {fileID: 2100000, guid: b25f956acd55e4b4ba445285de0095be, type: 2}
+  AnswerMaterial: {fileID: 0}
   OriginalMaterial: {fileID: 2100000, guid: 553370cd56284d846b7696a31352897b, type: 2}
-  imagePoint1: {fileID: 0}
-  imagePoint2: {fileID: 0}
   p1MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p2MatchedOfPoint1: {x: 0, y: 0, z: 0}
   p1MatchedOfPoint2: {x: 0, y: 0, z: 0}

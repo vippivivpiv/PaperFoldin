@@ -43,7 +43,7 @@ public class Slice169 : MonoBehaviour
     public Vector3 peak0, peak1, peak2, peak3;
     private Vector3 currentPos;
     private Vector3 oldPos;
-   // private Vector3 currentPos;
+    // private Vector3 currentPos;
     private Vector3 diffPos;
     private Vector3 diffBetweenCurandOldPos;
     private Vector3 moveDirection;
@@ -104,7 +104,7 @@ public class Slice169 : MonoBehaviour
     private void Start()
     {
 
-      //  lineSegment.gameObject.SetActive(true);
+        //  lineSegment.gameObject.SetActive(true);
 
         lineSegment.positionCount = 2;
         lineSlicer.gameObject.SetActive(false);
@@ -132,7 +132,7 @@ public class Slice169 : MonoBehaviour
     {
 
 
-            if (!winCheck.isWin)
+        if (!winCheck.isWin)
         {
             if (!isSliced)
             {
@@ -142,7 +142,7 @@ public class Slice169 : MonoBehaviour
             {
 
                 p1.position = point1 + new Vector3(0, 0, -1);
-                
+
                 p2.position = point2 + new Vector3(0, 0, -1);
 
                 if (!isTutorial && DataPlayer.IsControllerPoint)
@@ -213,7 +213,7 @@ public class Slice169 : MonoBehaviour
                     if (hit.collider.tag == "point1")
                     {
                         Debug.Log("Hit point 1");
-                   
+
                         isHitPoint1 = true;
                     }
                     else if (hit.collider.tag == "point2")
@@ -268,7 +268,7 @@ public class Slice169 : MonoBehaviour
         }
 
 
-        if ( Input.GetMouseButtonUp(0) & isClickMovePoint)
+        if (Input.GetMouseButtonUp(0) & isClickMovePoint)
         {
             isClickMovePoint = false;
 
@@ -324,24 +324,24 @@ public class Slice169 : MonoBehaviour
             {
                 if (Mathf.Abs(mousePos.x) > widthRatio || Mathf.Abs(mousePos.y) > heightRatio) return;
 
-   
+
                 isClick = true;
-   
+
                 startPoint.position = startPos = mousePos;
                 startPoint.gameObject.SetActive(true);
 
-                lineSegment.SetPosition(0, new Vector3(startPos.x,startPos.y,0f));
+                lineSegment.SetPosition(0, new Vector3(startPos.x, startPos.y, 0f));
 
             }
             else
             {
                 currentPos = mousePos;
 
-      
+
                 lineSegment.SetPosition(1, new Vector3(currentPos.x, currentPos.y, 0f));
                 lineSegment.gameObject.SetActive(true);
 
-                         diffPos = currentPos - startPos;
+                diffPos = currentPos - startPos;
 
                 Vector2[] lineIntersection = GetLineIntersection(startPos, currentPos, peak3, peak2, peak0, peak1, widthRatio, heightRatio);
                 point1 = new Vector3(lineIntersection[0].x, lineIntersection[0].y, 0);
@@ -363,7 +363,7 @@ public class Slice169 : MonoBehaviour
             p1.gameObject.SetActive(true);
             p2.gameObject.SetActive(true);
 
-            if ( DataPlayer.IsAutoMatch) CheckAutoMatch();
+            if (DataPlayer.IsAutoMatch) CheckAutoMatch();
 
 
 
@@ -373,7 +373,7 @@ public class Slice169 : MonoBehaviour
             CalculateDistance();
             UpdateMeshDataAfterSlice();
             UpdatePositionMoveVertercies();
-    
+
             oldPoint1 = point1;
             oldPoint2 = point2;
 
@@ -390,7 +390,7 @@ public class Slice169 : MonoBehaviour
         Debug.Log(point1);
         Vector3 point1Clone = point1;
         Vector3 point2Clone = point2;
-        if ( point1Clone.y > point2Clone.y  )
+        if (point1Clone.y > point2Clone.y)
         {
             Vector3 t = point1Clone;
             point1Clone = point2Clone;
@@ -400,24 +400,24 @@ public class Slice169 : MonoBehaviour
         winCheck.CalculateDistanceFromPointToLine();
 
 
-        if ( winCheck.answer.DisP1toLine < 0.5f)
+        if (winCheck.answer.DisP1toLine < 0.5f)
         {
             if ((Math.Abs(angle - winCheck.answer.angle) < 5f) || (Math.Abs(angle - 180 - winCheck.answer.angle) < 5f) || (Math.Abs(angle + 180 - winCheck.answer.angle) < 5f))
             {
 
                 point1 = winCheck.answer.p1MatchedOfPoint1;
                 point2 = winCheck.answer.p2MatchedOfPoint1;
-  
+
                 UpdateLineSlicer();
             }
 
         }
 
-        if ( winCheck.answer.DisP2toLine <0.5f)
+        if (winCheck.answer.DisP2toLine < 0.5f)
         {
             if ((Math.Abs(angle - winCheck.answer.angle) < 5f) || (Math.Abs(angle - 180 - winCheck.answer.angle) < 5f) || (Math.Abs(angle + 180 - winCheck.answer.angle) < 5f))
             {
-     
+
                 point1 = winCheck.answer.p1MatchedOfPoint2;
                 point2 = winCheck.answer.p2MatchedOfPoint2;
 
@@ -432,7 +432,7 @@ public class Slice169 : MonoBehaviour
 
     private void UpdatePositionEdgeOfSelected()
     {
-        
+
     }
 
     public void DisplayGiayNhan(Vector3 p1, Vector3 p2)
@@ -568,7 +568,7 @@ public class Slice169 : MonoBehaviour
 
         if (DataPlayer.IsControllerPoint) lineSlicer.gameObject.SetActive(false);
 
-     //   lineSlicer.gameObject.SetActive(false);
+        //   lineSlicer.gameObject.SetActive(false);
         lineSegment.gameObject.SetActive(false);
         startPoint.gameObject.SetActive(false);
         p1.gameObject.SetActive(false);
@@ -635,7 +635,7 @@ public class Slice169 : MonoBehaviour
             //--------------------------------------------------------TH1------------------------------------------------------------------------------------
             case eCasePos.TH1:
                 {
-                    if (Input.GetMouseButton(0)) 
+                    if (Input.GetMouseButton(0))
                     {
                         if (!isClick)
                         {
@@ -671,7 +671,7 @@ public class Slice169 : MonoBehaviour
                             float moveX = magDiffP / (2 * Mathf.Cos(angleA * Mathf.PI / 180));
                             float moveY = magDiffP / (2 * Mathf.Sin(angleA * Mathf.PI / 180));
 
-          
+
                             if (!isUpdateOldDiff)
                             {
                                 Debug.Log(1);
@@ -686,7 +686,7 @@ public class Slice169 : MonoBehaviour
 
 
 
-                            if (isChooseSmallPart) 
+                            if (isChooseSmallPart)
                             {
                                 if (diffP.x < 0)
                                 {
@@ -711,7 +711,7 @@ public class Slice169 : MonoBehaviour
                                 vertices[4] = verticesOriginal[4] + diffP;
                                 vertices[5] = verticesOriginal[5] + diffP;
 
-                     
+
                                 if (vertices[6].x > widthRatio)
                                 {
                                     if (!isYOver1)
@@ -804,7 +804,7 @@ public class Slice169 : MonoBehaviour
 
                             }
 
-                            else 
+                            else
                             {
                                 if (diffP.x > 0)
                                 {
@@ -812,7 +812,7 @@ public class Slice169 : MonoBehaviour
                                     return;
 
                                 }
-                         
+
                                 if (IsPeakOver1(verticesOriginal[3])) return;
 
                                 UpdateMeshDataWhenChooseBiggerPart();
@@ -1063,7 +1063,7 @@ public class Slice169 : MonoBehaviour
                             isMoving = true;
                             isClick = true;
                             isCalculatorDiff = true;
- 
+
                             startPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
                             startPos.z = 0;
                         }
@@ -1578,7 +1578,7 @@ public class Slice169 : MonoBehaviour
                                     vertices[7] = verticesOriginal[7] + new Vector3(moveX, 0, 0);
                                     vertices[6] = verticesOriginal[6] + new Vector3(moveX, 0, 0);
                                 }
-                                
+
                                 vertices[0] = verticesOriginal[0] + diffP; // change
                                 vertices[1] = verticesOriginal[1] + diffP; // change
                                 vertices[4] = verticesOriginal[4] + diffP;
@@ -1908,7 +1908,7 @@ public class Slice169 : MonoBehaviour
 
                                 }
 
-                                
+
 
                                 vertices[2] = verticesOriginal[2] + diffP; // change
                                 vertices[0] = verticesOriginal[0] + diffP; // change
@@ -2134,7 +2134,7 @@ public class Slice169 : MonoBehaviour
                                     vertices[5] = verticesOriginal[5] + new Vector3(moveX, 0, 0);
                                 }
 
-                                
+
 
                                 vertices[0] = verticesOriginal[0] + diffP; // change
                                 vertices[1] = verticesOriginal[1] + diffP; // change
@@ -2843,8 +2843,8 @@ public class Slice169 : MonoBehaviour
 
 
                         triagles = new int[]
-                    {   
-        
+                    {
+
                         6,1,2,
                         2,1,3,
 
@@ -2863,8 +2863,8 @@ public class Slice169 : MonoBehaviour
 
 
                         triagles = new int[]
-                    {   
-          
+                    {
+
                         2,1,3,
 
                         10,9,8,
@@ -2908,7 +2908,7 @@ public class Slice169 : MonoBehaviour
 
                         triagles = new int[]
                      {
- 
+
                          0,7,3,
                          0,3,2,
 
@@ -2926,8 +2926,8 @@ public class Slice169 : MonoBehaviour
 
 
                         triagles = new int[]
-                    {   
-  
+                    {
+
                         6,3,0,
                         0,3,2,
 
@@ -2946,7 +2946,7 @@ public class Slice169 : MonoBehaviour
 
 
                         triagles = new int[]
-                    {   
+                    {
 
                         0,3,2,
 
@@ -3006,7 +3006,7 @@ public class Slice169 : MonoBehaviour
 
 
                         triagles = new int[]
-                    {   
+                    {
 
                         6,2,1,
                         1,2,0,
@@ -3026,7 +3026,7 @@ public class Slice169 : MonoBehaviour
 
 
                         triagles = new int[]
-                    {   
+                    {
 
                         1,2,0,
 
@@ -3551,8 +3551,6 @@ public class Slice169 : MonoBehaviour
             case eCasePos.TH3:
                 {
 
-                  //  if (!swap) swapP1P2();
-
                     disP1 = Vector2.Distance(v3tov2(point1), v3tov2(peak3));
                     disP2 = Vector2.Distance(v3tov2(point2), v3tov2(peak3));
 
@@ -3581,8 +3579,6 @@ public class Slice169 : MonoBehaviour
                 }
             case eCasePos.TH6:
                 {
-                  //  if ( !swap) swapP1P2();
-
 
                     disP1 = Vector2.Distance(v3tov2(point1), v3tov2(peak1));
                     disP2 = Vector2.Distance(v3tov2(point2), v3tov2(peak3));
@@ -3594,7 +3590,6 @@ public class Slice169 : MonoBehaviour
                 }
             case eCasePos.TH7:
                 {
-                   // if (!swap) swapP1P2();
 
                     disP1 = Vector2.Distance(v3tov2(point1), v3tov2(peak3));
                     disP2 = Vector2.Distance(v3tov2(point2), v3tov2(peak2));
@@ -3960,7 +3955,7 @@ public class Slice169 : MonoBehaviour
             float x = (b2 * c1 - b1 * c2) / determinant;
             float y = (a1 * c2 - a2 * c1) / determinant;
 
-          //  Debug.Log(x+ " " + y);
+            //  Debug.Log(x+ " " + y);
             return new Vector2(x, y);
         }
     }
