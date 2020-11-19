@@ -34,6 +34,7 @@ public class SettingUI : GameUI
 
         tweenPosition.PlayReverse();
         tweenPosition.ResetToBeginning();
+        Game.Instance.PlayFXButton();
         Invoke("Hide", 0.2f);
        // Hide();
     }
@@ -41,6 +42,7 @@ public class SettingUI : GameUI
     {
         DataPlayer.Sound = !DataPlayer.Sound;
         CheckSound();
+        Game.Instance.PlayFXButton();
     }
 
     public void ClickChangeFx()
@@ -48,6 +50,7 @@ public class SettingUI : GameUI
         DataPlayer.Fx = !DataPlayer.Fx;
 
         CheckFx();
+        Game.Instance.PlayFXButton();
     }
 
     private void CheckSound()
@@ -55,7 +58,11 @@ public class SettingUI : GameUI
         if (DataPlayer.Sound) thanhTruotSound.localPosition = new Vector3(90, 0, 0);
         else thanhTruotSound.localPosition = new Vector3(-90, 0, 0);
 
-        if (Game.Instance != null) Game.Instance.OnSoundChange();
+        if (Game.Instance != null)
+        {
+            Game.Instance.OnOffSound();
+
+        }
     }
 
     private void CheckFx()
@@ -65,6 +72,7 @@ public class SettingUI : GameUI
     }
     public void ClickRestorePurchase()
     {
+        Game.Instance.PlayFXButton();
         Debug.Log("RestorePurchase");
     }
 }

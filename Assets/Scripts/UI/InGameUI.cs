@@ -119,7 +119,7 @@ public class InGameUI : GameUI
 
         Game.Instance.isShowBlackImage = false;
 
-
+        Game.Instance.PlaySoundInGame();
     }
     public new void Hide()
     {
@@ -149,26 +149,19 @@ public class InGameUI : GameUI
         SelectStageUI.Show();
 
         Game.Instance.DestroyMap();
-
+        Game.Instance.PlayFXButton();
     }
 
     public void Replay()
     {
         Game.Instance.Replay();
-
+        Game.Instance.PlayFXButton();
 
 
 
     }
 
 
-    public void DisplayWatchAds()
-    {
-        // Btn_WatchAds.SetActive(true);
-        Btn_WatchAds.GetComponent<TweenColor>().enabled = true;
-        Show();
-
-    }
     public void WatchAds()
     {
         Game.Instance.ShowHint();
@@ -176,6 +169,9 @@ public class InGameUI : GameUI
         DataPlayer.WatchedAdsMap(Game.Instance.currentMap);
 
         Show();
+
+        Game.Instance.PlayFXButton();
+        Game.Instance.PlayFXHint();
     }
 
 

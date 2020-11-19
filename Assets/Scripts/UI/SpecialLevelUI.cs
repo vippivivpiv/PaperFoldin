@@ -38,7 +38,7 @@ public class SpecialLevelUI : GameUI
         InGameUI.Show();
         Game.Instance.LoadMap();
 
-        
+        Game.Instance.PlayFXButton();
 
     }
 
@@ -63,7 +63,7 @@ public class SpecialLevelUI : GameUI
         InGameUI.Show();
         Game.Instance.LoadMap();
 
+        Game.Instance.PlayFXButton();
 
-        
     }
 }

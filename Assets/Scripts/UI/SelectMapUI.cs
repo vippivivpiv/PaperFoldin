@@ -37,7 +37,7 @@ public class SelectMapUI : GameUI
 
         BackgroundManager.instance.selectMap.SetActive(true);
 
-
+        Game.Instance.PlaySoundMenu();
         //Panel.GetComponent<TweenAlpha>().from = 0;
         //Panel.GetComponent<TweenAlpha>().to = 1;
         //Panel.GetComponent<TweenAlpha>().ResetToBeginning();
@@ -101,6 +101,7 @@ public class SelectMapUI : GameUI
     {
         Hide();
         MainMenuUI.Show();
+        Game.Instance.PlayFXButton();
     }
 
     public void LoadMap()
@@ -109,6 +110,7 @@ public class SelectMapUI : GameUI
         InGameUI.Show();
         Hide();
         Game.Instance.LoadMap();
+
         //Panel.GetComponent<TweenAlpha>().from = 1;
         //Panel.GetComponent<TweenAlpha>().to = 0;
         //Panel.GetComponent<TweenAlpha>().ResetToBeginning();

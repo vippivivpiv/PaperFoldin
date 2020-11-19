@@ -22,6 +22,7 @@ public class RemoveAdsUI : GameUI
         tweenPosition.PlayReverse();
         tweenPosition.ResetToBeginning();
 
+        Game.Instance.PlayFXButton();
         Invoke("Hide", 0.2f);
        // Hide();
     }
@@ -29,6 +30,7 @@ public class RemoveAdsUI : GameUI
 
     public void ClickBuyRemoveAds()
     {
+        Game.Instance.PlayFXButton();
         Debug.Log("BuyRemoveAds");
     }
 }

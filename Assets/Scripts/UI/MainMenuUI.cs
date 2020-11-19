@@ -21,6 +21,7 @@ public class MainMenuUI : GameUI
     {
         base.Show();
         BackgroundManager.instance.mainmenu.SetActive(true);
+
     }
     public new void Hide()
     {
@@ -31,11 +32,13 @@ public class MainMenuUI : GameUI
 
     {
         SettingUI.Show();
+        Game.Instance.PlayFXButton();
     }
 
     public void OpenRemoveAds()
     {
         RemoveAdsUI.Show();
+        Game.Instance.PlayFXButton();
     }
 
     public void ClickPlay()
@@ -45,6 +48,7 @@ public class MainMenuUI : GameUI
         Game.Instance.currentMap = DataPlayer.CurrentPlayingMap;
         InGameUI.Show();
         Game.Instance.LoadMap();
+        Game.Instance.PlayFXButton();
     }
 
 

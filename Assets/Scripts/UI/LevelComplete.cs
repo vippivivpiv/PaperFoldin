@@ -62,7 +62,7 @@ public class LevelComplete : GameUI
 
         CompletedMapCount.text = DataPlayer.GetTextOfCompletedMapCount();
 
-
+        Game.Instance.PlayFXWin();
 
         //if (DataPlayer.Get10to9(Game.Instance.currentMap) % 9 == 0)
         //{
@@ -96,7 +96,7 @@ public class LevelComplete : GameUI
     public void ClickNext()
     {
 
-        Debug.Log(Game.Instance.images[Game.Instance.currentMap].isSpecialLevel);
+
         if (Game.Instance.images[Game.Instance.currentMap].isSpecialLevel && !DataPlayer.IsShowedSpecialLevel(DataPlayer.Get10to9(Game.Instance.currentMap)))
         {
             SpecialLevelUI.Show();
@@ -113,7 +113,8 @@ public class LevelComplete : GameUI
 
             Hide();
         }
-
+      //  Game.Instance.audioSource.Stop();
+        Game.Instance.PlayFXButton();
         // playNextMap = StartCoroutine( OnPlayNextMap());
 
     }
@@ -144,7 +145,7 @@ public class LevelComplete : GameUI
         SelectMapUI.Show();
 
         Hide();
-
+        Game.Instance.PlayFXButton();
 
     }
 

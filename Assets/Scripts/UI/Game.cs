@@ -18,7 +18,11 @@ public class Game : MonoBehaviour
     public Slice169[] maps;
     public Slice169 playingMap;
 
-    public AudioSource AudioSource;
+    public AudioSource SFx;
+    public AudioSource Sound;
+
+    public AudioClip sfx_button, sfx_correct, sfx_hint, sfx_slice, sfx_movePaper, sfx_win, sound_ingame, sound_menu;
+
 
     public bool isTutorial;
 
@@ -26,16 +30,17 @@ public class Game : MonoBehaviour
 
 
 
-    private bool first;
-
-
     public bool isShowBlackImage;
     private void Awake()
     {
         if (Instance != null) return;
         Instance = this;
-
+        SFx = GetComponent<AudioSource>();
         Application.targetFrameRate = 60;
+
+
+        PlaySoundMenu();
+        OnOffSound();
     }
     private void Update()
     {
@@ -86,7 +91,7 @@ public class Game : MonoBehaviour
 
         playingMap.winCheck.answer = Instantiate(images[currentMap - 1], playingMap.transform);
 
-        first = false;
+       // first = false;
     }
     public void Replay()
     {
@@ -117,6 +122,80 @@ public class Game : MonoBehaviour
 
       //  DestroyMap();
     }
+
+    public void PlayFXButton()
+    {
+        Debug.Log(1);
+        Debug.Log(DataPlayer.Fx);
+        if ( DataPlayer.Fx) SFx.PlayOneShot(sfx_button);
+
+    }
+
+    public void PlayFXCorrect()
+    {
+        if (DataPlayer.Fx) SFx.PlayOneShot(sfx_correct);
+    }
+    public void PlayFXHint()
+    {
+        if (DataPlayer.Fx) SFx.PlayOneShot(sfx_hint);
+    }
+    public void PlayFXSlice()
+    {
+        if (DataPlayer.Fx) SFx.PlayOneShot(sfx_slice);
+    }
+    public void PlayFXMovePaper()
+    {
+        if (DataPlayer.Fx) SFx.PlayOneShot(sfx_movePaper);
+    }
+    public void PlayFXWin()
+    {
+      
+        Sound.volume = 0.1f;
+        if (DataPlayer.Fx) SFx.PlayOneShot(sfx_win);
+    }
+
+
+    public void PlaySoundInGame()
+    {
+        SFx.Stop();
+        Sound.volume = 1f;
+        if (Sound.clip != sound_ingame)
+        {
+            Sound.clip = sound_ingame;
+        }
+ 
+        if (!Sound.isPlaying)
+        {
+            OnOffSound();
+        }
+
+
+    }
+
+
+    public void PlaySoundMenu()
+    {
+        SFx.Stop();
+        Sound.volume = 1f;
+        if (Sound.clip != sound_menu)
+        {
+            Sound.clip = sound_menu;
+
+        }
+        if (!Sound.isPlaying)
+        {
+
+            OnOffSound();
+        }
+        // if (DataPlayer.Sound && !audioSource.isPlaying) audioSource.Play();
+    }
+
+    public void OnOffSound()
+    {
+        if (DataPlayer.Sound) Sound.Play();
+        else Sound.Stop();
+    }
+
     public void ShowHint()
     {
         playingMap.winCheck.ShowHint();

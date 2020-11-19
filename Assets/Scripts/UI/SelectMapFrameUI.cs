@@ -93,6 +93,7 @@ public class SelectMapFrameUI : MonoBehaviour
         Game.Instance.currentMap = indexOfMap;
 
         SelectMapUI.LoadMap();
+        Game.Instance.PlayFXButton();
 
         // Invoke("DestroyImage", 0.6f);
         //  StartCoroutine(LoadMap());

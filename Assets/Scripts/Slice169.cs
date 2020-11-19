@@ -323,7 +323,7 @@ public class Slice169 : MonoBehaviour
             if (!isClick)
             {
                 if (Mathf.Abs(mousePos.x) > widthRatio || Mathf.Abs(mousePos.y) > heightRatio) return;
-
+                Game.Instance.PlayFXSlice();
 
                 isClick = true;
 
@@ -364,7 +364,6 @@ public class Slice169 : MonoBehaviour
             p2.gameObject.SetActive(true);
 
             if (DataPlayer.IsAutoMatch) CheckAutoMatch();
-
 
 
 
@@ -629,6 +628,10 @@ public class Slice169 : MonoBehaviour
         if (!canMove) return;
         GiayNhan.gameObject.SetActive(false);
 
+        if ( Input.GetMouseButtonDown(0)|| Input.GetMouseButtonUp(0))
+        {
+            Game.Instance.PlayFXMovePaper();
+        }
 
         switch (casePos)
         {
@@ -3920,7 +3923,7 @@ public class Slice169 : MonoBehaviour
         while (count < 2 && temp < 5)
         {
             a = LineIntersection(pointA, angle, edge[temp % 4], edge[(temp + 1) % 4]);
-            Debug.Log(a);
+
             if (a != new Vector2(float.MaxValue, float.MaxValue) && Mathf.Abs(a.x) <= (width + 0.00001f) && Mathf.Abs(a.y) <= (height + 0.00001f))
             {
                 lineIntersection[count] = a;
